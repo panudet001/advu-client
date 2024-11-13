@@ -1,0 +1,61 @@
+<div class="section-content">
+  <p class="title">Personal Information</p>
+
+  <div class="key-pair-value">
+    <div class="section">
+      <div class="key">
+        <p>First Name :</p>
+      </div>
+      <div class="value">
+        <p>{{ user.firstname }}</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="key">
+        <p>Last Name :</p>
+      </div>
+      <div class="value">
+        <p>{{ user.lastname }}</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="key">
+        <p>Mobile Number :</p>
+      </div>
+      <div class="value">
+        <p>(+{{ user.countryCode }}){{ user.mobile }}</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="key">
+        <p>Country :</p>
+      </div>
+      <div class="value">
+        <p>{{ user.country }}</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="key">
+        <p>Date of birth :</p>
+      </div>
+      <div class="value">
+        <p>{{ user.dateOfBirth | date: "dd/MM/yyyy" }}</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="key">
+        <p>Address :</p>
+      </div>
+      <div class="value">
+        <p>{{ user.address ? user.address : "-" }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="btn-with-underline">
+    <div class="btn-name 'p-green'" (click)="openDialog.emit()">Edit</div>
+    <hr class="hr-green" />
+  </div>
+</div>

@@ -1,0 +1,59 @@
+- description: This API will show TODOs
+  request:
+    url: /api/history/deposit
+    method: GET
+  response:
+    status: 200
+    latency: 0
+    headers:
+      content-type: application/json
+      Access-Control-Allow-Origin: "*"
+    file: deposit-history/deposit-history.json
+
+- description: This API will show TODOs
+  request:
+    url: /api/history/withdraw
+    method: GET
+  response:
+    status: 200
+    latency: 0
+    headers:
+      content-type: application/json
+      Access-Control-Allow-Origin: "*"
+    file: withdraw-history/withdraw-history.json
+
+- description: This API will show TODOs
+  request:
+    url: /api/history/profit
+    method: GET
+  response:
+    status: 200
+    latency: 2000
+    headers:
+      content-type: application/json
+      Access-Control-Allow-Origin: "*"
+    file: profit-history/profit-history.json
+
+- description: This API will show TODOs
+  request:
+    url: /api/history/order
+    method: GET
+  response:
+    status: 200
+    latency: 0
+    headers:
+      content-type: application/json
+      Access-Control-Allow-Origin: "*"
+    file: order-history/order-history.json
+
+- description: This API will show TODOs
+  request:
+    url: /api/wallet
+    method: GET
+  response:
+    status: 200
+    latency: 0
+    headers:
+      content-type: application/json
+      Access-Control-Allow-Origin: "*"
+    file: wallets/wallets.json

@@ -1,0 +1,24 @@
+<div class="app-home">
+  <app-hero></app-hero>
+  <div class="bg-white">
+    <app-know-us></app-know-us>
+  </div>
+
+  <app-market-place
+    [isShowCancelBtn]="false"
+    (changeType)="changeInvestmentType($event)"
+    [investments]="investments"
+    [investmentType]="investmentType"
+    [isShowLoading]="isShowLoadingMarket">
+  </app-market-place>
+
+  <div class="bg-cultured">
+    <app-our-roadmap></app-our-roadmap>
+  </div>
+  <app-news></app-news>
+  <div class="bg-cultured">
+    <app-contact-us
+      (clickSubmit)="submitForm($event)"
+      [handleResponse]="contactUsHandleResponse"></app-contact-us>
+  </div>
+</div>

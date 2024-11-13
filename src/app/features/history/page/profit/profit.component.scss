@@ -1,0 +1,77 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.deposit {
+  padding: 20px 24px;
+  background: $white-color;
+
+  .amount {
+    display: flex;
+    align-items: center;
+
+    .img-crypto {
+      margin-right: 8px;
+      border-radius: 50%;
+    }
+  }
+
+  .container-pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+
+    .show-items {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+      max-width: 230px;
+
+      @media only screen and (width <= 600px) {
+        justify-content: space-between;
+        max-width: 100%;
+      }
+
+      .w-100 {
+        width: 100%;
+
+        @media only screen and (width <= 600px) {
+          width: 72px !important;
+        }
+      }
+
+      .no-mobile {
+        display: block;
+
+        @media only screen and (width <= 600px) {
+          display: none;
+        }
+      }
+
+      .no-warp {
+        white-space: nowrap;
+      }
+    }
+
+    @media only screen and (width <= 600px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+
+.mobile-container {
+  display: none;
+
+  .mobile-box {
+    width: 100%;
+    padding: 10px;
+    color: $dark-green-color;
+    background-color: $white-color;
+  }
+
+  @media only screen and (width < 780px) {
+    display: block;
+  }
+}

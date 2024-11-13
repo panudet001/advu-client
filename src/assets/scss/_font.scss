@@ -1,0 +1,298 @@
+// -----------------------------------------------------------------------------------------------------
+// Font
+// -----------------------------------------------------------------------------------------------------
+
+@import "./font_face";
+
+$primary-en-font: "Cormorant", sans-serif;
+$primary-th-font: "Noto Sans Thai", sans-serif;
+$secondary-en-font: "Manrope", sans-serif;
+
+:lang(th) {
+  font-family: $primary-th-font !important;
+}
+
+// ----------------------------------------------
+// Heading
+// ----------------------------------------------
+
+@mixin h1 {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 77px;
+  font-family: $primary-en-font;
+}
+
+@mixin h2 {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 72px;
+  font-family: $primary-en-font;
+}
+
+@mixin h3 {
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 65px;
+  font-family: $primary-en-font;
+}
+
+@mixin h4 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 65px;
+  font-family: $primary-en-font;
+}
+
+@mixin h5 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 44px;
+  font-family: $primary-en-font;
+}
+
+@mixin h6 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 38px;
+  font-family: $secondary-en-font;
+}
+
+@mixin h7 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  font-family: $primary-en-font;
+}
+
+@mixin h8 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  font-family: $primary-en-font;
+}
+
+// ----------------------------------------------
+// Subtitle
+// ----------------------------------------------
+
+@mixin font-subtitle-1 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-subtitle-2 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  font-family: $primary-en-font;
+}
+
+@mixin font-subtitle-3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-subtitle-4 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  font-family: $primary-en-font;
+}
+
+// ----------------------------------------------
+// Body
+// ----------------------------------------------
+
+@mixin font-body-1 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-body-2 {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 30px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-body-3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-body-4 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-body-5 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 19px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-body-6 {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 19px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-body-7 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  font-family: $secondary-en-font;
+}
+
+@mixin font-body-10 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  font-family: $secondary-en-font;
+}
+
+// ----------------------------------------------
+// Button
+// ----------------------------------------------
+
+@mixin font-button-1 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  font-family: $primary-en-font;
+}
+
+@mixin font-button-2 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  font-family: $primary-en-font;
+}
+
+@mixin font-button-3 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  font-family: $primary-en-font;
+}
+
+// ----------------------------------------------
+// Class
+// ----------------------------------------------
+
+.h1,
+h1 {
+  @include h1;
+}
+
+.h2,
+h2 {
+  @include h2;
+}
+
+.h3,
+h3 {
+  @include h3;
+}
+
+.h4,
+h4 {
+  @include h4;
+}
+
+.h5,
+h5 {
+  @include h5;
+}
+
+.h6,
+h6 {
+  @include h6;
+}
+
+.h7,
+h7 {
+  @include h7;
+}
+
+.h8,
+h8 {
+  @include h8;
+}
+
+.font-subtitle-1 {
+  @include font-subtitle-1;
+}
+
+.font-subtitle-2 {
+  @include font-subtitle-2;
+}
+
+.font-subtitle-3 {
+  @include font-subtitle-3;
+}
+
+.font-subtitle-4 {
+  @include font-subtitle-4;
+}
+
+.font-body-1 {
+  @include font-body-1;
+}
+
+.font-body-2 {
+  @include font-body-2;
+}
+
+.font-body-3 {
+  @include font-body-3;
+}
+
+.font-body-4 {
+  @include font-body-4;
+}
+
+.font-body-5 {
+  @include font-body-5;
+}
+
+.font-body-6 {
+  @include font-body-6;
+}
+
+.font-body-7 {
+  @include font-body-7;
+}
+
+.font-body-10 {
+  @include font-body-10;
+}
+
+.font-button-1 {
+  @include font-button-1;
+}
+
+.font-button-2 {
+  @include font-button-2;
+}
+
+.font-button-3 {
+  @include font-button-3;
+}
+
+.inner-html {
+  font-family: $secondary-en-font;
+}

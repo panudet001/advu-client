@@ -1,0 +1,122 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: $white-color;
+
+  .title {
+    display: flex;
+    width: 100%;
+
+    @include font-subtitle-3;
+
+    color: $dark-gray-color;
+  }
+
+  .key-pair-value {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 12px;
+
+    .section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+
+      .key-value {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .key {
+          display: flex;
+          width: 100%;
+          max-width: 269px;
+
+          p {
+            @include font-body-1;
+          }
+        }
+
+        .value {
+          display: flex;
+          justify-content: flex-start;
+
+          // width: 100%;
+          p {
+            @include font-body-3;
+
+            color: $dark-gray-color;
+          }
+        }
+      }
+
+      .btn-with-underline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 35px;
+
+        .btn-name {
+          width: 100%;
+
+          @include font-button-1;
+
+          color: $dark-green-color;
+          cursor: pointer;
+        }
+
+        .hr-green {
+          width: 100%;
+          margin: 0;
+          border: 1px solid #2a878b;
+          opacity: 100;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (width <= 970px) {
+  .account-info {
+    .key-pair-value {
+      .section {
+        .key-value {
+          .key {
+            max-width: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (width <= 800px) {
+  .account-info {
+    .key-pair-value {
+      .section {
+        .key-value {
+          flex-direction: column;
+          align-items: flex-start;
+
+          .key {
+            max-width: 100px;
+          }
+        }
+
+        .btn-with-underline {
+          justify-content: center;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

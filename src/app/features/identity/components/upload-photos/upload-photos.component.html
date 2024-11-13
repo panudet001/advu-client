@@ -1,0 +1,108 @@
+<div
+  class="identity-verification"
+  *ngIf="uploadStep === UploadFileEnums.example">
+  <p class="title">Identity Verification</p>
+  <p class="font-body-5 ml-24">
+    Take pictures of both sides of your government issued ID card
+  </p>
+  <p class="font-body-5">1.Upload a complete image of your ID document</p>
+  <p class="font-body-5">
+    2.Ensure all details are readable in the image you upload
+  </p>
+  <p class="font-body-5">
+    3.Ensure the document is the original and has not expired
+  </p>
+  <p class="font-body-5">
+    4.Place documents against a solid-colored background
+  </p>
+  <div class="preview">
+    <img src="assets/img/identity/holding_id_card.svg" alt="" />
+    <img src="assets/img/identity/back_card.svg" alt="" />
+    <img src="assets/img/identity/myself.svg" alt="" />
+  </div>
+  <div class="d-flex w-500 gap-2 min-btn">
+    <button class="btn btn-outline-primary w-100" (click)="stepBack()">
+      Previous
+    </button>
+    <button class="btn btn-primary w-100" (click)="moveStepUpload()">
+      Continue
+    </button>
+  </div>
+</div>
+
+<div class="upload-photo" *ngIf="uploadStep === UploadFileEnums.upload">
+  <p class="title">Upload photos</p>
+  <p class="font-body-5 ml-24">
+    Take pictures of both sides of your government issued ID card
+  </p>
+  <p class="font-body-5">1.Upload a complete image of your ID document</p>
+  <p class="font-body-5">
+    2.Ensure all details are readable in the image you upload
+  </p>
+  <p class="font-body-5">
+    3.Ensure the document is the original and has not expired
+  </p>
+  <p class="font-body-5">
+    4.Place documents against a solid-colored background
+  </p>
+  <div class="status-check">
+    <i class="fa-solid fa-circle-check done"></i>
+    <span class="font-body-4">Good example</span>
+  </div>
+
+  <div class="preview">
+    <img src="assets/img/identity/holding_id_card.svg" alt="" />
+    <img src="assets/img/identity/back_card.svg" alt="" />
+    <img src="assets/img/identity/myself.svg" alt="" />
+  </div>
+
+  <div class="photo-error">
+    <div class="item">
+      <div class="status-check">
+        <i class="fa-solid fa-circle-xmark error"></i>
+        <span class="font-body-4">Glare</span>
+      </div>
+      <img src="assets/img/identity/01.jpg" alt="" class="img-error" />
+    </div>
+    <div class="item">
+      <div class="status-check">
+        <i class="fa-solid fa-circle-xmark error"></i>
+        <span class="font-body-4">Cropped</span>
+      </div>
+      <img src="assets/img/identity/02.jpg" alt="" class="img-error" />
+    </div>
+    <div class="item">
+      <div class="status-check">
+        <i class="fa-solid fa-circle-xmark error"></i>
+        <span class="font-body-4">Blurry</span>
+      </div>
+      <img src="assets/img/identity/03.jpg" alt="" class="img-error" />
+    </div>
+  </div>
+  <div class="file-container">
+    <app-file-verification
+      [title]="'Front side of ID card'"
+      (handleFile)="fileFront($event)"></app-file-verification>
+    <app-file-verification
+      [title]="'Back side of ID card'"
+      (handleFile)="fileBack($event)"></app-file-verification>
+    <app-file-verification
+      [title]="'Take a photo with your ID card'"
+      (handleFile)="fileTakeFace($event)"></app-file-verification>
+  </div>
+  <div class="d-flex w-100 gap-2 min-btn">
+    <button class="btn btn-outline-primary w-100" (click)="moveStepExample()">
+      Previous
+    </button>
+    <button
+      class="btn btn-primary w-100"
+      [disabled]="isInvalidForm"
+      (click)="handleSubmit()">
+      <span
+        *ngIf="formDataIdentity.disabled"
+        class="spinner-border spinner-border-sm mb-0 mx-2">
+      </span>
+      Submit
+    </button>
+  </div>
+</div>

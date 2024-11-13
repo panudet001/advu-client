@@ -1,0 +1,43 @@
+<div class="app-news-container">
+  <p class="font-button-1">GREEN NEWS, LUXE LIVING</p>
+  <p class="title text-uppercase">Adavu Blogs</p>
+
+  <div class="news-container">
+    @for (
+      item of blogHome?.blogs | slice: 0 : 2;
+      track item;
+      let index = $index
+    ) {
+      <div class="card-news">
+        <a href="blog/blog-detail/{{ item.slug }}">
+          <img
+            class="img"
+            src="{{ getImageBlog(item.imagePreview) }}"
+            alt="#" />
+        </a>
+        <div class="news-content">
+          <div class="news-type">
+            <a class="color-dark-green" href="blog/news">{{ item.type }}</a>
+            <div class="color-black">|</div>
+            <div class="color-black">{{ item.createdAt | date }}</div>
+          </div>
+          <a
+            href="blog/blog-detail/{{ item.slug }}"
+            class="news-title color-dark-green">
+            {{ item.title }}
+          </a>
+          <a href="blog/blog-detail/{{ item.slug }}" class="news-detail">
+            {{ item.highlights }}
+          </a>
+        </div>
+      </div>
+    } @empty {
+      <div class="app-not-found">
+        <app-data-not-found [isShowText]="false"></app-data-not-found>
+      </div>
+    }
+  </div>
+  <div class="btn-view-more">
+    <a class="btn btn-outline-primary text-uppercase" href="/blog">View All</a>
+  </div>
+</div>

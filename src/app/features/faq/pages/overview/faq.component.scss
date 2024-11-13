@@ -1,0 +1,213 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-faq {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 40px;
+
+  .header-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: start;
+
+    h2 {
+      color: $dark-green-color;
+
+      @media only screen and (width <= 500px) {
+        @include h7;
+      }
+    }
+
+    .h8 {
+      @media only screen and (width <= 500px) {
+        @include font-subtitle-2;
+      }
+    }
+  }
+
+  .input-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+
+    button {
+      position: absolute;
+      top: 25%;
+      right: 2%;
+      padding: 0;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      background: none;
+      border: unset;
+      outline: inherit;
+
+      @include font-body-5;
+    }
+  }
+
+  .most-topic {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 100px;
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .topic-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      @media screen and (width <= 700px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .content-item {
+        display: flex;
+        flex-direction: column;
+        max-width: 610px;
+        padding: 20px;
+        cursor: pointer;
+        border: 1px solid #cdcdcd;
+        border-radius: 5px;
+
+        .content-title {
+          display: flex;
+          align-items: center;
+
+          .title-ellipsis {
+            width: 500px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            @media screen and (width <= 1300px) {
+              width: 230px;
+            }
+
+            @media screen and (width <= 700px) {
+              width: 250px;
+            }
+          }
+        }
+
+        .description-ellipsis {
+          display: -webkit-box;
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      }
+
+      .app-not-found {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+      }
+    }
+  }
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 100px;
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .category-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      @media screen and (width <= 960px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (width <= 700px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .content-item {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 20px;
+        border: 1px solid #cdcdcd;
+        border-radius: 5px;
+
+        .content-title {
+          display: flex;
+          align-items: center;
+
+          .title-ellipsis {
+            width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            @media screen and (width <= 1300px) {
+              width: 230px;
+            }
+
+            @media screen and (width <= 700px) {
+              width: 350px;
+            }
+
+            @media screen and (width <= 460px) {
+              width: 200px;
+            }
+          }
+        }
+
+        .description-ellipsis {
+          display: -webkit-box;
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+
+        .space {
+          margin-top: 12px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .app-not-found {
+        grid-row: 1;
+        grid-column: 1 / span 3;
+      }
+    }
+  }
+}

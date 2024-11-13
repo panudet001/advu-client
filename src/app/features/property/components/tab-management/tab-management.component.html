@@ -1,0 +1,13 @@
+<div class="app-tab-management" *ngIf="managements">
+  <div class="management-container" *ngFor="let management of managements">
+    <div class="image">
+      <img
+        src="{{ getImage(management.imagePath) }}"
+        alt="{{ management.name }}" />
+    </div>
+    <div class="description">
+      <p class="tab-title mb-1">Management</p>
+      <div class="mb-3 inner-html" [innerHTML]="management.description"></div>
+    </div>
+  </div>
+</div>

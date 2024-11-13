@@ -1,0 +1,163 @@
+<div class="app-contact">
+  <div class="contact-container">
+    <div class="bg-cover-music">
+      <div class="bg-blur"></div>
+      <div class="header-text">
+        <span class="title">Contact Us</span>
+        <span class="sub-tile">
+          If you have any questions, feedback, or need further information,
+          please feel free to contact us.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="content-layout">
+      <div class="card-contact">
+        <div class="contact-item">
+          <div class="item">
+            <p class="h8">Headquarter</p>
+            <span class="font-body-2"
+              >Blockchain Technology Center (BTC), 5/15 Chao Fah Tawan Tok
+              Rd,Chalong, Mueang Phuket District,Phuket , 83000</span
+            >
+            <div class="social-call-item mb-4">
+              <img
+                class="social-call"
+                src="assets/img/contact-us/Call.svg"
+                alt="social-icon" />
+              <p class="text-tel">+66(0) 76 682245</p>
+            </div>
+          </div>
+          <!--          <div class="item mb-4">-->
+          <!--            <p class="h8">Bangkok Branch</p>-->
+          <!--            <span class="font-body-2"-->
+          <!--              >Blockchain Technology Center (BTC), 5/15 Chao Fah Tawan Tok-->
+          <!--              Rd,Chalong, Mueang Phuket District,Phuket , 83000</span-->
+          <!--            >-->
+          <!--            <div class="social-call-item">-->
+          <!--              <img-->
+          <!--                class="social-call"-->
+          <!--                src="assets/img/contact-us/Call.svg"-->
+          <!--                alt="social-icon" />-->
+          <!--              <p class="text-tel">02-123-4567</p>-->
+          <!--            </div>-->
+          <!--          </div>-->
+          <div class="item-social d-none">
+            <img
+              class="social-icon"
+              src="assets/img/contact-us/IG.svg"
+              alt="instagram-icon" />
+            <img
+              class="social-icon"
+              src="assets/img/contact-us/Facebook.svg"
+              alt="facebook-icon" />
+            <img
+              class="social-icon"
+              src="assets/img/contact-us/twitter.svg"
+              alt="twitter-icon" />
+            <img
+              class="social-icon"
+              src="assets/img/contact-us/telegram.svg"
+              alt="telegram-icon" />
+          </div>
+        </div>
+        <img src="assets/img/contact/photo1.jpeg" alt="contact" />
+      </div>
+      <div class="card-form">
+        <span class="header-from"
+          >Please fill out the form or contact us using the information
+          provided. We promise to respond to you as quickly as we can.</span
+        >
+        <form [formGroup]="contactForm" class="detail-from">
+          <div class="form-group">
+            <span class="font-subtitle-2">Name</span>
+            <input
+              maxlength="100"
+              type="text"
+              class="form-control"
+              id="name"
+              [formControlName]="'name'"
+              [ngClass]="{
+                'is-invalid': name?.invalid && (name?.dirty || name?.touched),
+              }"
+              placeholder="Your name" />
+            <div
+              class="invalid-feedback"
+              *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+              <div *ngIf="name?.errors?.['required']">
+                Please enter your name.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <span class="font-subtitle-2">EMAIL ADDRESS</span>
+            <input
+              maxlength="100"
+              type="email"
+              class="form-control"
+              id="email"
+              [formControlName]="'email'"
+              placeholder="Email"
+              [ngClass]="{
+                'is-invalid':
+                  email?.invalid && (email?.dirty || email?.touched),
+              }" />
+            <div
+              class="invalid-feedback"
+              *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+              <div *ngIf="email?.errors?.['required']">
+                Please enter your email.
+              </div>
+              <div *ngIf="email?.errors?.['email']">Email is invalid.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <span class="font-subtitle-2"
+              >WHAT ARE YOU LOOKING FOR HELP WITH?</span
+            >
+            <input
+              maxlength="100"
+              type="email"
+              class="form-control"
+              id="detail"
+              [formControlName]="'detail'"
+              placeholder="Please tell us how can we help you "
+              [ngClass]="{
+                'is-invalid':
+                  detail?.invalid && (detail?.dirty || detail?.touched),
+              }" />
+            <div
+              class="invalid-feedback"
+              *ngIf="detail?.invalid && (detail?.dirty || detail?.touched)">
+              <div *ngIf="detail?.errors?.['required']">
+                Please enter your message.
+              </div>
+            </div>
+          </div>
+          <re-captcha
+            class="re-captcha"
+            (resolved)="onResolved(keyReCaptcha)"
+            siteKey="{{ keyReCaptcha }}">
+          </re-captcha>
+          <div
+            *ngIf="showErrorAlert"
+            class="alert alert-danger alert-error"
+            role="alert">
+            Please press I am not an automatic program.
+          </div>
+          <button
+            [disabled]="isSubmit"
+            class="btn-primary btn font-button-2 text-uppercase"
+            type="submit"
+            (click)="submit()">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="content-map">
+      <iframe title="map" [src]="mapUrl" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

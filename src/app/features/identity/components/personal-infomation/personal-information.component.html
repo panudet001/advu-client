@@ -1,0 +1,91 @@
+<div
+  class="personal-information"
+  *ngIf="personalStep === PersonalInformationEnums.personal">
+  <p class="title">Personal Information</p>
+  <p class="font-body-5 ml-24">
+    Please provide the following information as shown on your password or ID
+    card
+  </p>
+  <form class="form-container w-100" [formGroup]="personalInForm">
+    <div class="form-group">
+      <label class="label-title text-uppercase mb-2" for="firstName"
+        >FIRST NAME <span class="label-required">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        name="firstName"
+        placeholder="Enter First name"
+        [ngClass]="{
+          'is-invalid':
+            fFirstName?.invalid && (fFirstName?.dirty || fFirstName?.touched),
+        }"
+        [formControlName]="'firstName'"
+        required />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          fFirstName?.invalid && (fFirstName?.dirty || fFirstName?.touched)
+        ">
+        <div *ngIf="fFirstName?.errors?.['required']">
+          First name is required.
+        </div>
+        <div *ngIf="fFirstName?.errors?.['minlength']">
+          First name must be at least 5 characters long.
+        </div>
+        <div *ngIf="fFirstName?.errors?.['maxlength']">
+          First name max length 20 characters.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label-title text-uppercase mb-2" for="lastName"
+        >LAST NAME <span class="label-required">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        name="lastName"
+        placeholder="Enter Last name"
+        [ngClass]="{
+          'is-invalid':
+            fLastname?.invalid && (fLastname?.dirty || fLastname?.touched),
+        }"
+        [formControlName]="'lastName'"
+        required />
+      <div
+        class="invalid-feedback"
+        *ngIf="fLastname?.invalid && (fLastname?.dirty || fLastname?.touched)">
+        <div *ngIf="fLastname?.errors?.['required']">Lastname is required.</div>
+        <div *ngIf="fLastname?.errors?.['minlength']">
+          Lastname must be at least 5 characters long.
+        </div>
+        <div *ngIf="fLastname?.errors?.['maxlength']">
+          Lastname max length 20 characters.
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="d-flex w-100 gap-2 min-btn">
+    <button class="btn btn-outline-primary w-100" (click)="handleBack()">
+      Previous
+    </button>
+    <button
+      class="btn btn-primary w-100"
+      [disabled]="isInvalidForm"
+      (click)="moveStepAddress()">
+      Continue
+    </button>
+  </div>
+</div>
+
+<app-residential-address
+  *ngIf="personalStep === PersonalInformationEnums.address"
+  [formDataIdentity]="formDataIdentity"
+  (nextStep)="next($event)"
+  (backStep)="moveStepPersonal()">
+</app-residential-address>

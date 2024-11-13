@@ -1,0 +1,126 @@
+<div class="card-container">
+  <div class="item">
+    <a href="{{ 'properties/' + this.investment.slug | localize }}">
+      <div
+        class="pentagon"
+        [ngClass]="showNewInvest(investment.startDate) ? 'd-block' : 'd-none'">
+        <img
+          class="img-pentagon"
+          src="assets/img/icon/pentagon.svg"
+          alt="pentagon" />
+        <p class="text-pentagon">New !</p>
+      </div>
+
+      <div
+        class="badge-card"
+        [ngClass]="
+          investment.type === InvestmentTypeEnums.live
+            ? 'badge-live color-fresh-green bg-bright-fresh-green'
+            : investment.type === InvestmentTypeEnums.full
+              ? 'badge-live color-red bg-bright-red'
+              : 'badge-funded color-yellow bg-bright-yellow'
+        ">
+        <span>
+          {{
+            investment.type === InvestmentTypeEnums.live
+              ? "Live"
+              : investment.type === InvestmentTypeEnums.full
+                ? "Full"
+                : "Funded"
+          }}
+        </span>
+      </div>
+
+      <div class="image-group">
+        <div class="backdrop"></div>
+        <img
+          class="image"
+          [src]="this.getImage(investment.imagePath)"
+          alt="Image" />
+      </div>
+    </a>
+
+    <div class="detail-group" *ngIf="!isShowBtnInvest">
+      <a href="{{ 'properties/' + this.investment.slug | localize }}">
+        <h2 class="name">
+          {{ investment.title }}
+        </h2>
+
+        <div class="address">
+          <i class="fa-light fa-location-dot icon-address"></i>
+          <span class="text-address font-body-2">{{ investment.address }}</span>
+        </div>
+
+        <div
+          class="progress-group"
+          *ngIf="investment.type !== InvestmentTypeEnums.funded">
+          <span class="title-progress">Invested</span>
+
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [ngStyle]="{ width: investment.percent + '%' }"
+              [attr.aria-valuenow]="this.investment.percent"
+              aria-valuemin="0"
+              aria-valuemax="100"></div>
+          </div>
+
+          <div class="key-value-group">
+            <div class="key-text">
+              {{ investment.investor }}
+              Investors
+            </div>
+            <div class="key-value">{{ investment.percent | addComma: 2 }}%</div>
+          </div>
+
+          <div class="key-value-group">
+            <div class="key-text">Rental Yield</div>
+            <div class="key-value">~ {{ investment.yield | addComma: 2 }}%</div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="invest-group">
+          <div class="min">
+            <p class="key-text">My Invest.</p>
+            <p class="value-text">
+              {{ myInvestment | formatNumber: 2 }}
+              {{ investment.cryptoSymbol }}
+            </p>
+          </div>
+          <div class="max">
+            <p class="key-text">Total Invest.</p>
+            <p class="value-text">
+              {{ investment.totalInvest | formatNumber: 2 }}
+              <span class="me-2">{{ investment.cryptoSymbol }}</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="property-icon-group">
+          <div
+            *ngFor="
+              let property of this.investment.estateProperties | slice: 0 : 3
+            ">
+            <div class="property-icon">
+              <i [innerHTML]="property.icon"></i>
+              <span class="property-value">{{ property.capacity }}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        class="btn btn-primary"
+        href="{{ 'properties/' + this.investment.slug | localize }}">
+        More Detail
+      </a>
+      <button
+        (click)="cancelInvestment(idOrder)"
+        class="btn btn-link-primary text-center w-100">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

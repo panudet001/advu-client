@@ -1,0 +1,115 @@
+@import "assets/scss/color";
+
+.loading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+  color: white;
+  background: white;
+
+  .app-splash {
+    width: 100%;
+    height: 90vh !important;
+    background-color: $white-color;
+
+    .splash-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: $dark-green-color;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: rgb(100 111 111 / 20%) 0 7px 29px 0;
+    animation: rotate 1s linear infinite;
+  }
+
+  .spinner::before,
+  .spinner::after {
+    position: absolute;
+    content: "";
+  }
+
+  .spinner::before {
+    inset: -1px;
+    background:
+      linear-gradient(
+          0deg,
+          hsl(0deg 0% 100% / 100%) 50%,
+          hsl(0deg 0% 100% / 90%) 100%
+        )
+        0 0,
+      linear-gradient(
+          90deg,
+          hsl(0deg 0% 100% / 90%) 0%,
+          hsl(0deg 0% 100% / 60%) 100%
+        )
+        100% 0,
+      linear-gradient(
+          180deg,
+          hsl(0deg 0% 100% / 60%) 0%,
+          hsl(0deg 0% 100% / 30%) 100%
+        )
+        100% 100%,
+      linear-gradient(
+          360deg,
+          hsl(0deg 0% 100% / 30%) 0%,
+          hsl(0deg 0% 100% / 0%) 100%
+        )
+        0 100%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    border-radius: 50%;
+  }
+
+  .spinner::after {
+    inset: 3%;
+    background: $white-color;
+    border-radius: 50%;
+  }
+
+  div.relative {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  div.absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

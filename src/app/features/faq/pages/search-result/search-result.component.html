@@ -1,0 +1,70 @@
+<div class="content-container">
+  <div class="search-result-faq w-100">
+    <div class="header-search-result">
+      <app-breadcrumb [breadCrumb]="breadCrumb"></app-breadcrumb>
+      <h2>Frequently Asked Questions</h2>
+      <p class="h8">Your quick guide to common questions.</p>
+    </div>
+    <div class="input-container">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search"
+          [(ngModel)]="searchValue"
+          (keydown.enter)="onSearch(searchValue)" />
+        <button (click)="onSearch(searchValue)">
+          <i class="fa-light fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="result-container">
+      @if (faqResult!.length <= 0) {
+        <div>
+          <span class="title-2">
+            <p class="font-subtitle-1">We found 0 result</p>
+          </span>
+          <p class="h4">for ‘{{ searchKey }}’</p>
+        </div>
+      }
+      @if (faqResult!.length > 0) {
+        <span class="title">
+          <p class="font-subtitle-1">Result for ‘{{ searchKey }}’</p>
+        </span>
+      }
+      <div class="result-item">
+        @for (item of faqResult; track item) {
+          <a href="{{ 'faqs/question/' + item.slug | localize }}">
+            <div class="content-item">
+              <div class="head-item">
+                <div class="content-title">
+                  <i class="{{ icon }} me-2 color-dark-green"></i>
+                  <div class="font-subtitle-3 title-ellipsis">
+                    {{ item?.question }}
+                  </div>
+                </div>
+                <a
+                  href="{{ 'faqs/category' | localize }}/{{
+                    item.category.slug
+                  }}">
+                  <p class="font-body-1 btn-link-primary content-cate">
+                    {{ item?.category?.name }}
+                  </p>
+                </a>
+              </div>
+              <div class="font-body-1 color-gray description-ellipsis">
+                <span [innerHTML]="item?.description"></span>
+              </div>
+            </div>
+          </a>
+        } @empty {
+          <div class="app-not-found">
+            <app-data-not-found></app-data-not-found>
+          </div>
+        }
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>

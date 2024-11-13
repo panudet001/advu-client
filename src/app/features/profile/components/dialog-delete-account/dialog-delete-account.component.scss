@@ -1,0 +1,133 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: 788px;
+  padding: 24px;
+
+  .close-icon {
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: $secondary-en-font;
+    color: $dark-gray-color;
+
+    @include h7;
+  }
+
+  .sub-title {
+    width: 100%;
+    margin-top: 20px;
+    font-family: $secondary-en-font;
+    color: $black-color;
+    text-align: center;
+
+    @include font-body-1;
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .section {
+      display: flex;
+      height: 75px;
+
+      .input-password-group {
+        position: relative;
+        display: flex;
+
+        .btn-visibility {
+          position: absolute;
+          top: 24%;
+          right: 5%;
+          color: $gray-color;
+          cursor: pointer;
+          background-color: transparent;
+          border: unset;
+
+          @include font-body-5;
+        }
+      }
+    }
+  }
+
+  .input-remember-group {
+    justify-content: flex-start;
+    margin-top: 24px;
+
+    .label-remember {
+      @include font-body-5;
+    }
+  }
+
+  .custom-invalid {
+    display: block !important;
+
+    @include font-body-7;
+
+    color: $red-color;
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    button {
+      width: 100%;
+      max-width: 355px;
+      height: 42px;
+    }
+  }
+}
+
+@media screen and (width <= 980px) {
+  .dialog {
+    width: 500px;
+
+    .button-section {
+      button {
+        max-width: 210px;
+      }
+    }
+  }
+}
+
+@media screen and (width <= 680px) {
+  .dialog {
+    width: 350px;
+
+    .button-section {
+      button {
+        max-width: 140px;
+      }
+    }
+  }
+}
+
+@media screen and (width <= 440px) {
+  .dialog {
+    width: 300px;
+
+    .button-section {
+      button {
+        max-width: 115px;
+      }
+    }
+  }
+}

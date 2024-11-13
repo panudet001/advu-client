@@ -1,0 +1,31 @@
+@import "assets/scss/color";
+
+// -----------------------------------------------------------------------------------------------------
+// Form Check
+// -----------------------------------------------------------------------------------------------------
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+
+  .form-check-input {
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    border-radius: 0;
+  }
+
+  .form-check-input:focus,
+  .form-check-input:hover {
+    border-color: $green-color;
+    box-shadow: none;
+  }
+
+  .form-check-input:checked {
+    background-color: $green-color;
+    border-color: $green-color;
+  }
+}

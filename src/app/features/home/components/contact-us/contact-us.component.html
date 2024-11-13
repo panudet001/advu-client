@@ -1,0 +1,113 @@
+<div class="wrapper">
+  <form class="form-container" *ngIf="contactForm" [formGroup]="contactForm">
+    <p class="title text-uppercase">CONTACT US</p>
+    <h5 class="description text-uppercase">GET IN TOUCH</h5>
+
+    <div class="input-between">
+      <!--        // ---------------------------------------->
+      <!--        // Name -->
+      <!--        // ---------------------------------------->
+      <div class="form-group">
+        <label class="label-title text-uppercase mb-2" for="name"
+          >Name
+          <span class="label-required">*</span>
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          [ngClass]="{
+            'is-invalid': fName?.invalid && (fName?.dirty || fName?.touched),
+          }"
+          [formControlName]="'name'"
+          required />
+        <div
+          class="invalid-feedback"
+          *ngIf="fName?.invalid && (fName?.dirty || fName?.touched)">
+          <div *ngIf="fName?.errors?.['required']">Please enter your name.</div>
+        </div>
+      </div>
+
+      <!--        // ---------------------------------------->
+      <!--        // Email -->
+      <!--        // ---------------------------------------->
+      <div class="form-group">
+        <label class="label-title text-uppercase mb-2" for="email"
+          >Email Address<span class="label-required">*</span></label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Your email"
+          [ngClass]="{
+            'is-invalid': fEmail?.invalid && (fEmail?.dirty || fEmail?.touched),
+          }"
+          [formControlName]="'email'"
+          required />
+        <div
+          class="invalid-feedback"
+          *ngIf="fEmail?.invalid && (fEmail?.dirty || fEmail?.touched)">
+          <div *ngIf="fEmail?.errors?.['required']">
+            Please enter your email.
+          </div>
+          <div *ngIf="fEmail?.errors?.['email']">Email is invalid</div>
+        </div>
+      </div>
+    </div>
+
+    <!--        // ---------------------------------------->
+    <!--        // Detail -->
+    <!--        // ---------------------------------------->
+    <div class="form-group">
+      <label class="label-title text-uppercase mb-2" for="detail"
+        >WHAT ARE YOU LOOKING FOR HELP WITH?
+        <span class="label-required">*</span></label
+      >
+      <textarea
+        class="form-control"
+        id="detail"
+        [ngClass]="{
+          'is-invalid':
+            fDetail?.invalid && (fDetail?.dirty || fDetail?.touched),
+        }"
+        [formControlName]="'detail'"
+        placeholder="Please tell us how can we help you "
+        rows="3"></textarea>
+      <div class="invalid-feedback">
+        <div *ngIf="fDetail?.errors?.['required']">
+          Please enter your message.
+        </div>
+      </div>
+    </div>
+
+    <!--        // ---------------------------------------->
+    <!--        // Alert -->
+    <!--        // ---------------------------------------->
+    <div *ngIf="isShowAlertError" class="alert alert-danger mt-4" role="alert">
+      <div class="alert-heading">
+        <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+        <p class="heading">Fail</p>
+      </div>
+      <div class="alert-content" style="text-align: start">
+        {{ this.alertError | translate }}
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      (click)="submitForm()"
+      [disabled]="contactForm.disabled"
+      class="btn btn-primary btn-submit mb-3 text-uppercase">
+      <span
+        *ngIf="contactForm.disabled"
+        class="spinner-border spinner-border-sm mb-0 mx-2">
+      </span>
+      <span *ngIf="!contactForm.disabled"> Submit </span>
+      <span *ngIf="contactForm.disabled"> Loading... </span>
+    </button>
+  </form>
+</div>

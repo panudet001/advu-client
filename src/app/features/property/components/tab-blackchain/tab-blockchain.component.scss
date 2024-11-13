@@ -1,0 +1,28 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-tab-blockchain {
+  .tab-title {
+    @include h7;
+
+    color: $black-color;
+
+    @media only screen and (width <= 660px) {
+      @include h8;
+    }
+  }
+
+  .group {
+    display: flex;
+
+    @media only screen and (width <= 660px) {
+      flex-direction: column;
+    }
+  }
+
+  .button {
+    margin-left: 8px;
+    background: transparent;
+    border: none;
+  }
+}

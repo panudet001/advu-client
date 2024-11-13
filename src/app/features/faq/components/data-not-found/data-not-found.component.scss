@@ -1,0 +1,79 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.title {
+  @include h4;
+
+  margin: 0;
+  color: $dark-green-color;
+}
+
+.no-data {
+  margin: 30px auto;
+  text-align: center;
+
+  img {
+    width: 200px;
+    height: 154px;
+    margin-bottom: 33px;
+  }
+
+  .no-data-title {
+    color: $gray-color;
+    text-align: start;
+
+    @include font-body-3;
+  }
+
+  .no-data-title-2 {
+    color: $black-color;
+    text-align: center;
+
+    @include h8;
+  }
+
+  .no-data-description {
+    @include font-body-1;
+
+    font-weight: 400;
+    color: $gray-color;
+  }
+
+  .go-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .btn-contact {
+      width: 196px;
+      margin-top: 24px;
+    }
+  }
+
+  .sub {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: $gray-color;
+    text-align: left;
+
+    @include font-body-3;
+  }
+
+  .menu-cate {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    max-width: 1240px;
+
+    .btn-tab-cate {
+      color: $dark-green-color;
+      border: 2px solid $dark-green-color !important;
+
+      &:hover {
+        color: $white-color;
+        background-color: $green-light;
+      }
+    }
+  }
+}

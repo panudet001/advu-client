@@ -1,0 +1,41 @@
+@import "assets/scss/font";
+@import "assets/scss/color";
+
+// -----------------------------------------------------------------------------------------------------
+// Toast
+// -----------------------------------------------------------------------------------------------------
+
+.toast-container .ngx-toastr {
+  padding: 12px 40px 12px 50px;
+  width: 350px;
+  box-shadow: unset;
+}
+
+.toast-title {
+  margin-bottom: 8px;
+  @include font-body-4;
+}
+
+.toast-message {
+  @include font-body-7;
+}
+
+.toast-container .toast-close-button {
+  right: -1.1em !important;
+}
+
+.toast-success {
+  color: $fresh-green-color !important;
+  background-color: $bright-fresh-green-color !important;
+}
+
+.toast-error {
+  color: $red-color !important;
+  background-color: $bright-red-color !important;
+}
+
+.toast-container .ngx-toastr:hover {
+  box-shadow: 0 0 2px #999999;
+  opacity: 1;
+  cursor: pointer;
+}

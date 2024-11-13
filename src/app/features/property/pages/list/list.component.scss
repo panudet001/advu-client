@@ -1,0 +1,135 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1240px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin: auto;
+
+  .herder-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1240px;
+
+    .herder-left {
+      .title {
+        @include font-button-1;
+
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        @include h1;
+
+        color: $dark-green-color;
+      }
+    }
+
+    @media only screen and (width < 660px) {
+      .herder-left {
+        .subtitle {
+          @include h5;
+        }
+      }
+    }
+
+    .herder-right {
+      display: flex;
+      flex-direction: row;
+      margin-top: 12px;
+
+      .btn-tab {
+        min-width: 173px;
+
+        @media only screen and (width < 660px) {
+          min-width: 133px;
+        }
+      }
+
+      .btn-tab:last-child {
+        margin-left: 4px;
+      }
+
+      @media only screen and (width < 900px) {
+        margin-top: 20px;
+      }
+    }
+
+    @media only screen and (width < 900px) {
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      width: 100%;
+    }
+
+    @media only screen and (width < 660px) {
+      align-items: center;
+    }
+  }
+
+  .filter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1240px;
+  }
+
+  .investment-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    margin-top: 24px;
+
+    @media only screen and (width <= 1000px) {
+      grid-template-columns: repeat(2, minmax(320px, 1fr));
+    }
+
+    @media only screen and (width <= 660px) {
+      grid-template-columns: minmax(350px, 401px);
+      justify-content: center;
+    }
+
+    .data-not-found {
+      grid-row: 1;
+      grid-column: 1 / span 3;
+    }
+  }
+
+  .spinner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    .spinner-border {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  @media only screen and (width <= 1300px) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  @media only screen and (width <= 660px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+}

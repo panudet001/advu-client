@@ -1,0 +1,43 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.modal-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+
+    button {
+      background: transparent;
+      border: none;
+    }
+  }
+
+  .confirm-container {
+    .item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .title {
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+
+    .value {
+      flex-grow: 1;
+      text-align: right;
+      word-break: break-word;
+    }
+  }
+}

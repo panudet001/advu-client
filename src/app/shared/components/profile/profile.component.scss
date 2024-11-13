@@ -1,0 +1,12 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.section-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: $white-color;
+}

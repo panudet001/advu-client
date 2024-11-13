@@ -1,0 +1,310 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar-layout">
+    <div class="main">
+      <app-sidebar [isKyc]="user?.isKyc"></app-sidebar>
+      <div class="content">
+        <app-profile *ngIf="user" [user]="user"></app-profile>
+        <div class="deposit-container">
+          <h5>Deposit Crypto</h5>
+          <div class="step-box">
+            <div class="step-container">
+              <app-step-deposit [depositStep]="depositStep"></app-step-deposit>
+              <div class="group-input">
+                <div class="form-group">
+                  <label for="selectCoin" class="font-subtitle-2 text-uppercase"
+                    >Select Coin</label
+                  >
+                  <div class="input">
+                    <div class="img-container">
+                      @if (urlImageCoin) {
+                        <img src="{{ urlImageCoin }}" alt="icon" />
+                      } @else {
+                        <i class="fa-regular fa-magnifying-glass"></i>
+                      }
+                    </div>
+
+                    <input
+                      type="text"
+                      id="selectCoin"
+                      placeholder="Select Coin"
+                      class="form-control-select"
+                      [formControl]="selectCrypto"
+                      matInput
+                      #value
+                      (change)="handleInputCrypto(value.value)"
+                      [matAutocomplete]="auto" />
+                  </div>
+
+                  <mat-autocomplete
+                    autoActiveFirstOption
+                    #auto="matAutocomplete">
+                    <mat-option
+                      *ngFor="let item of cryptos"
+                      (onSelectionChange)="handleWalletCrypto(item.slug)"
+                      value="{{ item.symbol }}">
+                      <div class="grid-option gap-10">
+                        <div class="option-image">
+                          <img
+                            class="option-image"
+                            src="{{ handelImage(item.cryptoImagePath) }}"
+                            alt="" />
+                        </div>
+                        <div class="option-text">
+                          {{ item.symbol }}
+                          <span class="font-body-5">{{ item.name }}</span>
+                        </div>
+                      </div>
+                    </mat-option>
+                  </mat-autocomplete>
+                </div>
+
+                <div class="form-group">
+                  <label
+                    for="selectNetwork"
+                    class="font-subtitle-2 text-uppercase"
+                    >Select a Network</label
+                  >
+                  <input
+                    type="text"
+                    id="selectNetwork"
+                    placeholder="Select Network"
+                    class="form-control-select"
+                    [formControl]="selectChain"
+                    #chain
+                    matInput
+                    (change)="handleInputChain(chain.value)"
+                    [matAutocomplete]="autoChain" />
+                  <mat-autocomplete
+                    autoActiveFirstOption
+                    #autoChain="matAutocomplete">
+                    <div class="warning-chain">
+                      <div class="warning-container bg-bright-yellow">
+                        <i
+                          class="fa-regular fa-triangle-exclamation color-yellow"></i>
+                        <p class="font-body-7 color-yellow">
+                          Ensure that the selected deposit network is the same
+                          as the withdrawal network. Otherwise, your assets
+                          could be lost.
+                        </p>
+                      </div>
+                    </div>
+                    <mat-option
+                      *ngFor="let item of chains"
+                      value="{{ item.chain.name }}"
+                      (onSelectionChange)="handleWalletAddress(item)">
+                      <div class="grid-option" style="gap: 160px">
+                        <div class="option-text">
+                          <p class="font-body-3">{{ item.chain.symbol }}</p>
+                          <p class="font-body-5">
+                            {{ item.chain.name }} ({{ item.chain.networkType }})
+                          </p>
+                        </div>
+                        <div>
+                          <p class="font-body-3">
+                            ≈ {{ item.processingTime }} min ({{
+                              item.confirmationPerSec
+                            }}
+                            Confirmation/s)
+                          </p>
+                        </div>
+                      </div>
+                    </mat-option>
+                  </mat-autocomplete>
+                </div>
+                <div class="form-group">
+                  <p class="font-subtitle-2">DEPOSIT ADDRESS</p>
+                  <div
+                    class="detail-deposit"
+                    *ngIf="depositStep === DepositStepEnums.detail">
+                    <div class="deposit-address">
+                      <div class="qr">
+                        <qrcode
+                          [qrdata]="qrData"
+                          [width]="125"
+                          [errorCorrectionLevel]="'M'"></qrcode>
+                      </div>
+                      <p class="font-body-3">Wallet Address</p>
+                      <div class="">
+                        <a
+                          target="_blank"
+                          class="btn-link-primary warp"
+                          href="{{ link + '/address/' + walletAddress }}"
+                          >{{ walletAddress }}</a
+                        >
+                        <button
+                          class="button"
+                          ngxClipboard
+                          [cbContent]="walletAddress"
+                          (cbOnSuccess)="handleCopy($event)">
+                          <i class="fa-sharp fa-thin fa-copy"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item-group">
+                      <div class="item">
+                        <p class="font-body-7">Minimum Deposit</p>
+                        <p class="font-body-7 color-gray">
+                          {{ minimumAmount }} {{ selectCrypto.value }}
+                        </p>
+                      </div>
+                      <div class="item">
+                        <p class="font-body-7">Contract Address</p>
+
+                        <a
+                          class="btn-link-primary font-body-7 warp"
+                          href="{{ link + '/address/' + addressCrypto }}"
+                          target="_blank"
+                          >{{ addressCrypto | splitText }}</a
+                        >
+                      </div>
+                      <div class="item">
+                        <p class="font-body-7">Deposit Confirmation</p>
+                        <p class="font-body-7 color-gray">
+                          {{ depositConfirmation }}
+                        </p>
+                      </div>
+                      <div class="item">
+                        <p class="font-body-7">Processing time</p>
+                        <p class="font-body-7 color-gray">~ 3-5 minutes</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq">
+              <div class="container">
+                <div class="title">
+                  <p class="font-subtitle-1">FAQs</p>
+                  <a
+                    target="_blank"
+                    href="{{ 'faqs' | localize }}"
+                    class="btn-link-primary"
+                    >View more</a
+                  >
+                </div>
+                @for (faq of faqs; track faqs) {
+                  <ul>
+                    <li class="item-li">
+                      <i class="fa-solid fa-circle size-16"></i>
+                      <a
+                        href="{{ 'faqs/question/' + faq?.slug | localize }}"
+                        class="text-dot font-body-1">
+                        {{ faq?.question }}
+                      </a>
+                    </li>
+                  </ul>
+                } @empty {
+                  <div class="item-no-data">
+                    <i class="fa-light fa-circle-question size-60"></i>
+                    <p class="font-subtitle-2 f">No data !</p>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+          <p class="font-subtitle-1">Recent Deposit</p>
+          @if (deposit.length > 0) {
+            <div class="app-table-responsive">
+              <table mat-table [dataSource]="deposit">
+                <ng-container matColumnDef="asset">
+                  <th mat-header-cell *matHeaderCellDef>Asset</th>
+                  <td mat-cell *matCellDef="let element">
+                    <div class="asset">
+                      <img
+                        src="{{
+                          _fileService.getImageV2(element.cryptoImagePath ?? '')
+                        }}"
+                        width="16px"
+                        height="16px"
+                        class="img-crypto"
+                        alt="" />
+                      {{ element.cryptoSymbol }}
+                    </div>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                  <th mat-header-cell *matHeaderCellDef>Amount</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.amount | addComma: 2 }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="network">
+                  <th mat-header-cell *matHeaderCellDef>Network</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.chainName }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="createdAt">
+                  <th mat-header-cell *matHeaderCellDef>Time</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.createdAt | date: "dd-MM-YYYY HH:mm" }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="txnHash">
+                  <th mat-header-cell *matHeaderCellDef>Txn Hash</th>
+                  <td mat-cell *matCellDef="let element">
+                    <a
+                      href="{{ element.link + '/address/' + element.txnHash }}"
+                      target="_blank"
+                      class="btn-link-primary m-2">
+                      {{
+                        element.txnHash ? (element.txnHash | splitText) : "-"
+                      }}
+                    </a>
+                    <button
+                      *ngIf="element.txnHash"
+                      ngxClipboard
+                      [cbContent]="element.txnHash"
+                      class="text-dark button-copy"
+                      (cbOnSuccess)="handleCopy($event)">
+                      <i class="fa-sharp fa-thin fa-copy"></i>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="from">
+                  <th mat-header-cell *matHeaderCellDef>From</th>
+                  <td mat-cell *matCellDef="let element">
+                    <a
+                      href="{{ element.link + '/address/' + element.from }}"
+                      target="_blank"
+                      class="btn-link-primary m-2">
+                      {{ element.from | splitText }}
+                    </a>
+                    <button
+                      ngxClipboard
+                      [cbContent]="element.from"
+                      class="text-dark button-copy"
+                      (cbOnSuccess)="handleCopy($event)">
+                      <i class="fa-sharp fa-thin fa-copy"></i>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef>Status</th>
+                  <td mat-cell *matCellDef="let element">
+                    <span [innerHTML]="statusName(element.status)"></span>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+            </div>
+          } @else {
+            <app-data-not-found
+              [isShowText]="true"
+              [description]="dataNotFound"></app-data-not-found>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

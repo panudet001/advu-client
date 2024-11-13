@@ -1,0 +1,59 @@
+<div class="app-market-place">
+  <div class="herder-container">
+    <div class="herder-left">
+      <p class="title text-uppercase">
+        Based on most recent property revaluations
+      </p>
+      <p class="subtitle text-uppercase">
+        {{ "home.propertiesList" | translate }}
+      </p>
+    </div>
+    <div class="herder-right">
+      <button
+        (click)="changeInvestmentType(EstateTypeEnums.live)"
+        [ngClass]="{
+          'btn-primary': investmentType === EstateTypeEnums.live,
+          'btn-outline-primary': investmentType === EstateTypeEnums.funded,
+        }"
+        class="btn btn-tab">
+        In Operation
+      </button>
+      <button
+        (click)="changeInvestmentType(EstateTypeEnums.funded)"
+        [ngClass]="{
+          'btn-primary': investmentType === EstateTypeEnums.funded,
+          'btn-outline-primary': investmentType === EstateTypeEnums.live,
+        }"
+        class="btn btn-tab">
+        Funded
+      </button>
+    </div>
+  </div>
+  <div *ngIf="isShowLoading" class="spinner-container">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">{{ "loading" | translate }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="!isShowLoading" class="investment-container">
+    <ng-container *ngFor="let investment of this.investments; let i = index">
+      <app-card-investment
+        [isShowBtnCancel]="false"
+        [isShowBtnInvest]="false"
+        [investmentType]="investmentType"
+        [investment]="investment">
+      </app-card-investment>
+    </ng-container>
+    @if (investments.length === 0) {
+      <app-data-not-found
+        [isShowText]="true"
+        class="data-not-found"></app-data-not-found>
+    }
+  </div>
+  <a
+    *ngIf="!isShowLoading"
+    class="btn btn-outline-primary btn-view text-uppercase"
+    href="{{ 'properties' | localize }}"
+    >View All</a
+  >
+</div>

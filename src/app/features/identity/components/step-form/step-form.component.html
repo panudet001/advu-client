@@ -1,0 +1,62 @@
+<div class="step-form-box">
+  <div class="step-container">
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            identityStep === IdentityEnums.identityVerification ||
+            identityStep > IdentityEnums.identityVerification,
+        }">
+        <span *ngIf="identityStep === IdentityEnums.identityVerification"
+          >1</span
+        >
+        <i
+          *ngIf="identityStep > IdentityEnums.identityVerification"
+          class="fa-solid fa-check"></i>
+      </div>
+      <p class="font-body-2">Nationality & ID Type</p>
+    </div>
+
+    <hr class="dot" />
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            identityStep === IdentityEnums.personalInformation ||
+            identityStep > IdentityEnums.personalInformation,
+        }">
+        @if (identityStep === IdentityEnums.personalInformation) {
+          <span>2</span>
+        } @else if (identityStep < IdentityEnums.personalInformation) {
+          <span>2</span>
+        }
+        <i
+          *ngIf="identityStep > IdentityEnums.personalInformation"
+          class="fa-solid fa-check"></i>
+      </div>
+      <p class="font-body-2">Personal Information</p>
+    </div>
+    <hr class="dot" />
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            identityStep === IdentityEnums.uploadPhoto ||
+            identityStep > IdentityEnums.uploadPhoto,
+        }">
+        @if (identityStep === IdentityEnums.uploadPhoto) {
+          <span>3</span>
+        } @else if (identityStep < IdentityEnums.uploadPhoto) {
+          <span>3</span>
+        }
+        <i
+          *ngIf="identityStep > IdentityEnums.uploadPhoto"
+          class="fa-solid fa-check"></i>
+      </div>
+      <p class="font-body-2">ID Verification</p>
+    </div>
+  </div>
+</div>

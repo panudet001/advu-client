@@ -1,0 +1,52 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 24px;
+
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+
+  .group {
+    margin-bottom: 10px;
+    text-align: center;
+
+    .detail {
+      @include font-body-1;
+
+      font-weight: 400 !important;
+      text-align: start;
+    }
+
+    .home {
+      @include font-subtitle-1;
+    }
+  }
+
+  .form-checkbox {
+    justify-content: flex-start;
+  }
+
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 35px;
+
+    .form-group {
+      .btn {
+        width: 90%;
+      }
+    }
+  }
+}

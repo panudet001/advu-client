@@ -1,0 +1,28 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": false,
+  "semi": true,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "trailingComma": "es5",
+  "bracketSameLine": true,
+  "printWidth": 80,
+  "endOfLine": "auto",
+  "importOrder": [
+    "^@angular/(.*)$",
+    "^@app/(.*)$",
+    "^@core/(.*)$",
+    "^@layouts/(.*)$",
+    "^@features/(.*)$",
+    "^@shared/(.*)$",
+    "^@assets/(.*)$",
+    "^@environments/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "decorators-legacy"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}

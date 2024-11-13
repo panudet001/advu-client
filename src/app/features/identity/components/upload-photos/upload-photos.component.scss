@@ -1,0 +1,97 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.upload-photo {
+  .title {
+    @include h7;
+  }
+
+  .ml-24 {
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
+
+  .preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .status-check {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 10px;
+
+    .done {
+      font-size: 20px;
+      color: $green-check-color;
+    }
+
+    .error {
+      font-size: 20px;
+      color: $dark-red-color;
+    }
+  }
+
+  .photo-error {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
+    margin-bottom: 48px;
+  }
+
+  .file-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 17px;
+
+    @media only screen and (width <= 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (width <= 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .min-btn {
+    max-width: 368px;
+    margin-top: 48px;
+  }
+
+  .img-error {
+    width: 150px;
+    height: 97.05px;
+    object-fit: cover;
+  }
+}
+
+.identity-verification {
+  .title {
+    @include h7;
+  }
+
+  .ml-24 {
+    margin-top: 15px;
+    margin-bottom: 24px;
+  }
+
+  .preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: start;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .w-500 {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 24px;
+  }
+}

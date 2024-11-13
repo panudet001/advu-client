@@ -1,0 +1,42 @@
+<div class="app-tab-overview">
+  <p class="tab-title mb-1">Overview</p>
+  <div class="icon-container">
+    <div *ngFor="let property of investment.properties" class="icon-box">
+      <div class="icon">
+        <i [innerHTML]="property.icon"></i>
+      </div>
+      <div class="value-group">
+        <p class="label">{{ property.title }}</p>
+        <p class="value">{{ property.capacity }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!--  <p class="tab-title mb-1">Highlights</p>-->
+  <!--  <div class="mb-3 inner-html" [innerHTML]="estate.highlights"></div>-->
+
+  <p class="tab-title mb-1">Description</p>
+  <div class="description-container">
+    <div class="description">
+      <p class="subtitle mb-2">{{ investment.title }}</p>
+      <div class="mb-3 inner-html" [innerHTML]="investment.description"></div>
+    </div>
+    <div class="map">
+      <p class="subtitle mb-2">Map</p>
+      <div class="mb-2 address">{{ investment.address }}</div>
+      <google-map
+        #myGoogleMap
+        height="280px"
+        width="100%"
+        [zoom]="zoom"
+        [center]="center"
+        [options]="options">
+        <map-marker
+          *ngFor="let markerPosition of markerPositions"
+          [icon]="'assets/img/icon/mark-location.png'"
+          [position]="markerPosition"
+          [options]="markerOptions"></map-marker>
+      </google-map>
+    </div>
+  </div>
+</div>

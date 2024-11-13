@@ -1,0 +1,52 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+//Label
+.label-warning {
+  border-radius: 4px;
+  background-color: $bright-yellow-color;
+  color: $dark-yellow-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 10px;
+}
+
+.label-success {
+  border-radius: 4px;
+  background-color: $bright-fresh-green-color;
+  color: $fresh-green-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 10px;
+}
+
+.label-danger {
+  border-radius: 4px;
+  background-color: $bright-red-color;
+  color: $dark-red-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 10px;
+}
+
+.label-info {
+  border-radius: 4px;
+  background-color: $bright-blue-color;
+  color: $dark-blue-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 10px;
+}
+
+//End Label

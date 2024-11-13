@@ -1,0 +1,202 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.order {
+  padding: 20px 24px;
+  background: $white-color;
+
+  .title {
+    @media only screen and (width <= 660px) {
+      font-size: 24px;
+    }
+  }
+
+  .amount {
+    display: flex;
+    align-items: center;
+
+    .img-crypto {
+      margin-right: 8px;
+      border-radius: 50%;
+    }
+  }
+
+  .item-container {
+    display: grid;
+    gap: 12px;
+
+    @media only screen and (width <= 1116px) {
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
+
+    @media only screen and (width <= 992px) {
+      grid-template-columns: repeat(1, minmax(300px, 1fr));
+    }
+
+    .card-estes {
+      display: flex;
+      width: 100%;
+      padding: 0;
+      cursor: pointer;
+      background: transparent;
+      background: $white-color;
+      border: transparent;
+      box-shadow: 0 0 10px 0 #48484840;
+
+      @media only screen and (width <= 1116px) {
+        flex-direction: column;
+      }
+
+      .image {
+        width: 100%;
+        max-width: 200px;
+
+        @media only screen and (width <= 1112px) {
+          max-width: 100%;
+        }
+
+        img {
+          width: 100%;
+          height: 158px;
+          aspect-ratio: 1280 / 720;
+          object-fit: cover;
+
+          @media only screen and (width <= 992px) {
+            height: 100%;
+            aspect-ratio: 2280 / 720;
+          }
+
+          @media only screen and (width <= 660px) {
+            height: 100%;
+            aspect-ratio: 1680 / 720;
+          }
+        }
+      }
+
+      .detail {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 30px 24px;
+
+        @media only screen and (width <= 1116px) {
+          flex-direction: column;
+          padding: 16px;
+        }
+
+        .estes {
+          width: 100%;
+          text-align: left;
+
+          @media only screen and (width <= 600px) {
+            .title-es {
+              font-size: 24px;
+            }
+          }
+
+          @media only screen and (width <= 1116px) {
+            max-width: 100%;
+          }
+
+          .text-dot {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
+
+        .crypto {
+          display: flex;
+          flex-direction: column;
+          align-items: end;
+          justify-content: end;
+          width: 300px;
+
+          @media only screen and (width <= 1116px) {
+            display: none;
+            max-width: 100%;
+          }
+        }
+
+        .crypto-mobile {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          margin-top: 15px;
+
+          .crypto-item-mobile {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+          }
+
+          @media only screen and (width <= 1116px) {
+            display: flex;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .container-pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+
+    .show-items {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+      max-width: 230px;
+
+      @media only screen and (width <= 600px) {
+        justify-content: space-between;
+        max-width: 100%;
+      }
+
+      .w-100 {
+        width: 100%;
+
+        @media only screen and (width <= 600px) {
+          width: 72px !important;
+        }
+      }
+
+      .no-mobile {
+        display: block;
+
+        @media only screen and (width <= 600px) {
+          display: none;
+        }
+      }
+
+      .no-warp {
+        white-space: nowrap;
+      }
+    }
+
+    @media only screen and (width <= 600px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+
+.mobile-container {
+  display: none;
+
+  .mobile-box {
+    width: 100%;
+    padding: 10px;
+    color: $dark-green-color;
+    background-color: $white-color;
+  }
+
+  @media only screen and (width < 780px) {
+    display: block;
+  }
+}

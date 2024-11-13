@@ -1,0 +1,164 @@
+<div class="chart-container">
+  <div
+    class="chart-box"
+    *ngIf="walletResponses.tokenWalletResponses.length !== 0">
+    <p class="title">Holding Property</p>
+    <div class="chart-container">
+      <div id="chart"></div>
+    </div>
+    <div class="detail-container">
+      <table class="table-property">
+        <tr>
+          <th class="title-th w-650">Properties</th>
+          <th class="title-th center no-mobile">Symbol</th>
+          <th class="title-th text-end">Amount</th>
+          <th class="title-th text-end no-mobile">Accrued Revenue</th>
+        </tr>
+
+        <tr
+          *ngFor="
+            let item of walletResponses.tokenWalletResponses;
+            let i = index
+          ">
+          <td class="title-td">
+            <div class="item-1">
+              <div class="code-color" [ngStyle]="getBackgroundColor(i)">
+                color
+              </div>
+              <div>
+                <div class="tooltips">
+                  <p class="cursor">
+                    {{ item.estate.title }}
+                  </p>
+
+                  <div class="tooltiptext">
+                    <div class="detail-prop-container">
+                      <div class="detail-prop">
+                        <div class="title-prop text-dot">
+                          {{ item.estate.title }}
+                        </div>
+                        <p class="location-prop text-dot">
+                          <i class="fa-thin fa-location-dot ml-3"></i>
+                          {{ item.estate.title }}
+                        </p>
+                        <div class="location-yield">
+                          <span class="title"> Rental Yield </span>
+                          <span class="detail">
+                            {{ item.investment.yield }} / Year
+                          </span>
+                        </div>
+                        <p class="token text-dot">
+                          <i class="fa-regular fa-circle-sterling ml-7"></i>
+                          {{ item.cryptoSymbol }}
+                        </p>
+                        <hr class="hr" />
+                        <div class="location-detail">
+                          <div class="my-invest">
+                            <p class="title">My Invest.</p>
+                            <p class="detail">
+                              {{ item.balance | addComma: 3 }} USDT
+                            </p>
+                          </div>
+                          <div class="vl"></div>
+                          <div class="total-invest">
+                            <p class="title">Total Invest.</p>
+                            <p class="detail">
+                              {{ item.investment.totalInvest | addComma: 3 }}
+                              USDT
+                            </p>
+                          </div>
+                        </div>
+                        <div class="item-list">
+                          <div
+                            class="item"
+                            *ngFor="let item of item.estate.properties">
+                            <mat-icon>{{ item.icon }}</mat-icon>
+                            {{ item.capacity }}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="img">
+                        <img
+                          src="{{
+                            this.getImage(item.estate.thumbnailImagePath)
+                          }}"
+                          alt=""
+                          class="img-prop" />
+                        <div
+                          class="type-funded"
+                          *ngIf="item.investment.type === 'Funded'">
+                          FUNDED
+                        </div>
+                        <div
+                          class="type-live"
+                          *ngIf="item.investment.type === 'Live'">
+                          LIVE
+                        </div>
+                        <div
+                          class="type-close"
+                          *ngIf="item.investment.type === 'Close'">
+                          CLOSE
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p class="font-body-5">{{ item.cryptoSymbol }}</p>
+              </div>
+            </div>
+          </td>
+          <td class="title-td no-mobile">
+            <div class="item-3">
+              <img
+                src="{{ this.getImage(item.investment.cryptoImagePath) }}"
+                alt=""
+                class="img-crypto" />
+            </div>
+          </td>
+          <td class="title-td text-end">
+            <div class="item-2">
+              <p class="font-body-10">{{ item.balance | addComma: 2 }}</p>
+              <p class="font-body-7 mts-8">{{ item.percent }}%</p>
+            </div>
+          </td>
+          <td class="title-td text-end no-mobile">
+            <div class="item-2">
+              <p class="font-body-10">{{ item.profit | addComma: 2 }}</p>
+              <p class="font-body-7 mts-8 up">{{ item.difference }}</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="pagination">
+        <app-pagination
+          (pageChange)="onPageChange($event)"
+          [totalItems]="walletResponses.pagination.length"
+          [pageSize]="walletResponses.pagination.size"
+          [currentPage]="walletResponses.pagination.page"></app-pagination>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="walletResponses.tokenWalletResponses.length === 0">
+    <div class="chart-box">
+      <div class="no-prop-container">
+        <img
+          ngSrc="assets/img/portfolio/noprop.svg"
+          alt=""
+          height="150"
+          width="277" />
+        <p class="title">No Holding Property.</p>
+        <p class="sub-title">
+          Your invested property is not completed yet or you don’t invest in any
+          property yet. please visit the link below.
+        </p>
+        <div class="w-196">
+          <a href="{{ 'properties' | localize }}" class="btn btn-primary">
+            Go to properties list
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

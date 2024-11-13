@@ -1,0 +1,141 @@
+{
+  "walletAddresses": [
+    {
+      "id": "30a079cd-c49a-4481-8315-fcbf6420b797",
+      "walletAddress": "0xE94Fc5FAb42B3234a72CB0dCda32F100843D02C2",
+      "chain": {
+        "id": "3bdfd767-abfd-449e-b2ba-fd0520cd0f24",
+        "name": "BSC mainnet",
+        "networkId": 56,
+        "rpc": "https://bsc-dataseed1.binance.org/",
+        "link": "https://bscscan.com/",
+        "createdAt": "2024-08-15T08:31:34",
+        "updatedAt": "2024-08-21T10:26:03.117932"
+      }
+    }
+  ],
+  "occupyResponses": [
+    {
+      "percent": 100,
+      "symbol": "ADV1",
+      "name": "AdavuTokenOne"
+    }
+  ],
+  "mainWalletResponses": [
+    {
+      "id": "d4ff6100-5bb0-47ae-ba50-3d8af3aa5274",
+      "crypto": {
+        "id": "693cbcae-5562-4ea1-87e1-f700ac05a0d6",
+        "name": "TetherUSD",
+        "code": "USDT",
+        "symbol": "USDT",
+        "rate": 0.999714,
+        "type": "MainCoin",
+        "isDefault": true,
+        "imagePath": "cryptos/693cbcae-5562-4ea1-87e1-f700ac05a0d6/ADV_20240822030409.jpg",
+        "createdAt": "2024-08-15T08:31:34",
+        "updatedAt": "2024-08-22T03:04:09.440328"
+      },
+      "balance": 200002.283105
+    },
+    {
+      "id": "061506e2-37c2-4486-af4a-37716d533d39",
+      "crypto": {
+        "id": "df01a197-0b79-4b9d-a12c-9a0d71b1a97b",
+        "name": "ADAVU-8050 Sirron St, Detroit, MI 48234",
+        "code": "ADAVU-01",
+        "symbol": "ADAVU-01",
+        "rate": 1.0,
+        "type": "MainCoin",
+        "isDefault": false,
+        "imagePath": null,
+        "createdAt": "2024-06-12T09:43:18.972483",
+        "updatedAt": "2024-08-21T10:29:03.681472"
+      },
+      "balance": 0.0
+    }
+  ],
+  "propertyWalletPaginationResponse": {
+    "propertyWalletResponses": [
+      {
+        "id": "b6021771-a12c-45cf-9b7c-a2513ebf5ff7",
+        "crypto": {
+          "id": "32685dc3-4a9a-4cf3-a1e2-c70ce6069fb8",
+          "name": "AdavuTokenOne",
+          "code": "ADV1",
+          "symbol": "ADV1",
+          "rate": 1.0,
+          "type": "HouseCoin",
+          "isDefault": false,
+          "imagePath": null,
+          "createdAt": "2024-06-13T04:42:05.785297",
+          "updatedAt": "2024-06-13T04:42:05.785298"
+        },
+        "balance": 10000.0,
+        "investment": {
+          "id": "01832b2d-0cab-4a95-b505-00b00619b067",
+          "balance": 0.0,
+          "amount": 75000.0,
+          "progress": 100,
+          "minimumInvest": 100.0,
+          "maximumInvest": 25000.0,
+          "totalInvest": 75000.0,
+          "profitRange": 10.0,
+          "investor": 4,
+          "type": 2,
+          "tag": 3,
+          "tokenName": null,
+          "profitAmount": 0,
+          "crypto": {
+            "id": "693cbcae-5562-4ea1-87e1-f700ac05a0d6",
+            "name": "TetherUSD",
+            "code": "USDT",
+            "symbol": "USDT",
+            "rate": 0.999714,
+            "type": "MainCoin",
+            "isDefault": true,
+            "imagePath": "cryptos/693cbcae-5562-4ea1-87e1-f700ac05a0d6/ADV_20240822030409.jpg",
+            "createdAt": "2024-08-15T08:31:34",
+            "updatedAt": "2024-08-22T03:04:09.440328"
+          },
+          "estate": {
+            "id": "4085b8db-f9f4-4fda-9a19-6632004c1659",
+            "title": "8050 Sirron St, Detroit, MI 48234",
+            "address": "8050 Sirron St, Detroit, MI 48234",
+            "properties": null,
+            "slug": "8050-sirron-st-detroit-mi-48234",
+            "code": "home",
+            "isActive": true,
+            "description": "<p><i><strong>CLASSIC LOOK, MODERN COMFORT</strong></i></p><p style=\"margin-left:0px;\">Introducing 8050 Sirron, a traditional single-family brick home offering 3 bedrooms and 1.5 bathrooms located in the serene and well-connected Nortown neighborhood. This residence features a convenient 1-car attached garage and is set on a 4,530 square-foot lot, providing ample space for outdoor activities. Located near a McDonald’s, Conner Creek Health Center, and Our Lady Queen of Heaven/Good Shepherd Catholic Church, Sirron enjoys a number of nearby amenities.</p><p><i><strong>FAMILY-FRIENDLY NEIGHBORHOOD</strong></i></p><p style=\"margin-left:0px;\">The Nortown neighborhood in Detroit is known for its tranquil atmosphere and well-maintained parks, making it a perfect place for families. Residents enjoy a strong sense of community and pride in their clean, welcoming environment. Nortown offers a dynamic blend of amenities including the Conner Center, with its Bel Air Luxury Cinema and various dining options. For those seeking a peaceful retreat, Mt. Olivet Cemetery provides an historic and serene setting, while Marruso Park offers green spaces for outdoor activities and relaxation.</p><p><i><strong>LUCRATIVE STRATEGY</strong></i></p><p style=\"margin-left:0px;\">8050 Sirron expects an annual income of 9.20%. The property was acquired for a sum of $80,000, with a renovation budget of $4,000 allocated for roof repairs and brick maintenance to guarantee its enduring appeal. This home is part of RealT’s economies-of-scale strategy, which includes nearby properties like <a href=\"https://realt.co/product/8225-rolyat-st-detroit-mi-48234/\"><u>8225 Rolyat</u></a>, <a href=\"https://realt.co/product/19340-packard-st-detroit-mi-48234/\"><u>19340 Packard</u></a>, and <a href=\"https://realt.co/product/8181-bliss-st-detroit-mi-48234/\"><u>8181 Bliss</u></a>. By clustering properties within the same area, RealT effectively reduces maintenance expenses and enhances overall returns, making this a smart and profitable investment.</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>",
+            "createdAt": "2024-06-12T09:38:00.885162",
+            "updatedAt": "2024-08-17T12:00:55.087211",
+            "imageThumbnailPath": "estates/4085b8db-f9f4-4fda-9a19-6632004c1659/thumbnail/ADV_20240801160803.jpg"
+          },
+          "management": {
+            "id": "fe62384a-a6c1-477e-99b5-8c65f9c6e996",
+            "name": "Sansiri",
+            "description": "<p>เราไม่เคยมอง <span style=\"color:rgb(249,71,0);\">“</span><span style=\"color:rgb(0,83,181);\">คุณ</span><span style=\"color:rgb(249,71,0);\">”</span> จากเปลือกนอกที่ตาเห็น<br>ไม่ว่าจะเพศ ฐานะ ครอบครัว หรือการแต่งกาย<br>แต่สิ่งที่เราให้ความสำคัญคือ <span style=\"color:rgb(0,83,181);\">ชีวิตที่คุณเป็น</span><br>&nbsp;</p><p>สิ่งที่คุณตื่นมาแล้วอยากทำเป็นอย่างแรก</p><p>ต้นไม้ที่คุณชอบปลูก</p><p>สิ่งใหม่ๆ ที่คุณอยากลองทำ</p><p>หรือเมนูพิเศษ ที่คุณอยากทำให้เพื่อนๆ ชิม</p>",
+            "imagePath": null,
+            "createdAt": "2024-06-12T10:44:45.824438",
+            "updatedAt": "2024-06-12T10:44:45.82444"
+          },
+          "successAt": "2024-08-19T10:56:50.283644",
+          "createdAt": "2024-06-13T04:17:38.661709",
+          "updatedAt": "2024-08-19T10:56:50.283644",
+          "investmentPeriods": null
+        },
+        "percent": 100,
+        "profit": 2.283105,
+        "difference": 0
+      }
+    ],
+    "pagination": {
+      "length": 1,
+      "size": 10,
+      "page": 0,
+      "lastPage": 1,
+      "startIndex": 0,
+      "endIndex": 0
+    }
+  }
+}

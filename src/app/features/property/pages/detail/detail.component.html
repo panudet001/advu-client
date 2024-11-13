@@ -1,0 +1,408 @@
+<div class="app-detail">
+  <div class="section-property">
+    <div class="group-property">
+      <div class="breadcrumb-property">
+        <p>
+          <span class="color-gray me-1">
+            <i class="fa-sharp fa-thin fa-house color-gray"></i>
+          </span>
+          <span class="me-1">
+            <a class="color-gray" href="{{ '' | localize }}">Home </a>
+          </span>
+          <span class="me-1"> > </span>
+          <span class="me-1">
+            <a class="color-gray" href="{{ 'properties' | localize }}">
+              Properties
+            </a>
+          </span>
+          <span class="color-gray me-1"> > </span>
+          <span class="color-black me-1">
+            {{ this.investment.title }}
+          </span>
+        </p>
+      </div>
+
+      <div class="header-property">
+        <p class="title color-dark-green">
+          {{ this.investment.title }}
+        </p>
+      </div>
+
+      <p class="address-property color-black">
+        <i class="fa-regular fa-location-dot me-2 color-black"></i>
+        {{ this.investment.address }}
+      </p>
+    </div>
+  </div>
+  <div class="preview-container">
+    <div class="badge-preview text-uppercase">
+      {{
+        investment.type === InvestmentTypeEnums.live
+          ? "Open for investment"
+          : investment.type === InvestmentTypeEnums.full
+            ? "Invested was reached"
+            : "Successfully funded"
+      }}
+    </div>
+
+    <img
+      class="image-preview"
+      [defaultImage]="defaultImage"
+      [lazyLoad]="this.getImage(this.previewImage)"
+      alt="{{ this.investment.title }}" />
+
+    <div class="bg-linear"></div>
+
+    <p
+      class="badge-property"
+      [ngClass]="
+        investment.type === InvestmentTypeEnums.live
+          ? 'live'
+          : investment.type === InvestmentTypeEnums.full
+            ? 'full'
+            : 'funded'
+      ">
+      {{
+        investment.type === InvestmentTypeEnums.live
+          ? "Live"
+          : investment.type === InvestmentTypeEnums.full
+            ? "Full"
+            : "Funded"
+      }}
+    </p>
+  </div>
+
+  <div class="image-section">
+    <div class="image-container">
+      <button (click)="slickModal.slickPrev()" class="arrow-slide left">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div class="carousel-container">
+        <ngx-slick-carousel
+          class="carousel"
+          #slickModal="slick-carousel"
+          [config]="slideConfig">
+          <div
+            ngxSlickItem
+            *ngFor="let gallery of this.investment.galleryPaths"
+            class="slide">
+            <img
+              [defaultImage]="defaultImage"
+              [lazyLoad]="this.getImage(gallery)"
+              (click)="onSelectImage(gallery)"
+              alt="{{ this.investment.title }}"
+              class="img-slide" />
+          </div>
+        </ngx-slick-carousel>
+      </div>
+
+      <button (click)="slickModal.slickNext()" class="arrow-slide right">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <hr />
+  </div>
+
+  <div class="invest-section">
+    <div class="invest-group">
+      <div class="invest-container">
+        @if (investment.type !== InvestmentTypeEnums.funded) {
+          <app-count-down
+            [investmentTypeEnums]="investment.type"
+            [startDate]="investment.investment.startDate"
+            [endDate]="investment.investment.endDate">
+          </app-count-down>
+        }
+
+        <div class="item mb-3 mt-3">
+          <p
+            class="title font-button-1 color-dark-gray"
+            style="margin-top: 2px">
+            Annual Percentage Yield (APY)
+          </p>
+          <p class="value font-subtitle-1 color-dark-green">
+            {{ investment.investment.yield }} %
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="item mb-3">
+          <p
+            class="title font-button-1 color-dark-gray"
+            style="margin-top: 2px">
+            Total Investment
+          </p>
+          <p class="value font-body-1 color-dark-green">
+            {{ this.investment.investment.totalInvest | addComma: 2 }}
+            {{ this.investment.investment.cryptoSymbol }}
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="item mb-3">
+          <p
+            class="title font-button-1 color-dark-gray"
+            style="margin-top: 2px">
+            Amount of funds to be raised
+          </p>
+          <p class="value font-body-1 color-dark-green">
+            {{ this.investment.investment.investmentBalance | addComma: 2 }}
+            {{ this.investment.investment.cryptoSymbol }}
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="item mb-3">
+          <p
+            class="title font-button-1 color-dark-gray"
+            style="margin-top: 2px">
+            Start presale
+          </p>
+          <p class="value font-body-1 color-dark-green">
+            {{ investment.investment.startDate | date }}
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="item mb-3">
+          <p
+            class="title font-button-1 color-dark-gray"
+            style="margin-top: 2px">
+            End of Presale
+          </p>
+          <p class="value font-body-1 color-dark-green">
+            {{ investment.investment.endDate | date }}
+          </p>
+        </div>
+
+        <div
+          class="progress-group"
+          *ngIf="investment.type !== InvestmentTypeEnums.funded">
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [ngStyle]="{ width: investment.investment.percent + '%' }"
+              [attr.aria-valuenow]="this.investment.investment.percent"
+              aria-valuemin="0"
+              aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="item mb-3">
+          <p class="title font-body-2 color-gray">
+            {{ investment.investment.investor }} Investors
+          </p>
+          <p class="value font-subtitle-3 color-black">
+            {{ investment.investment.percent | addComma: 2 }}%
+          </p>
+        </div>
+
+        <p class="font-body-3 color-black">
+          This project will be funded if the Total Investment is reached.
+        </p>
+      </div>
+      <div class="invest-container">
+        <div class="limit-group">
+          <div class="limit">
+            <p class="font-button-1 color-black">Minimum</p>
+            <p class="font-subtitle-1 color-dark-green">
+              {{ this.investment.investment.minimumInvest | addComma: 2 }}
+              {{ this.investment.investment.cryptoSymbol }}
+            </p>
+          </div>
+
+          <div class="line"></div>
+
+          <div class="limit">
+            <p class="font-button-1 color-black">Maximum</p>
+            <p class="font-subtitle-1 color-dark-green">
+              {{ this.investment.investment.maximumInvest | addComma: 2 }}
+              {{ this.investment.investment.cryptoSymbol }}
+            </p>
+          </div>
+        </div>
+
+        <hr style="margin-top: 12px" />
+
+        @if (user) {
+          @if (!user.isKyc) {
+            <a
+              class="btn btn-primary text-uppercase"
+              href="{{ 'identity-verification' | localize }}"
+              >Please KYC
+            </a>
+          } @else {
+            <form class="form-container w-100" [formGroup]="investForm">
+              <div class="form-group">
+                <label class="label-title text-uppercase mb-2" for="amount"
+                  >INVEST ALMOST <span class="label-required">*</span></label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="amount"
+                  name="amount"
+                  placeholder=""
+                  [ngClass]="{
+                    'is-invalid':
+                      fAmount?.invalid && (fAmount?.dirty || fAmount?.touched),
+                  }"
+                  [formControlName]="'amount'"
+                  required />
+                <div
+                  class="invalid-feedback"
+                  *ngIf="
+                    fAmount?.invalid && (fAmount?.dirty || fAmount?.touched)
+                  ">
+                  <div *ngIf="fAmount?.errors?.['required']">
+                    Please enter the investment amount.
+                  </div>
+                  <div *ngIf="fAmount?.errors?.['min']">
+                    Lower than minimum investment.
+                  </div>
+                  <div *ngIf="fAmount?.errors?.['max']">
+                    The investment amount is greater than the amount to be
+                    raised.
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <div class="item mb-1">
+              <p class="title font-body-4 color-dark-gray">Your Investment</p>
+              <p class="value font-body-4 color-black">
+                {{ this.investment.userOrder.orderAmount | addComma: 2 }}
+                {{ this.investment.investment.cryptoSymbol }}
+              </p>
+            </div>
+
+            <div class="item mb-4">
+              <div class="title font-body-4 color-dark-gray">Your Balance</div>
+              <div class="value font-body-4 color-black">
+                {{ this.investment.userOrder.userBalance | addComma: 2 }}
+                {{ this.investment.investment.cryptoSymbol }}
+              </div>
+            </div>
+
+            <button
+              [disabled]="investment.type === InvestmentTypeEnums.full"
+              class="btn btn-primary text-uppercase w-100"
+              (click)="clickInvest()">
+              Invest
+            </button>
+
+            @if (this.myInvestmentAmount > 0) {
+              <a
+                class="btn btn-outline-primary text-uppercase mt-2 w-100"
+                href="{{ '/my-portfolio' | localize }}">
+                Cancel
+              </a>
+            }
+
+            <p
+              class="font-body-5 color-dark-gray mt-4"
+              style="white-space: break-spaces">
+              *After the investment is completed, the funds will be deducted
+              from the account. Please always have sufficient funds on hand,
+              otherwise your other investments will be canceled.*
+            </p>
+          }
+        } @else {
+          <a
+            class="btn btn-primary text-uppercase"
+            href="{{ 'sign-in' | localize }}"
+            >SIGN IN
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-section">
+    <div class="tabs">
+      <button
+        class="btn btn-link-primary"
+        *ngFor="let tab of tabs; let i = index"
+        (click)="selectTab(i)"
+        [ngClass]="{ active: selectedTab === i }">
+        {{ tab.label }}
+      </button>
+    </div>
+    <div class="tab-content">
+      <div *ngIf="selectedTab === 0">
+        <app-tab-overview [investment]="investment"></app-tab-overview>
+      </div>
+      <div *ngIf="selectedTab === 1">
+        <app-tab-blockchain
+          [investmentContractAddress]="investment.contractAddress"
+          (emitCopy)="handleCopy($event)"></app-tab-blockchain>
+      </div>
+      <div *ngIf="selectedTab === 3">
+        <app-tab-management [managements]="investment.managements">
+        </app-tab-management>
+      </div>
+      <div *ngIf="selectedTab === 2">
+        <p class="h7">Property Financials</p>
+        <div style="display: flex; justify-content: space-between">
+          <div class="font-button-2 mt-3">Total Investment</div>
+          <div class="font-body-2">
+            {{ investment.investment.totalInvest | addComma: 2 }}
+            {{ investment.investment.cryptoSymbol }}
+          </div>
+        </div>
+        <div class="app-table-responsive">
+          @if (investmentOrders.length) {
+            <table mat-table [dataSource]="investmentOrders">
+              <ng-container matColumnDef="walletAddress">
+                <th mat-header-cell *matHeaderCellDef>Wallet Address</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.walletAddress ?? "-" }}
+                  <button
+                    *ngIf="element.walletAddress"
+                    class="button-copy"
+                    ngxClipboard
+                    [cbContent]="element.walletAddress"
+                    (cbOnSuccess)="handleCopy($event)">
+                    <i class="fa-sharp fa-thin fa-copy"></i>
+                  </button>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef>Amount</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.amount | addComma: 2 }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.percent | number }} %
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Time</th>
+                <td mat-cell *matCellDef="let element">
+                  <span class="color-dark-green">
+                    {{ element.createdAt | date: "dd-MM-YYYY HH:mm" }}</span
+                  >
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          } @else {
+            <app-data-not-found [isShowText]="false"></app-data-not-found>
+          }
+        </div>
+      </div>
+      <div *ngIf="selectedTab === 3"></div>
+    </div>
+  </div>
+</div>

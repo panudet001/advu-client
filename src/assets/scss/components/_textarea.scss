@@ -1,0 +1,25 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+// -----------------------------------------------------------------------------------------------------
+// Textarea
+// -----------------------------------------------------------------------------------------------------
+
+textarea {
+  padding: 12px 10px !important;
+  border: 1px solid $bright-gray-color !important;
+  border-radius: 1px !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  line-height: 19px !important;
+  font-family: $secondary-en-font !important;
+}
+
+textarea::placeholder {
+  color: $gray-color !important;
+}
+
+textarea:focus {
+  border: 1px solid $green-color !important;
+  box-shadow: none !important;
+}

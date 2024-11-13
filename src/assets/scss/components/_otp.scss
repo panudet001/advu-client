@@ -1,0 +1,22 @@
+@import "assets/scss/font";
+@import "assets/scss/color";
+
+.otp-input {
+  border-radius: 0 !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid $gray-bright-color !important;
+  @include font-body-5;
+}
+
+.otp-input:focus {
+  border-radius: 0 !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 2px solid $green-color !important;
+  box-shadow: none;
+  outline: none;
+  transition: border-color 0.3s;
+}

@@ -1,0 +1,69 @@
+<div class="section-search">
+  <form class="form-transaction" [formGroup]="transactionForm">
+    <div class="form-group-date">
+      <div class="form-group">
+        <label class="label-title color-black" for="transactionHash"
+          >Date
+        </label>
+        <div class="form-group-date-picker">
+          <input
+            class="input-date-picker"
+            id="transactionHash"
+            matInput
+            [formControlName]="'startDate'"
+            (dateChange)="onFilterChange()"
+            placeholder="Start Date"
+            [matDatepicker]="startDate" />
+          <mat-datepicker-toggle
+            class="date-picker"
+            matSuffix
+            [for]="startDate"
+            (click)="startDate.open()">
+            <div matDatepickerToggleIcon>
+              <i class="fa-thin fa-calendar calendar-icon"></i>
+            </div>
+          </mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
+        </div>
+      </div>
+      <p class="text-to color-black">to</p>
+      <div class="form-group">
+        <label class="label-title color-black"></label>
+        <div class="form-group-date-picker">
+          <input
+            class="input-date-picker"
+            matInput
+            [formControlName]="'endDate'"
+            (dateChange)="onFilterChange()"
+            placeholder="End Date"
+            [matDatepicker]="endDate" />
+          <mat-datepicker-toggle
+            class="date-picker"
+            matSuffix
+            (click)="endDate.open()">
+            <div matDatepickerToggleIcon>
+              <i class="fa-thin fa-calendar calendar-icon"></i>
+            </div>
+          </mat-datepicker-toggle>
+          <mat-datepicker #endDate></mat-datepicker>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group group-select">
+      <label class="label-title color-black">Status </label>
+      <mat-select
+        [formControlName]="'status'"
+        class="select-transaction"
+        placeholder="status">
+        <mat-option [value]="''" (click)="onFilterChange()"> All</mat-option>
+        <mat-option
+          *ngFor="let status of allStatus; let i = index"
+          [value]="status"
+          (click)="onFilterChange()">
+          {{ status }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </form>
+</div>

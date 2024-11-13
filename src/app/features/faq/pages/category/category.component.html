@@ -1,0 +1,190 @@
+@if (isCategory) {
+  <div class="content-container">
+    <div class="category-faq w-100">
+      <div class="header-faq-cate">
+        <app-breadcrumb [breadCrumb]="breadCrumb"></app-breadcrumb>
+        <h2>Frequently Asked Questions</h2>
+        <p class="h8">Your quick guide to common questions.</p>
+      </div>
+      <div class="category-box">
+        <div class="search-menu">
+          <div class="search-input">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="searchValue"
+                (keydown.enter)="onSearch(searchValue)"
+                placeholder="Search" />
+              <button>
+                <i class="fa-light fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+          <div class="tab-cate-menu" *ngIf="faqsCategory?.length !== 0">
+            @for (item of faqsCategory; track item; let i = $index) {
+              <ul>
+                <li
+                  class="menu-item"
+                  [ngClass]="{ active: selectedItem === i }">
+                  @switch (item.name) {
+                    @case ("General Questions") {
+                      <a
+                        href="faqs/category/general-questions"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Investment Process") {
+                      <a
+                        href="faqs/category/investment-process"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Security and Transparency") {
+                      <a
+                        href="faqs/category/security-and-transparency"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Returns and Withdrawals") {
+                      <a
+                        href="faqs/category/returns-and-withdrawals"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Legal and Compliance") {
+                      <a
+                        href="faqs/category/legal-and-compliance"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Support") {
+                      <a
+                        href="faqs/category/support"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                  }
+                </li>
+              </ul>
+            }
+          </div>
+          <li class="cate-dropdown">
+            <div
+              class="sidebar-dropdown"
+              data-bs-toggle="collapse"
+              href="#dropdown-category"
+              role="button"
+              aria-expanded="false"
+              aria-controls="dropdown-history">
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="font-body-1">{{ selectedCategory }}</p>
+                <i class="fa-solid fa-caret-down color-white"></i>
+              </div>
+            </div>
+          </li>
+
+          <ul
+            class="collapse sidebar-collapse"
+            id="dropdown-category"
+            *ngIf="faqsCategory?.length !== 0">
+            @for (item of faqsCategory; track item; let i = $index) {
+              <ul>
+                <li
+                  class="cate-dropdown-item"
+                  [ngClass]="{ active: selectedItem === i }">
+                  @switch (item.name) {
+                    @case ("General Questions") {
+                      <a
+                        href="faqs/category/general-questions"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Investment Process") {
+                      <a
+                        href="faqs/category/investment-process"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Security and Transparency") {
+                      <a
+                        href="faqs/category/security-and-transparency"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Returns and Withdrawals") {
+                      <a
+                        href="faqs/category/returns-and-withdrawals"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Legal and Compliance") {
+                      <a
+                        href="faqs/category/legal-and-compliance"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                    @case ("Support") {
+                      <a
+                        href="faqs/category/support"
+                        (mousedown)="selectItem(i)">
+                        <p class="font-body-1">{{ item.name }}</p>
+                      </a>
+                    }
+                  }
+                </li>
+              </ul>
+            }
+          </ul>
+        </div>
+        <div class="category-content">
+          <div class="cate-content-box">
+            <span class="title-cate">
+              <i class="fa-regular fa-bookmark color-dark-green"></i>
+              <p class="font-subtitle-1">{{ selectedCategory }}</p>
+            </span>
+
+            <div class="cate-container">
+              @for (subitem of categoryDetail; track subitem) {
+                <a href="{{ 'faqs/question/' + subitem.slug | localize }}">
+                  <div class="cate-content-item">
+                    <div
+                      class="d-flex justify-content-between align-items-center">
+                      <div class="cate-content-title mb-2">
+                        <i class="{{ subitem.icon }} me-2 color-dark-green"></i>
+                        <div class="font-subtitle-3 title-ellipsis">
+                          {{ subitem?.question }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="font-body-1 color-gray description-ellipsis">
+                      <span [innerHTML]="subitem.description"></span>
+                    </div>
+                  </div>
+                </a>
+              } @empty {
+                <div class="app-not-found">
+                  <app-data-not-found [isSearch]="true"></app-data-not-found>
+                </div>
+              }
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <app-error></app-error>
+}

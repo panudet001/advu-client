@@ -1,0 +1,99 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-sign-up {
+  .header-group {
+    margin-bottom: 30px;
+    text-align: center;
+
+    @media only screen and (width <= 514px) {
+      text-align: start;
+    }
+  }
+
+  .sign-up-container {
+    display: flex;
+    justify-content: center;
+
+    .form-container {
+      max-width: 514px;
+      padding: 0 30px;
+
+      @media only screen and (width <= 514px) {
+        padding: 0 10px;
+      }
+
+      .form-group {
+        width: 100%;
+
+        .input-password-group {
+          position: relative;
+          display: flex;
+
+          .icon-password {
+            position: absolute;
+            top: 20%;
+            left: 0%;
+            color: $black-color;
+            background-color: transparent;
+            border: unset;
+          }
+
+          .btn-visibility {
+            position: absolute;
+            top: 24%;
+            right: 5%;
+            color: $gray-color;
+            cursor: pointer;
+            background-color: transparent;
+            border: unset;
+
+            @include font-body-5;
+          }
+        }
+      }
+
+      .list-password-checklist {
+        margin-top: -8px;
+        margin-left: 14px;
+        color: $gray-color;
+        list-style-type: inherit;
+
+        li {
+          margin-bottom: 4px;
+          list-style-type: inherit;
+
+          @include font-body-7;
+        }
+      }
+
+      .active {
+        color: $green-color;
+      }
+
+      .input-group-mobile {
+        display: flex;
+
+        .form-country-code {
+          width: 30%;
+          padding: 0 5px;
+          margin-right: 8px;
+          color: $black-color;
+          border-bottom: 1px solid $bright-gray-color;
+        }
+
+        .from-mobile {
+          width: 70%;
+        }
+      }
+
+      .custom-invalid {
+        display: block !important;
+
+        @include font-body-7;
+
+        color: $red-color;
+      }
+    }
+  }
+}

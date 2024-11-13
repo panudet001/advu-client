@@ -1,0 +1,19 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.kyc-box {
+  width: 100%;
+  background: $white-color;
+
+  .kyc-container {
+    padding: 24px;
+
+    .form-page {
+      margin-top: 25px;
+    }
+
+    .min-btn {
+      max-width: 368px;
+    }
+  }
+}

@@ -1,0 +1,182 @@
+<form class="dialog" [formGroup]="form">
+  <div class="close-icon">
+    <img
+      src="../../../../../assets/img/icon/close.svg"
+      alt="close-edit-profile"
+      mat-dialog-close />
+  </div>
+  <p class="title">Personal Information</p>
+  <div class="form-section">
+    <div class="section">
+      <div class="form-group">
+        <label for="firstname" class="label-title text-uppercase mb-2">
+          First Name<span class="label-required">*</span>
+        </label>
+        <input
+          class="form-control bg-form"
+          maxlength="100"
+          id="firstname"
+          placeholder="First Name"
+          [formControlName]="'firstname'"
+          type="text"
+          [ngClass]="{
+            'is-invalid':
+              firstname?.invalid && (firstname?.dirty || firstname?.touched),
+          }" />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            firstname?.invalid && (firstname?.dirty || firstname?.touched)
+          ">
+          <div *ngIf="firstname?.errors">Please enter your first name.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastname" class="label-title text-uppercase mb-2">
+          Last Name<span class="label-required">*</span>
+        </label>
+        <input
+          class="form-control bg-form"
+          maxlength="100"
+          id="lastname"
+          placeholder="Last Name"
+          [formControlName]="'lastname'"
+          type="text"
+          [ngClass]="{
+            'is-invalid':
+              lastname?.invalid && (lastname?.dirty || lastname?.touched),
+          }" />
+        <div
+          class="invalid-feedback"
+          *ngIf="lastname?.invalid && (lastname?.dirty || lastname?.touched)">
+          <div *ngIf="lastname?.errors">Please enter your last name.</div>
+        </div>
+      </div>
+    </div>
+    <div class="section mt-3">
+      <div class="mobile-section">
+        <div class="form-group country-code">
+          <p class="label-title text-uppercase">Mobile Number</p>
+          <mat-select [formControlName]="'countryCode'" placeholder="Code">
+            <mat-select-trigger>
+              <img
+                src="https://flagsapi.com/{{ code }}/flat/24.png"
+                alt="flag" />
+              + {{ countryCode }}
+            </mat-select-trigger>
+            <mat-option
+              *ngFor="let code of countryCodes"
+              [value]="code.dialCode"
+              (click)="selectCode(code.code, code.dialCode, code.img)">
+              <img
+                src="https://flagsapi.com/{{ code.code }}/flat/24.png"
+                alt="flag" />
+              + {{ code.dialCode }}</mat-option
+            >
+          </mat-select>
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control bg-form mt-17"
+            id="phone-number"
+            placeholder="Mobile Number"
+            [formControlName]="'mobile'"
+            maxlength="9"
+            minlength="9"
+            type="tel"
+            [ngClass]="{
+              'is-invalid':
+                mobile?.invalid && (mobile?.dirty || mobile?.touched),
+            }" />
+          <div
+            class="invalid-feedback"
+            *ngIf="mobile?.invalid && (mobile?.dirty || mobile?.touched)">
+            <div *ngIf="mobile?.errors">Please enter your mobile number.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p class="label-title text-uppercase">Choose your date of birth</p>
+        <div class="form-group-date-picker">
+          <input
+            id="date"
+            class="input-date-picker"
+            [formControlName]="'date'"
+            placeholder="Date of birth"
+            [matDatepicker]="startDate"
+            readonly />
+          <mat-datepicker-toggle
+            class="date-picker"
+            matSuffix
+            [for]="startDate"
+            (click)="startDate.open()">
+            <mat-icon matDatepickerToggleIcon>
+              <img
+                src="/assets/img/icon/calendar.png"
+                class="calendar-icon"
+                alt="calendar" />
+            </mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
+        </div>
+        <div *ngIf="date?.invalid && (date?.dirty || date?.touched)">
+          <div class="error" *ngIf="date?.errors?.['required']">
+            Please enter your date of birth.
+          </div>
+        </div>
+        <div *ngIf="date?.errors?.['validateDateOverCurrentDate']">
+          <div class="error">Date should be less current time.</div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="form-group">
+        <label for="address" class="label-title text-uppercase mb-2">
+          Address<span class="label-required">*</span>
+        </label>
+        <input
+          class="form-control bg-form"
+          maxlength="100"
+          id="address"
+          placeholder="Address"
+          [formControlName]="'address'"
+          type="text"
+          [ngClass]="{
+            'is-invalid':
+              address?.invalid && (address?.dirty || address?.touched),
+          }" />
+        <div
+          class="invalid-feedback"
+          *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+          <div *ngIf="address?.errors?.['required']">
+            Please enter your address.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="invalid-feedback">
+    <div>Please enter your address.</div>
+  </div>
+  @if (err) {
+    <div class="alert alert-danger mt-4" role="alert">
+      <div class="alert-heading">
+        <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+        <p class="heading">Fail</p>
+      </div>
+      <div class="alert-content">
+        {{ err | translate }}
+      </div>
+    </div>
+  }
+  <div class="button-section">
+    <button class="btn-outline-primary" mat-dialog-close [disabled]="isDisable">
+      Cancel
+    </button>
+    <button class="btn btn-primary" (click)="submit()" [disabled]="isDisable">
+      Save
+    </button>
+  </div>
+</form>

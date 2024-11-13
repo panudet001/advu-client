@@ -1,0 +1,44 @@
+<div class="my-properties-container">
+  <div class="my-properties-box">
+    <p class="title">In operation properties</p>
+
+    <div class="description">
+      <span class="text">
+        You can invest in a maximum of 3 properties simultaneously. Your
+        investment will not be charged until the fundraising is completed.
+      </span>
+    </div>
+
+    <div class="grid-properties" *ngIf="investmentOrdersByLive.length !== 0">
+      @for (investment of investmentOrdersByLive; track investment) {
+        <app-card-investment-order
+          [idOrder]="investment.slug"
+          [myInvestment]="investment.orderAmount"
+          [investment]="investment"
+          (clickCancelInvest)="openCancelInvestment($event)"
+          id="card-{{ investment.slug }}">
+        </app-card-investment-order>
+      }
+    </div>
+
+    <ng-container *ngIf="investmentOrdersByLive.length === 0">
+      <div class="no-prop-container">
+        <img
+          ngSrc="assets/img/portfolio/noprop.svg"
+          alt=""
+          height="150"
+          width="277" />
+        <p class="title">No investment found</p>
+        <p class="sub-title">
+          It looks like your account hasn't invest in any property yet. To get
+          start, please visit the link below.
+        </p>
+        <div class="w-196">
+          <a href="{{ 'properties' | localize }}" class="btn btn-primary"
+            >Go to properties list</a
+          >
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

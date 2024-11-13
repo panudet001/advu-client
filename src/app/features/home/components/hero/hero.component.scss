@@ -1,0 +1,152 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.image-container {
+  position: relative;
+  display: none;
+  height: 664px;
+
+  .backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #10101080;
+  }
+
+  .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 733 / 502;
+    object-fit: cover;
+  }
+
+  .image-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 800px;
+    transform: translate(-50%, -50%);
+
+    .title {
+      @include font-button-1;
+
+      color: white;
+      text-align: center;
+    }
+
+    .subtitle {
+      @include h2;
+
+      margin-top: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .link {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    @media (width <= 1093px) {
+      .subtitle {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .link {
+        margin-top: 0;
+      }
+    }
+
+    @media (width < 660px) {
+      .subtitle {
+        @include h5;
+      }
+    }
+  }
+
+  @media only screen and (width <= 1093px) {
+    display: block;
+  }
+}
+
+.how-to-use {
+  width: 150px;
+
+  .btn {
+    padding: 0;
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  background-position-y: 75px;
+  background-size: cover;
+
+  #background-video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .backdrop {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    height: 100%;
+    background: #10101080;
+  }
+
+  .video-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 1000px;
+    transform: translate(-50%, -50%);
+
+    .title {
+      @include font-button-1;
+
+      color: $white-color;
+      text-align: center;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      color: $white-color;
+      text-align: center;
+
+      @include h2;
+    }
+
+    .link {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    @media (width <= 1209px) {
+      top: 59%;
+    }
+  }
+
+  @media only screen and (width <= 1093px) {
+    display: none;
+  }
+}
+
+::ng-deep {
+  nav {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+}

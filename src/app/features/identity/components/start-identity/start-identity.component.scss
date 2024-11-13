@@ -1,0 +1,100 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.preview-identity {
+  display: flex;
+  gap: 20px;
+
+  .start-identity-box {
+    width: 100%;
+    max-width: 707px;
+    background: $white-color;
+
+    .container {
+      padding: 24px;
+
+      .title {
+        @include h7;
+      }
+
+      .mso-0 {
+        margin-top: 14px;
+        margin-bottom: 12px;
+      }
+
+      .ltp-2 {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .ml-24 {
+        margin-top: 15px;
+        margin-bottom: 50px;
+      }
+
+      .w-140 {
+        max-width: 140px;
+      }
+
+      .siz-20 {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .faq {
+    width: 100%;
+    max-width: 500px;
+    background: $white-color;
+
+    @media only screen and (width <= 700px) {
+      max-width: 100%;
+    }
+
+    .container {
+      padding: 24px 16px;
+
+      .size-16 {
+        font-size: 8px;
+        color: $gray-color;
+      }
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+
+      .item-no-data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .size-60 {
+          font-size: 30px;
+          color: $gray-bright-color;
+        }
+
+        .f {
+          margin-top: 10px;
+          color: $gray-bright-color;
+        }
+      }
+
+      .item-li {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        .text-dot {
+          color: $gray-color;
+        }
+      }
+    }
+  }
+
+  @media only screen and (width <= 700px) {
+    flex-direction: column;
+  }
+}

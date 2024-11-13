@@ -1,0 +1,173 @@
+@if (isType) {
+  <div class="app-blog">
+    <app-breadcrumb [breadcrumb]="breadcrumb" class="mb-1"></app-breadcrumb>
+    <p class="adavu-blog">ADAVU BLOGS</p>
+    <p class="blog-title">
+      Latest news from various media platforms can be found here.
+    </p>
+    <div class="blog-container">
+      <div class="blog-filter">
+        <div class="section-left">
+          <div class="menu-section">
+            <div class="arrange-button">
+              @for (item of cateBlog; track item; let i = $index) {
+                <button
+                  (click)="selectItem(i)"
+                  class="btn btn-tab-cate"
+                  [ngClass]="{ active: selectedItem === i }">
+                  {{ item }}
+                </button>
+              }
+            </div>
+            <p class="total-blog">{{ blogList!.pagination.length }} contents</p>
+          </div>
+        </div>
+        <div class="section-right">
+          <div class="form-group w-100">
+            <div class="container-search">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search"
+                [(ngModel)]="searchValue"
+                (keydown.enter)="onSearch(searchValue)"
+                id="milliseconds" />
+              <button (click)="onSearch(searchValue)" class="btn-search ms">
+                <i class="fa-light fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-news">
+          <div class="blog-row">
+            @if (blogs.length > 0) {
+              @for (item of blogs; track item; let index = $index) {
+                @if (index === 0) {
+                  <div class="preview">
+                    <div class="blog-highlight">
+                      <div class="content-left">
+                        <a href="blog/blog-detail/{{ item.slug }}">
+                          <img
+                            src="{{ getImageBlog(item.imagePreview) }}"
+                            alt="image-blog"
+                            class="img-blog" />
+                        </a>
+                      </div>
+                      <div class="content-right">
+                        <p class="blog-date">
+                          @switch (item.type) {
+                            @case ("News") {
+                              <button
+                                class="title-news"
+                                (click)="selectItem(1)">
+                                News
+                              </button>
+                            }
+                            @case ("Events") {
+                              <button
+                                class="title-events"
+                                (click)="selectItem(2)">
+                                Events
+                              </button>
+                            }
+                            @case ("Articles") {
+                              <button
+                                class="title-articles"
+                                (click)="selectItem(3)">
+                                Articles
+                              </button>
+                            }
+                          }
+                          <span class="date"
+                            >&nbsp;|&nbsp;{{ item.createdAt | date }}</span
+                          >
+                        </p>
+                        <a href="blog/blog-detail/{{ item.slug }}">
+                          <h5>{{ item.title }}</h5>
+                          <p class="description-highlight">
+                            {{ item.highlights }}
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                } @else {
+                  <div class="blog-item">
+                    <a href="blog/blog-detail/{{ item.slug }}">
+                      <img
+                        src="{{ getImageBlog(item.imagePreview!) }}"
+                        alt="img-new"
+                        class="news-cover" />
+                    </a>
+                    <p class="news-date">
+                      @switch (item.type) {
+                        @case ("News") {
+                          <button class="title-news" (click)="selectItem(1)">
+                            {{ item.type }}
+                          </button>
+                        }
+                        @case ("Events") {
+                          <button class="title-events" (click)="selectItem(2)">
+                            {{ item.type }}
+                          </button>
+                        }
+                        @case ("Articles") {
+                          <button
+                            class="title-articles"
+                            (click)="selectItem(3)">
+                            {{ item.type }}
+                          </button>
+                        }
+                      }
+                      <span class="title-news-date">
+                        &nbsp;|&nbsp; {{ item.createdAt | date }}</span
+                      >
+                    </p>
+                    <a href="blog/blog-detail/{{ item.slug }}">
+                      <h5 class="news-title">
+                        {{ item.title }}
+                      </h5>
+                      <div class="news-description">
+                        {{ item.highlights }}
+                      </div>
+                    </a>
+                  </div>
+                }
+              } @empty {
+                <div class="app-not-found">
+                  <app-data-not-found [isShowText]="false"></app-data-not-found>
+                </div>
+              }
+            } @else if (isLoading === true) {
+              <div class="spinner-container">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">{{
+                    "loading" | translate
+                  }}</span>
+                </div>
+              </div>
+            } @else {
+              <div class="app-not-found">
+                <app-data-not-found [isShowText]="false"></app-data-not-found>
+              </div>
+            }
+          </div>
+          @if (blogs.length > 0) {
+            <div class="blog-load-more">
+              <button
+                class="btn btn-load-more"
+                *ngIf="isShowViewMore"
+                (click)="viewMore()">
+                LOADING MORE...
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <app-error></app-error>
+}

@@ -1,0 +1,66 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+fa-icon {
+  color: $white-color;
+}
+
+.sidebar {
+  width: 264px;
+  background: $dark-green-color;
+}
+
+.sidebar-menu {
+  width: 100%;
+  padding: 20px;
+}
+
+.sidebar-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background: $green-color;
+}
+
+.sidebar-item.active {
+  background: $green-color;
+}
+
+.sidebar-link {
+  display: block;
+  line-height: 0;
+
+  .hide-menu {
+    @include font-subtitle-2;
+
+    color: $white-color;
+  }
+
+  .icon-hide-menu {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+}
+
+.sidebar-dropdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar-collapse {
+  .hide-menu {
+    margin-left: 26px;
+  }
+}
+
+.logout-menu {
+  margin-top: 50px;
+}
+
+.active {
+  background: $green-color;
+}

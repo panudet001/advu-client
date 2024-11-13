@@ -1,0 +1,85 @@
+<div class="content-container">
+  <div class="app-faq w-100">
+    <div class="header-faq">
+      <app-breadcrumb [breadCrumb]="breadCrumb"></app-breadcrumb>
+      <h2>Frequently Asked Questions</h2>
+      <p class="h8">Your quick guide to common questions.</p>
+    </div>
+    <div class="input-container">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search"
+          [(ngModel)]="searchValue"
+          (keydown.enter)="onSearch(searchValue)" />
+        <button (click)="onSearch(searchValue)">
+          <i class="fa-light fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+    <div class="most-topic">
+      <span class="title">
+        <i class="fa-regular fa-bookmark color-dark-green"></i>
+        <p class="font-subtitle-1">The most popular topic</p>
+      </span>
+      <div class="topic-container">
+        @for (item of faqMostTopic; track item) {
+          <a href="faqs/question/{{ item.slug }}">
+            <div class="content-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="content-title mb-2">
+                  <i class="{{ item.icon }} me-2 color-dark-green"></i>
+                  <div class="font-subtitle-3 title-ellipsis">
+                    {{ item.question }}
+                  </div>
+                </div>
+                <i class="fa-solid fa-caret-right color-gray"></i>
+              </div>
+              <div class="font-body-1 color-gray description-ellipsis">
+                <span [innerHTML]="item.description"></span>
+              </div>
+            </div>
+          </a>
+        } @empty {
+          <div class="app-not-found">
+            <app-data-not-found [isSearch]="true"></app-data-not-found>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div>
+      <div class="categories">
+        <span class="title">
+          <i
+            class="fa-sharp-duotone fa-solid fa-layer-group color-dark-green"></i>
+          <p class="font-subtitle-1">Select from the categories</p>
+        </span>
+        <div class="category-container">
+          @for (item of faqsCategory; track item) {
+            <a href="faqs/category/{{ item.slug }}">
+              <div class="content-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="content-title">
+                    <p class="font-subtitle-3 title-ellipsis">
+                      {{ item.name }}
+                    </p>
+                  </div>
+                  <i class="{{ item.icon }} color-dark-green"></i>
+                </div>
+                <div class="font-body-1 color-gray space description-ellipsis">
+                  <span [innerHTML]="item.description"></span>
+                </div>
+              </div>
+            </a>
+          } @empty {
+            <div class="app-not-found">
+              <app-data-not-found [isSearch]="true"></app-data-not-found>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

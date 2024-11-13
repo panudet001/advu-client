@@ -1,0 +1,188 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 788px;
+  padding: 24px;
+
+  .close-icon {
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: $secondary-en-font;
+
+    @include h7;
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 740px;
+    margin-top: 20px;
+
+    .section {
+      display: flex;
+      gap: 10px;
+      height: 75px;
+
+      .mobile-section {
+        display: flex;
+        width: 100%;
+        max-width: 365px;
+
+        .mt-17 {
+          margin-top: 17px;
+        }
+
+        .country-code {
+          width: 100%;
+          max-width: 130px;
+          color: $black-color;
+          border-top: 0;
+          border-right: 0;
+          border-bottom: 1px solid $gray-bright-color !important;
+          border-left: 0;
+          border-radius: 0 !important;
+
+          mat-select {
+            padding-top: 12px;
+          }
+
+          @include font-body-1;
+        }
+      }
+
+      .form-group-date-picker {
+        position: relative;
+        display: flex;
+        width: 100%;
+
+        .input-date-picker {
+          width: 100%;
+          height: 42px !important;
+          height: auto;
+          padding: 10px;
+          border: 0;
+          border-bottom: 1px solid #ccc;
+          border-radius: 0;
+          outline: none;
+          transition: border-color 0.3s;
+
+          &:focus {
+            border-color: $dark-green-color !important;
+            outline: none !important;
+          }
+        }
+
+        ::ng-deep.date-picker {
+          position: absolute;
+          right: 0;
+
+          .mat-icon-button {
+            &:focus {
+              .mat-focus-indicator.mat-icon.mat-button-base {
+                background: $bright-green-color !important;
+              }
+            }
+          }
+
+          mat-icon {
+            vertical-align: initial !important;
+          }
+
+          .calendar-icon {
+            width: 12px;
+            height: 13.33px;
+            margin-top: -30px;
+          }
+        }
+      }
+
+      .error {
+        margin-top: 4px;
+
+        @include font-body-7;
+
+        color: $red-color;
+      }
+    }
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    button {
+      width: 100%;
+      max-width: 355px;
+      height: 42px;
+    }
+  }
+}
+
+@media screen and (width <= 980px) {
+  .dialog {
+    .form-section {
+      width: 500px;
+    }
+
+    .button-section {
+      button {
+        max-width: 235px;
+      }
+    }
+  }
+}
+
+@media screen and (width <= 680px) {
+  .dialog {
+    .form-section {
+      width: 350px;
+
+      .section {
+        flex-direction: column;
+        height: auto;
+
+        .mobile-section {
+          height: 75px;
+        }
+      }
+    }
+
+    .button-section {
+      button {
+        max-width: 160px;
+      }
+    }
+  }
+}
+
+@media screen and (width <= 500px) {
+  .dialog {
+    .form-section {
+      width: 250px;
+    }
+
+    .button-section {
+      button {
+        max-width: 110px;
+      }
+    }
+  }
+}

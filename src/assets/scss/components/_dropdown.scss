@@ -1,0 +1,23 @@
+@import "assets/scss/color";
+
+// -----------------------------------------------------------------------------------------------------
+// Dropdown
+// -----------------------------------------------------------------------------------------------------
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background-color: $green-color;
+
+  span {
+    color: $white-color;
+  }
+}

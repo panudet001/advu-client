@@ -1,0 +1,62 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 1240px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: auto;
+
+  @media (width < 660px) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 660px;
+
+    .title {
+      @include font-button-1;
+
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .description {
+      @include h1;
+
+      margin-bottom: 40px;
+      color: $dark-green-color;
+      text-align: center;
+
+      @media only screen and (width < 660px) {
+        @include h5;
+      }
+    }
+
+    .input-between {
+      display: flex;
+      gap: 22px;
+      justify-content: space-between;
+
+      @media only screen and (width < 660px) {
+        flex-direction: column;
+        gap: unset;
+        justify-content: center;
+      }
+    }
+
+    .btn-submit {
+      width: 100%;
+      max-width: 152px;
+    }
+
+    input,
+    textarea {
+      background-color: $cultured-color !important;
+    }
+  }
+}

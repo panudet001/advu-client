@@ -1,0 +1,12 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.badge {
+  padding: 4px 6px !important;
+  width: 100% !important;
+  @include font-body-5;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 8px !important;
+}

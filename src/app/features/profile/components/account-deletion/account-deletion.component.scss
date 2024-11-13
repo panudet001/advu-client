@@ -1,0 +1,45 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: $white-color;
+
+  .title {
+    display: flex;
+    width: 100%;
+    font-family: $secondary-en-font;
+
+    @include font-subtitle-3;
+
+    color: $dark-gray-color;
+  }
+
+  .description {
+    display: flex;
+    width: 100%;
+    margin-top: 12px;
+
+    @include font-body-3;
+
+    color: $dark-gray-color;
+    text-align: left;
+  }
+
+  .delete-btn {
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+
+    .btn-outline-delete {
+      width: 182px;
+      height: 42px;
+      padding: 0, 20px, 0, 20px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.confirm-img {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px;
+  text-align: center;
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .title {
+    @include h7;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 31px 24px;
+    border: 1px dashed #6a6a6a;
+    border-radius: 8px;
+  }
+
+  .h7 {
+    @include h7;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    max-width: 368px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 288 / 192;
+    object-fit: contain;
+  }
+
+  .button-close {
+    background: transparent;
+    border-color: transparent;
+  }
+}

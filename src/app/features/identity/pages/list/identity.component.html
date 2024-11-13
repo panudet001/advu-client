@@ -1,0 +1,51 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar-layout">
+    <div class="main">
+      <app-sidebar [isKyc]="user?.isKyc"></app-sidebar>
+      <div class="content">
+        <!--        <app-profile *ngIf="user" [user]="user"></app-profile>-->
+
+        <app-start-identity
+          *ngIf="identityStep === IdentityEnums.stepIdentity"
+          [kyc]="user?.kyc"
+          [isKyc]="isKyc"
+          [faqs]="faqs"
+          (nextStep)="changeStepIdentity($event)">
+        </app-start-identity>
+
+        <div class="kyc-box" *ngIf="isProcessing">
+          <div class="kyc-container">
+            <app-step-form [identityStep]="identityStep"></app-step-form>
+
+            <div class="form-page">
+              <app-identity-verification
+                *ngIf="identityStep === IdentityEnums.identityVerification"
+                [formDataIdentity]="formDataIdentity"
+                (nextStep)="setFormIdentity($event)"
+                (backStep)="changeStepIdentity($event)">
+              </app-identity-verification>
+
+              <app-personal-information
+                *ngIf="identityStep === IdentityEnums.personalInformation"
+                [formDataIdentity]="formDataIdentity"
+                (nextStep)="setFormPersonal($event)"
+                (backStep)="changeStepIdentity($event)">
+              </app-personal-information>
+
+              <app-upload-photos
+                *ngIf="identityStep === IdentityEnums.uploadPhoto"
+                [isLoading]="isLoading"
+                [formDataIdentity]="formDataIdentity"
+                (clickSubmit)="onSubmit($event)"
+                (backStep)="changeStepIdentity($event)">
+              </app-upload-photos>
+            </div>
+          </div>
+        </div>
+
+        <app-save-success *ngIf="identityStep === IdentityEnums.stepSuccess">
+        </app-save-success>
+      </div>
+    </div>
+  </div>
+</div>

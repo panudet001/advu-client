@@ -1,0 +1,138 @@
+<div class="sidebar">
+  <ul class="sidebar-menu">
+    <li class="sidebar-item" *ngIf="isKyc">
+      <a
+        class="sidebar-link sidebar-dropdown"
+        data-bs-toggle="collapse"
+        (click)="handleExpandPortfolio()"
+        href="#dropdown-portfolio-sidebar"
+        role="button"
+        aria-expanded="true"
+        aria-controls="dropdown-portfolio-sidebar">
+        <div class="right">
+          <fa-icon class="icon-hide-menu" [icon]="faWallet"></fa-icon>
+          <span class="hide-menu">Portfolio</span>
+        </div>
+        <i
+          *ngIf="!isExpandPortfolio"
+          class="fa-sharp fa-solid fa-chevron-down color-white"></i>
+        <i
+          *ngIf="isExpandPortfolio"
+          class="fa-sharp fa-solid fa-chevron-up color-white"></i>
+      </a>
+    </li>
+
+    <ul class="collapse sidebar-collapse" id="dropdown-portfolio-sidebar">
+      <li class="sidebar-item" [ngClass]="{ active: menu === 'my-portfolio' }">
+        <a class="sidebar-link" href="{{ '/my-portfolio' | localize }}">
+          <span class="hide-menu">My Investment</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" [ngClass]="{ active: menu === 'deposit' }">
+        <a class="sidebar-link" href="{{ '/deposit' | localize }}">
+          <span class="hide-menu">Deposit</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" [ngClass]="{ active: menu === 'withdraw' }">
+        <a class="sidebar-link" href="{{ '/withdraw' | localize }}">
+          <span class="hide-menu">Withdraw</span>
+        </a>
+      </li>
+    </ul>
+
+    <li class="sidebar-item" [ngClass]="{ active: menu === 'profile' }">
+      <a
+        class="sidebar-link"
+        href="{{ '/profile' | localize }}"
+        aria-expanded="false">
+        <fa-icon class="icon-hide-menu" [icon]="faUser"></fa-icon>
+        <span class="hide-menu">Profile</span>
+      </a>
+    </li>
+
+    <li
+      class="sidebar-item"
+      [ngClass]="{ active: menu === 'identity-verification' }">
+      <a
+        class="sidebar-link"
+        href="{{ '/identity-verification' | localize }}"
+        aria-expanded="false">
+        <fa-icon class="icon-hide-menu" [icon]="faCertificate"></fa-icon>
+        <span class="hide-menu">Identity Verification</span>
+      </a>
+    </li>
+
+    <li class="sidebar-item" *ngIf="isKyc">
+      <a
+        class="sidebar-link sidebar-dropdown"
+        data-bs-toggle="collapse"
+        (click)="handleExpandHistory()"
+        href="#dropdown-history-sidebar"
+        role="button"
+        aria-expanded="true"
+        aria-controls="dropdown-history-sidebar">
+        <div class="right">
+          <fa-icon class="icon-hide-menu" [icon]="faClockRotateLeft"></fa-icon>
+          <span class="hide-menu">History</span>
+        </div>
+        <i
+          *ngIf="!isExpandHistory"
+          class="fa-sharp fa-solid fa-chevron-down color-white"></i>
+        <i
+          *ngIf="isExpandHistory"
+          class="fa-sharp fa-solid fa-chevron-up color-white"></i>
+      </a>
+    </li>
+
+    <ul class="collapse sidebar-collapse" id="dropdown-history-sidebar">
+      <li
+        class="sidebar-item"
+        [ngClass]="{ active: menuHistory === 'history/order' }">
+        <a class="sidebar-link" href="/history/order">
+          <span class="hide-menu">Order History</span>
+        </a>
+      </li>
+
+      <li
+        class="sidebar-item"
+        [ngClass]="{ active: menuHistory === 'history/deposit' }">
+        <a class="sidebar-link" href="/history/deposit">
+          <span class="hide-menu">Deposit History</span>
+        </a>
+      </li>
+
+      <li
+        class="sidebar-item"
+        [ngClass]="{ active: menuHistory === 'history/withdraw' }">
+        <a class="sidebar-link" href="/history/withdraw">
+          <span class="hide-menu">Withdraw History</span>
+        </a>
+      </li>
+
+      <!--      <li class="sidebar-item">-->
+      <!--        <a class="sidebar-link" href="{{ '/history/payment' | localize }}">-->
+      <!--          <span class="hide-menu">Payment History</span>-->
+      <!--        </a>-->
+      <!--      </li>-->
+
+      <li
+        class="sidebar-item"
+        [ngClass]="{ active: menuHistory === 'history/profit' }">
+        <a class="sidebar-link" href="{{ '/history/profit' | localize }}">
+          <span class="hide-menu">Profit History</span>
+        </a>
+      </li>
+    </ul>
+
+    <li class="sidebar-item logout-menu">
+      <a class="sidebar-link" (click)="signOut()" aria-expanded="false">
+        <fa-icon
+          class="icon-hide-menu"
+          [icon]="faArrowRightFromBracket"></fa-icon>
+        <span class="hide-menu">Logout</span>
+      </a>
+    </li>
+  </ul>
+</div>

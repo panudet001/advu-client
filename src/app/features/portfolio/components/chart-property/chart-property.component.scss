@@ -1,0 +1,356 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.no-prop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+
+  > .title {
+    margin-top: 43px;
+
+    @include h8;
+
+    text-align: center;
+  }
+
+  .sub-title {
+    @include font-body-3;
+
+    max-width: 374px;
+    margin-top: 4px;
+    color: $gray-color;
+    text-align: center;
+  }
+
+  .w-196 {
+    width: 196px;
+    margin-top: 24px;
+    margin-bottom: 70px;
+  }
+}
+
+.chart-container {
+  margin-top: 20px;
+
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    color: $dark-green-color;
+    text-align: left;
+    letter-spacing: 0.005em;
+  }
+
+  .chart-box {
+    width: 100%;
+    padding: 20px;
+    background-color: $white-color;
+
+    .chart-container {
+      max-width: 380px;
+      padding: 0;
+      margin: 35px auto;
+    }
+
+    .detail-container {
+      width: 100%;
+
+      .no-mobile {
+        display: block;
+
+        @media only screen and (width < 600px) {
+          display: none;
+        }
+      }
+
+      .table-property {
+        width: 100%;
+
+        th {
+          padding-bottom: 15px;
+        }
+
+        td {
+          padding-bottom: 30px;
+        }
+
+        .w-650 {
+          width: 700px;
+
+          @media only screen and (width < 1315px) {
+            width: 394px;
+          }
+
+          @media only screen and (width < 1240px) {
+            width: 194px;
+          }
+        }
+
+        .text-end {
+          text-align: end;
+        }
+
+        .title-th {
+          @include font-body-5;
+        }
+
+        .title-td {
+          @include font-body-3;
+        }
+
+        .item-2 {
+          @include font-body-1;
+
+          .mts-8 {
+            margin-top: 8px;
+          }
+
+          .up {
+            color: $fresh-green-color;
+          }
+
+          .down {
+            color: $dark-red-color;
+          }
+        }
+
+        .item-3 {
+          display: flex;
+          justify-content: center;
+
+          .img-crypto {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+          }
+        }
+
+        .center {
+          text-align: center;
+        }
+
+        .code-color {
+          width: 18px;
+          height: 18px;
+          color: transparent;
+          background: #2486af;
+        }
+
+        .item-1 {
+          display: flex;
+          gap: 12px;
+        }
+      }
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+
+.detail-prop-container {
+  display: flex;
+
+  .detail-prop {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 343px;
+    padding: 20px 25px;
+    text-align: start;
+
+    .title-prop {
+      @include h8;
+
+      color: $black-color !important;
+    }
+
+    .location-prop {
+      @include font-body-5;
+
+      margin-top: 3px;
+      margin-bottom: 10px;
+      text-align: start;
+    }
+
+    .ml-3 {
+      margin-right: 3px;
+    }
+
+    .ml-7 {
+      margin-right: 7px;
+    }
+
+    .location-yield {
+      display: flex;
+      justify-content: space-between;
+
+      > .title {
+        @include font-body-5;
+
+        color: $black-color !important;
+      }
+
+      .detail {
+        @include font-body-4;
+      }
+    }
+
+    .hr {
+      border-bottom: 0.5px solid #6a6a6a;
+    }
+
+    .location-detail {
+      display: flex;
+      justify-content: space-evenly;
+
+      .my-invest {
+        > .title {
+          color: $black-color;
+          text-align: center;
+
+          @include font-body-5;
+        }
+
+        .detail {
+          text-align: center;
+
+          @include font-subtitle-3;
+        }
+      }
+
+      .total-invest {
+        text-align: center;
+
+        > .title {
+          color: $black-color;
+          text-align: center;
+
+          @include font-body-5;
+        }
+
+        .detail {
+          text-align: center;
+
+          @include font-subtitle-3;
+        }
+      }
+
+      .vl {
+        height: 46px;
+        border-left: 1px solid $gray-color;
+      }
+    }
+
+    .item-list {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 11px;
+
+      .item {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        @include font-body-1;
+      }
+    }
+
+    .token {
+      margin-top: 10px;
+
+      @include font-body-2;
+    }
+  }
+
+  .img {
+    padding: 0;
+
+    .img-prop {
+      width: 288px;
+      height: 283px;
+      object-fit: cover;
+    }
+
+    .type-funded {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 70px;
+      height: 24px;
+      padding: 4px;
+      color: $dark-yellow-color;
+      text-align: center;
+      background: $bright-yellow-color;
+      border-radius: 4px;
+
+      @include font-body-7;
+    }
+
+    .type-live {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 70px;
+      height: 24px;
+      padding: 4px;
+      color: $fresh-green-color;
+      text-align: center;
+      background: $bright-fresh-green-color;
+      border-radius: 4px;
+
+      @include font-body-7;
+    }
+
+    .type-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 70px;
+      height: 24px;
+      padding: 4px;
+      color: $dark-red-color;
+      text-align: center;
+      background: #fce8db;
+      border-radius: 4px;
+
+      @include font-body-7;
+    }
+  }
+}
+
+.tooltips {
+  position: relative;
+  display: inline-block;
+
+  .cursor {
+    cursor: pointer;
+  }
+}
+
+.tooltips .tooltiptext {
+  position: absolute;
+  z-index: 999;
+  width: 631px;
+  max-width: 631px;
+  text-align: center;
+  visibility: hidden;
+  background-color: $white-color;
+  box-shadow: 0 0 4px 0 #00000040;
+
+  @media only screen and (width < 1240px) {
+    display: none;
+  }
+}
+
+.tooltips:hover .tooltiptext {
+  visibility: visible;
+}

@@ -1,0 +1,209 @@
+<div class="content-container">
+  <div class="app-white-paper">
+    <p class="title-official">Official ADAVU Whitepaper</p>
+    <h2 class="title-white-paper">White Paper</h2>
+    <p class="description-white-paper">
+      White paper is an authoritative report or guide that informs readers about
+      a complex issue and presents the issuing body's philosophy on the matter.
+      It is meant to help readers understand an issue, solve a problem, or make
+      a decision.
+    </p>
+    <div class="white-paper-container">
+      <div class="section-left">
+        <div class="menu-scroll">
+          <div class="menu-timeline">
+            <div class="scroll-circle" id="scrollCircle"></div>
+            <div class="scroll-line"></div>
+          </div>
+          <div class="menu-white-paper">
+            <ul
+              class="menu-item"
+              *ngFor="let item of menuItems"
+              (click)="moveScrollCircle($event, item.id)">
+              {{
+                item.title
+              }}
+              <li *ngFor="let subItem of item.subItems">{{ subItem }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-invest">
+          <a href="{{ 'properties' | localize }}">
+            <img
+              alt="white-paper"
+              class="img-invest"
+              src="assets/img/whtie-paper.png" />
+          </a>
+        </div>
+      </div>
+      <div class="section-right" id="section-right">
+        <div class="card-menu">
+          <i class="fa-solid fa-house icon-size"></i>
+          <a href="{{ '' | localize }}">
+            <p class="font-body-4 text-home">Home</p>
+          </a>
+          <i class="fa-solid fa-chevron-right icon-size"></i>
+          <p class="font-body-4">White Paper</p>
+        </div>
+        <p class="last-update">Page last updated : June 25, 2024</p>
+        <div #abstractSection id="abstract">
+          <h5 class="title-document">AbstractThis</h5>
+          <p class="description-document">
+            whitepaper introduces ADAVU, a cutting-edge technology that uses
+            bitcoin to transform real estate investing. Smart contracts,
+            blockchain technology, and an intuitive user interface are all used
+            by ADAVU to give investors a seamless and safe experience. ADAVU
+            creates new possibilities for people to use different
+            cryptocurrencies to engage in the global real estate market and
+            diversify their portfolios by tokenizing real estate assets and
+            permitting fractional ownership. The main characteristics,
+            advantages, and technical details of ADAVU are described in this
+            whitepaper, which also emphasizes how it might help close the divide
+            between the real estate and cryptocurrency sectors.
+          </p>
+        </div>
+        <div #introductionSection id="introduction">
+          <h5 class="title-document">Introduction</h5>
+          <p class="description-document">
+            Overview Geographical restrictions, lengthy processing times, and
+            complexity are common features of the conventional real estate
+            investment procedure. Cryptocurrencies, on the other hand, have
+            become very popular and provide customers a quick and safe
+            alternative to transfer money. By developing a platform that allows
+            people to invest in real estate using cryptocurrencies and provides
+            more accessibility, transparency, and liquidity, ADAVU seeks to
+            combine these two worlds.
+          </p>
+        </div>
+        <div #operationSection id="operation">
+          <h5 class="title-document">The Operation of ADAVU</h5>
+          <p class="description-document">
+            By tokenizing real estate assets and dividing them into digital
+            shares represented by smart contracts, ADAVU uses blockchain
+            technology. This makes fractional ownership possible, enabling
+            smaller investors to engage in high-value assets. Users can choose
+            from a variety of properties, get in-depth details, and invest using
+            the cryptocurrency of their choice.
+          </p>
+        </div>
+        <div id="safety">
+          <h5 class="title-document">Safety and Openness</h5>
+          <p class="description-document">
+            ADAVU uses the immutability and transparency of blockchain
+            technology to prioritize investment security. Investment
+            transactions are carried out securely via smart contracts, doing
+            away with the need for middlemen. Users may easily track the
+            performance and dividends of their investments and have real-time
+            visibility into them.
+          </p>
+        </div>
+        <div id="increasing">
+          <h5 class="title-document">Increasing Capital and Liquidity</h5>
+          ADAVU offers two easy ways for customers to load their wallets with
+          money. The first method makes it easy for customers to convert fiat
+          money into bitcoin by allowing them to add funds using credit cards or
+          Paypal. By using the second way, investors can leverage their current
+          digital assets by simply transferring cryptocurrency into the ADAVU
+          wallet.
+          <p class="description-document"></p>
+        </div>
+        <div id="liquidity">
+          <h5 class="title-document">Liquidity and the Secondary Market</h5>
+          <p class="description-document">
+            Users of ADAVU can trade their fractional ownership shares on a
+            secondary market. By improving liquidity, this feature gives
+            investors the freedom to withdraw their money whenever they'd want.
+            ADAVU promotes a thriving environment where investors can freely
+            transact and optimize their portfolios by facilitating the trading
+            of fractional ownership.
+          </p>
+        </div>
+        <div id="adherence">
+          <h5 class="title-document">Adherence to Regulations</h5>
+          <p class="description-document">
+            ADAVU acknowledges the significance of complying with regulatory
+            frameworks in many jurisdictions. The platform works hard to abide
+            by all applicable rules and laws, giving investors a safe and legal
+            environment. Before making any investments, users are urged to
+            become familiar with their local regulatory requirements.
+          </p>
+        </div>
+        <div id="customer">
+          <h5 class="title-document">Customer Service and Administration</h5>
+          <p class="description-document">
+            ADAVU is dedicated to offering top-notch customer service, helping
+            customers with any questions or technical problems they might run
+            into. Strong governance systems are also implemented by the platform
+            to guarantee accountability, openness, and community involvement in
+            decision-making.
+          </p>
+        </div>
+        <div id="upcoming">
+          <h5 class="title-document">Upcoming Events</h5>
+          <p class="description-document">
+            Beyond its first release, ADAVU intends to continuously improve and
+            add new features to the platform. Future plans include incorporate
+            cutting-edge analytics, provide more kinds of properties, and look
+            into joint ventures with reputable financial institutions and real
+            estate firms.
+          </p>
+        </div>
+        <div id="summary">
+          <h5 class="title-document">In summary</h5>
+          <p class="description-document">
+            By bridging the gap between real estate investing and
+            cryptocurrencies, ADAVU gives investors all over the world access to
+            a wealth of options. Through the use of smart contracts, blockchain
+            technology, and an intuitive user interface, ADAVU offers a safe,
+            open, and easily navigable platform for anyone to use
+            cryptocurrencies to invest in real estate. By utilizing its
+            cutting-edge methodology and unwavering dedication to client
+            satisfaction, ADAVU hopes to transform the real estate investing
+            landscape and unleash the full potential of the world's real estate
+            market for everybody.
+          </p>
+        </div>
+        <div id="technical">
+          <h5 class="title-document">ADAVU Technical Specifications</h5>
+          <p class="description-document">
+            ADAVU utilizes to ensure secure, transparent, and efficient
+            transactions. We have chosen the platform for several reasons:
+            Security: ADAVU offers a robust security framework with a proven
+            track record of preventing hacks and unauthorized access.
+            Scalability: The platform can handle a high volume of transactions
+            efficiently, ensuring smooth operation as ADAVU grows. Smart
+            Contract Functionality: ADAVU provides a mature environment for
+            developing and deploying smart contracts, which are essential for
+            automating core ADAVU functionalities. Interoperability: ADAVU
+            integrates well with other blockchain platforms, allowing for future
+            expansion and potential partnerships. Smart Contract Functionality:
+            ADAVU's smart contracts play a critical role in managing investment
+            processes. Here's a breakdown of their key functionalities:
+            Ownership Management: Smart contracts securely track ownership of
+            fractionalized real estate assets. When a user invests, the smart
+            contract automatically updates the ownership ledger, reflecting the
+            new ownership distribution. Dividend Payments: Smart contracts
+            automate dividend payouts to token holders. Rental income or other
+            property-generated revenue is distributed proportionally based on
+            each user's ownership share. Voting Rights : For certain properties,
+            smart contracts can facilitate voting on important decisions related
+            to the asset, such as renovations or tenant selection. Voting rights
+            are assigned proportionately based on ownership stake. Security
+            Measures: ADAVU prioritizes the security of user wallets and smart
+            contracts. We implement the following measures: Secure Wallet
+            Integration: ADAVU integrates with secure and reputable digital
+            wallet providers to ensure safe storage of user's crypto assets and
+            private keys. Smart Contract Audits: Regular audits are conducted by
+            independent security firms to identify and rectify any
+            vulnerabilities in the smart contracts before deployment. Bug Bounty
+            Programs: ADAVU may implement bug bounty programs to incentivize the
+            white hacker community to discover and report potential security
+            issues. Transparency: The codebase for the smart contracts will be
+            open-source (subject to legal and security considerations) to allow
+            public scrutiny and foster trust.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

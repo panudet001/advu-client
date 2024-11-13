@@ -1,0 +1,101 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.menu {
+  display: flex;
+  overflow-x: hidden;
+  scrollbar-width: none;
+
+  .btn-with-underline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 207px;
+
+    .btn-name {
+      width: 100%;
+
+      @include font-button-1;
+
+      color: $dark-gray-color;
+      cursor: pointer;
+    }
+
+    .p-black {
+      color: $dark-gray-color;
+    }
+
+    .p-green {
+      color: $dark-green-color;
+    }
+
+    .hr-green {
+      border: 1px solid #2a878b;
+      opacity: 100;
+    }
+
+    .hr-black {
+      border: 1px solid #484848;
+    }
+  }
+
+  .btn-with-underline-full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    width: calc(100% - 414px);
+  }
+
+  hr {
+    width: 100%;
+    margin-top: 8px;
+    border: 1px solid #484848;
+  }
+}
+
+@media screen and (width <= 1150px) {
+  .menu {
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .btn-with-underline,
+    .btn-with-underline-full {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+// @media screen and (width <= 942px) {
+//  .menu {
+//    .btn-with-underline-full {
+//      display: none;
+//    }
+//  }
+// }
+
+@media screen and (width <= 780px) {
+  .menu {
+    .btn-with-underline-full {
+      display: flex;
+    }
+  }
+}
+
+// @media screen and (width <= 662px) {
+//  .menu {
+//    .btn-with-underline-full {
+//      display: none;
+//    }
+//  }
+// }
+
+// ----------------------------------------------
+// mat-select
+// ----------------------------------------------
+
+.cdk-overlay-pan {
+  width: 130px !important;
+}

@@ -1,0 +1,360 @@
+<div class="app-sign-up">
+  <div class="auth-wrapper">
+    <div *ngIf="!isOpenOtpForm" class="auth-container">
+      <div class="header-group">
+        <h2 class="h5">Sign Up</h2>
+      </div>
+
+      <div class="sign-up-container">
+        <form class="form-container w-100" [formGroup]="signUpForm">
+          <!--        // ---------------------------------------->
+          <!--        // First Name -->
+          <!--        // ---------------------------------------->
+          <div class="form-group">
+            <label class="label-title text-uppercase mb-2" for="first-name"
+              >First Name
+              <span class="label-required">*</span>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="first-name"
+              name="firstName"
+              placeholder="Enter First Name"
+              [ngClass]="{
+                'is-invalid':
+                  fFirstName?.invalid &&
+                  (fFirstName?.dirty || fFirstName?.touched) &&
+                  isSubmit,
+              }"
+              [formControlName]="'firstName'"
+              required />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                fFirstName?.invalid &&
+                (fFirstName?.dirty || fFirstName?.touched) &&
+                isSubmit
+              ">
+              <div *ngIf="fFirstName?.errors?.['required']">
+                Please enter your first name.
+              </div>
+              <div *ngIf="fFirstName?.errors?.['minlength']">
+                Please enter your first name at least 6 characters.
+              </div>
+              <div *ngIf="fFirstName?.errors?.['maxlength']">
+                Please enter your first name more than 32 characters.
+              </div>
+            </div>
+          </div>
+
+          <!--        // ---------------------------------------->
+          <!--        // Last Name -->
+          <!--        // ---------------------------------------->
+          <div class="form-group">
+            <label class="label-title text-uppercase mb-2" for="last-name"
+              >Last Name <span class="label-required">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="last-name"
+              name="lastName"
+              placeholder="Enter Last Name"
+              [ngClass]="{
+                'is-invalid':
+                  fLastName?.invalid &&
+                  (fLastName?.dirty || fLastName?.touched) &&
+                  isSubmit,
+              }"
+              [formControlName]="'lastName'"
+              required />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                fLastName?.invalid &&
+                (fLastName?.dirty || fLastName?.touched) &&
+                isSubmit
+              ">
+              <div *ngIf="fLastName?.errors?.['required']">
+                Please enter your last name.
+              </div>
+              <div *ngIf="fLastName?.errors?.['minlength']">
+                Please enter your last name at least 6 characters.
+              </div>
+              <div *ngIf="fLastName?.errors?.['maxlength']">
+                Please enter your last name more than 32 characters.
+              </div>
+            </div>
+          </div>
+
+          <!--        // ---------------------------------------->
+          <!--        // Username -->
+          <!--        // ---------------------------------------->
+          <div class="form-group">
+            <label class="label-title text-uppercase mb-2" for="username"
+              >Username <span class="label-required">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Enter Username"
+              [ngClass]="{
+                'is-invalid':
+                  fUsername?.invalid &&
+                  (fUsername?.dirty || fUsername?.touched) &&
+                  isSubmit,
+              }"
+              [formControlName]="'username'"
+              required />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                fUsername?.invalid &&
+                (fUsername?.dirty || fUsername?.touched) &&
+                isSubmit
+              ">
+              <div *ngIf="fUsername?.errors?.['required']">
+                Please enter your username.
+              </div>
+              <div *ngIf="fUsername?.errors?.['minlength']">
+                Please enter a username of at least 6 characters.
+              </div>
+              <div *ngIf="fUsername?.errors?.['maxlength']">
+                Please enter a username of more than 32 characters.
+              </div>
+            </div>
+          </div>
+
+          <!--        // ---------------------------------------->
+          <!--        // Email -->
+          <!--        // ---------------------------------------->
+          <div class="form-group">
+            <label class="label-title text-uppercase mb-2" for="email"
+              >Email <span class="label-required">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter Email"
+              [ngClass]="{
+                'is-invalid':
+                  fEmail?.invalid &&
+                  (fEmail?.dirty || fEmail?.touched) &&
+                  isSubmit,
+              }"
+              [formControlName]="'email'"
+              required />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                fEmail?.invalid &&
+                (fEmail?.dirty || fEmail?.touched) &&
+                isSubmit
+              ">
+              <div *ngIf="fEmail?.errors?.['required']">
+                Please enter your email.
+              </div>
+              <div *ngIf="fEmail?.errors?.['email']">Email is invalid.</div>
+            </div>
+          </div>
+
+          <!--        // ---------------------------------------->
+          <!--        // Password -->
+          <!--        // ---------------------------------------->
+
+          <div class="form-group">
+            <label class="label-title text-uppercase mb-2" for="password"
+              >Password <span class="label-required">*</span></label
+            >
+            <div
+              class="input-password-group"
+              [ngClass]="{
+                'is-invalid':
+                  fPassword?.invalid &&
+                  (fPassword?.dirty || fPassword?.touched) &&
+                  isSubmit,
+              }">
+              <input
+                [type]="isShowPassword ? 'text' : 'password'"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    fPassword?.invalid &&
+                    (fPassword?.dirty || fPassword?.touched) &&
+                    isSubmit,
+                }"
+                id="password"
+                name="password"
+                placeholder="Enter Password"
+                [formControlName]="'password'"
+                required />
+              <button class="btn-visibility" (click)="togglePassword(false)">
+                {{ isShowPassword ? "Hide" : "Show" }}
+              </button>
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                fPassword?.invalid &&
+                (fPassword?.dirty || fPassword?.touched || isSubmit)
+              ">
+              <div *ngIf="fPassword?.errors?.['required']">
+                Password is required.
+              </div>
+              <div *ngIf="fPassword?.errors?.['minlength']">
+                Password must be at least 8 characters long.
+              </div>
+            </div>
+          </div>
+
+          <ul class="list-password-checklist">
+            <li>10 to 16 characters.</li>
+            <li>Uppercase letters (A-Z) & lowercase letters (a-z)</li>
+            <li>Numbers (0-9)</li>
+            <li>Special characters (!, #, $, %, ^, &, *, (, ), _, +)</li>
+          </ul>
+
+          <!--        // ---------------------------------------->
+          <!--        // Confirm Password -->
+          <!--        // ---------------------------------------->
+
+          <div class="form-group">
+            <label class="label-title text-uppercase mb-2" for="password"
+              >Confirm Password <span class="label-required">*</span></label
+            >
+            <div
+              class="input-password-group"
+              [ngClass]="{
+                'is-invalid':
+                  fConfirmPassword?.invalid &&
+                  (fConfirmPassword?.dirty || fConfirmPassword?.touched) &&
+                  isSubmit,
+              }">
+              <input
+                [type]="isShowConfirmPassword ? 'text' : 'password'"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    fConfirmPassword?.invalid &&
+                    (fConfirmPassword?.dirty || fConfirmPassword?.touched) &&
+                    isSubmit,
+                }"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="Enter Confirm Password"
+                [formControlName]="'confirmPassword'"
+                required />
+              <button class="btn-visibility" (click)="togglePassword(true)">
+                {{ isShowConfirmPassword ? "Hide" : "Show" }}
+              </button>
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                fConfirmPassword?.invalid &&
+                (fConfirmPassword?.dirty ||
+                  fConfirmPassword?.touched ||
+                  isSubmit)
+              ">
+              <div *ngIf="fConfirmPassword?.errors?.['required']">
+                Password is required.
+              </div>
+              <div *ngIf="fConfirmPassword?.errors?.['minlength']">
+                Password must be at least 8 characters long.
+              </div>
+            </div>
+          </div>
+
+          <!--        // ---------------------------------------->
+          <!--        // Agree -->
+          <!--        // ---------------------------------------->
+
+          <div class="form-check">
+            <input
+              class="form-check-input mb-2"
+              type="checkbox"
+              [formControlName]="'agree'"
+              id="flexCheckDefault"
+              required />
+            <label class="form-check-label font-body-5" for="flexCheckDefault">
+              I accept the
+              <a class="color-dark-green font-body-5" href="" target="_blank">
+                Terms of Use
+              </a>
+              <a class="color-dark-green font-body-5" href="" target="_blank">
+                and Privacy Policy
+              </a>
+            </label>
+          </div>
+
+          <div
+            class="invalid-feedback"
+            [ngClass]="{
+              'custom-invalid':
+                isSubmit &&
+                fAgree?.invalid &&
+                (fAgree?.dirty || fAgree?.touched),
+            }">
+            <div *ngIf="fAgree?.errors?.['required']">
+              Please accept the terms of use and Privacy Policy.
+            </div>
+          </div>
+
+          <!--        // ---------------------------------------->
+          <!--        // Alert Error -->
+          <!--        // ---------------------------------------->
+
+          <div
+            *ngIf="isShowAlertError"
+            class="alert alert-danger mt-4"
+            role="alert">
+            <div class="alert-heading">
+              <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+              <p class="heading">Fail</p>
+            </div>
+            <div class="alert-content">
+              {{ this.alertError | translate }}
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            (click)="sendOTP()"
+            [disabled]="signUpForm.disabled"
+            class="btn btn-primary w-100 text-uppercase mt-3">
+            <span
+              *ngIf="signUpForm.disabled"
+              class="spinner-border spinner-border-sm mb-0 mx-2">
+            </span>
+            <span *ngIf="!signUpForm.disabled"> Sign Up </span>
+            <span *ngIf="signUpForm.disabled"> Loading... </span>
+          </button>
+
+          <p class="font-body-5 mt-4 text-center">
+            Already have a member?
+            <a class="color-dark-green font-body-5" href=""> Log in here </a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <div *ngIf="isOpenOtpForm" class="auth-container">
+      <app-form-otp-verify
+        [otpRef]="otpKey"
+        [email]="email"
+        [codeRefWithTime]="refWithTime"
+        [isShowAlertError]="isShowAlertErrorOTP"
+        [alertError]="alertErrorOTP"
+        [isLoading]="isLoadingOTP"
+        (submitOTP)="verifyOtp($event)"
+        (resendOTP)="resendOTP()"
+        (btnBack)="goBack()">
+      </app-form-otp-verify>
+    </div>
+  </div>
+</div>

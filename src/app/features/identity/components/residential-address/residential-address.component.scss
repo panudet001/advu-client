@@ -1,0 +1,17 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.residential-address {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+
+  .title {
+    @include h7;
+  }
+
+  .ml-24 {
+    margin-top: 15px;
+    margin-bottom: 24px;
+  }
+}

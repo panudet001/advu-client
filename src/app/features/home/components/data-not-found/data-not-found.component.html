@@ -1,0 +1,11 @@
+<div class="no-data">
+  <img src="assets/img/icon/file-search.png" alt="no-data" />
+  <p class="no-data-title" *ngIf="!isShowText">No records found.</p>
+  <div *ngIf="isShowText">
+    <p class="no-data-title">No records found.</p>
+    <p class="no-data-description">
+      It looks like your account hasn't made any investments yet. Please
+      consider investing yourself.
+    </p>
+  </div>
+</div>

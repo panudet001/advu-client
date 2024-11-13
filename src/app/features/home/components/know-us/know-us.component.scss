@@ -1,0 +1,89 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-know-us {
+  display: flex;
+  column-gap: 80px;
+  max-width: 1440px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin: auto;
+
+  .section-left {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .img-know-us {
+      width: 671px;
+      height: auto;
+    }
+  }
+
+  .section-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    .know-us-title {
+      @include font-button-1;
+
+      margin-bottom: 8px;
+    }
+
+    .know-us-heading {
+      @include h1;
+
+      color: $dark-green-color;
+    }
+
+    .know-us-description {
+      @include font-body-2;
+    }
+
+    .btn-primary {
+      width: 160px;
+      margin-top: 40px;
+    }
+  }
+
+  @media only screen and (width >= 1441px) {
+    max-width: 1240px;
+  }
+
+  @media only screen and (width <= 1340px) {
+    gap: 40px;
+
+    .section-right {
+      padding-right: 50px;
+    }
+  }
+
+  @media only screen and (width <= 1180px) {
+    flex-direction: column;
+
+    .section-left {
+      .img-know-us {
+        width: 100%;
+      }
+    }
+
+    .section-right {
+      padding-top: 0;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  @media only screen and (width <= 660px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    .section-right {
+      .know-us-heading {
+        @include h5;
+      }
+    }
+  }
+}

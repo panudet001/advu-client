@@ -1,0 +1,7 @@
+<div class="section-profile">
+  <span class="font-subtitle-2 mb-2">MY ACCOUNT</span>
+  <h5 class="mb-8">Welcome, {{ user.firstname }} {{ user.lastname }}</h5>
+  <span class="font-body-3"
+    >Member Since {{ user.createdAt | date: "MMM y" }}</span
+  >
+</div>

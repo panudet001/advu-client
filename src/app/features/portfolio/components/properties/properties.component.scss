@@ -1,0 +1,84 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.my-properties-container {
+  margin-top: 20px;
+
+  .title {
+    @include font-body-10;
+
+    color: $dark-green-color;
+  }
+
+  .my-properties-box {
+    width: 100%;
+    padding: 20px;
+    background-color: $white-color;
+
+    .description {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      margin-top: 21px;
+      border: 1px solid $dark-green-color;
+      border-radius: 5px;
+
+      .text {
+        width: 100%;
+        max-width: 514px;
+
+        @include font-body-3;
+
+        text-align: center;
+      }
+    }
+  }
+
+  .grid-properties {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22.88px;
+    align-content: center;
+    margin-top: 20px;
+
+    @media only screen and (width < 1440px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (width <= 1090px) {
+      grid-template-columns: minmax(300px, 700px);
+      justify-items: center;
+    }
+  }
+}
+
+.no-prop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+
+  > .title {
+    margin-top: 43px;
+
+    @include h8;
+
+    text-align: center;
+  }
+
+  .sub-title {
+    @include font-body-3;
+
+    max-width: 454px;
+    margin-top: 4px;
+    color: $gray-color;
+    text-align: center;
+  }
+
+  .w-196 {
+    width: 196px;
+    margin-top: 24px;
+    margin-bottom: 70px;
+  }
+}

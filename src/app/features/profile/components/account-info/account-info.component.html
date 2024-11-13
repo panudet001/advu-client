@@ -1,0 +1,56 @@
+<div class="account-info">
+  <p class="title">Account Information</p>
+
+  <div class="key-pair-value">
+    <div class="section">
+      <div class="key-value">
+        <div class="key">
+          <p>Email :</p>
+        </div>
+        <div class="value">
+          <p>{{ user.email || "popeye_pimrapat@gmail.com" }}</p>
+        </div>
+      </div>
+
+      <div class="btn-with-underline">
+        <button
+          class="btn-link-primary 'p-green'"
+          (click)="sendOtpOldEmail.emit()"
+          [disabled]="isDisable">
+          Edit
+        </button>
+        <hr class="hr-green" />
+      </div>
+    </div>
+    <div class="section">
+      <div class="key-value">
+        <div class="key">
+          <p>Username :</p>
+        </div>
+        <div class="value">
+          <p>{{ user.username }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="key-value">
+        <div class="key">
+          <p>Password :</p>
+        </div>
+        <div class="value">
+          <p>**********</p>
+        </div>
+      </div>
+
+      <div class="btn-with-underline">
+        <button
+          class="btn-link-primary 'p-green'"
+          (click)="sendOtpChangePassword.emit()"
+          [disabled]="isDisable">
+          Edit
+        </button>
+        <hr class="hr-green" />
+      </div>
+    </div>
+  </div>
+</div>

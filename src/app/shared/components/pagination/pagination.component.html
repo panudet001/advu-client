@@ -1,0 +1,55 @@
+<!-- <nav aria-label="pagination">
+  <ul>
+    <li>
+      <button
+        aria-label="Go To Previous Page"
+        [attr.aria-disabled]="current === 0"
+        [disabled]="current === 0"
+        (click)="onPrevious()">
+        {{ 'infoPage.previous' | translate}}
+      </button>
+    </li>
+    <li *ngFor="let page of pages">
+      <a
+        [attr.aria-current]="page === current ? 'page' : null"
+        [attr.aria-label]="
+          page === current ? 'Current Page, Page ' + page : 'Go to Page ' + page
+        "
+        [class.current]="page === current"
+        tabindex="0"
+        (click)="onGoTo(page)"
+        (keyup.enter)="onGoTo(page)">
+        {{ page === -1 ? '..' : page }}
+      </a>
+    </li>
+    <li>
+      <button
+        aria-label="Go To Next Page"
+        [attr.aria-disabled]="current === total"
+        [disabled]="current === total"
+        (click)="onNext()">
+        {{ 'infoPage.next' | translate}}
+      </button>
+    </li>
+  </ul>
+</nav> -->
+
+<div class="pagination-content">
+  <ngb-pagination
+    class="ngb-pagination"
+    [collectionSize]="totalItems"
+    [pageSize]="pageSize"
+    [(page)]="currentPage"
+    [maxSize]="3"
+    [rotate]="true"
+    [ellipses]="true"
+    [boundaryLinks]="false"
+    (pageChange)="onPageChange($event)">
+    <ng-template ngbPaginationPrevious>
+      <fa-icon [icon]="faChevronLeft" class="cl"></fa-icon>
+    </ng-template>
+    <ng-template ngbPaginationNext>
+      <fa-icon [icon]="faChevronRight" class="cl"></fa-icon>
+    </ng-template>
+  </ngb-pagination>
+</div>

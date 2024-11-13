@@ -1,0 +1,321 @@
+<div
+  class="header-navbar sticky-top w-100"
+  [ngClass]="
+    this.isHomePage
+      ? 'bg-transparent position-absolute box-shadow-unset'
+      : 'bg-white box-shadow'
+  "
+  style="transition: background-position 0.3s"
+  #header>
+  <app-loading-bar></app-loading-bar>
+  <nav class="navbar navbar-expand navbar-white" #navbar>
+    <div class="container-fluid">
+      <!--        // ---------------------------------------->
+      <!--        // Dropdown Lang -->
+      <!--        // ---------------------------------------->
+
+      <!--      <div class="dropdown lang-dropdown">-->
+      <!--        <button-->
+      <!--          class="btn btn-link-primary dropdown-toggle p-0 d-none"-->
+      <!--          type="button"-->
+      <!--          id="dropdownMenuButton1"-->
+      <!--          data-bs-toggle="dropdown">-->
+      <!--          <div class="d-flex align-items-center">-->
+      <!--            <img-->
+      <!--              [ngSrc]="'assets/img/icon/' + this.currentLang + '.png'"-->
+      <!--              width="24"-->
+      <!--              height="24"-->
+      <!--              alt="{{ this.currentLang }}" />-->
+      <!--            <span-->
+      <!--              class="font-subtitle-2 color-black text-uppercase ms-2"-->
+      <!--              [ngClass]="this.isHomePage ? 'color-white' : 'color-black'"-->
+      <!--              #lang-->
+      <!--              >{{ currentLang }}-->
+      <!--            </span>-->
+      <!--          </div>-->
+      <!--        </button>-->
+      <!--        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+      <!--          @for (locale of locales; track locale) {-->
+      <!--            <li>-->
+      <!--              <a-->
+      <!--                class="dropdown-item"-->
+      <!--                [ngClass]="locale === this.currentLang ? 'active' : ''"-->
+      <!--                href="{{ locale | localize }}">-->
+      <!--                <img-->
+      <!--                  ngSrc="assets/img/icon/{{ locale }}.png"-->
+      <!--                  width="24"-->
+      <!--                  height="24"-->
+      <!--                  alt="{{ locale }}" />-->
+      <!--                <span class="font-subtitle-2 color-black text-uppercase ms-2"-->
+      <!--                  >{{ locale }}-->
+      <!--                </span>-->
+      <!--              </a>-->
+      <!--            </li>-->
+      <!--          }-->
+      <!--        </ul>-->
+      <!--      </div>-->
+
+      <!--        // ---------------------------------------->
+      <!--        // Logo -->
+      <!--        // ---------------------------------------->
+      <div class="dropdown lang-dropdown" style="color: transparent">
+        locale
+      </div>
+
+      <div class="logo-center navbar-brand">
+        @if (isHomePage) {
+          <a class="link-logo-white" href="{{ '' | localize }}">
+            <img
+              alt="Logo"
+              [ngSrc]="
+                isHomePage && isScrolled
+                  ? 'assets/img/logo.png'
+                  : 'assets/img/logo-white.png'
+              "
+              height="35"
+              width="162"
+              priority />
+          </a>
+        } @else {
+          <a class="link-logo-white" href="{{ '' | localize }}">
+            <img
+              alt="Logo"
+              ngSrc="assets/img/logo.png"
+              height="35"
+              width="162"
+              priority />
+          </a>
+        }
+      </div>
+
+      <!--        // ---------------------------------------->
+      <!--        // Menu -->
+      <!--        // ---------------------------------------->
+
+      <button
+        aria-controls="offcanvasRight"
+        data-bs-target="#offcanvasRight"
+        data-bs-toggle="offcanvas"
+        type="button"
+        class="btn btn-link-primary color-black me-0 ms-0 pe-0 ps-0"
+        [ngClass]="this.isHomePage ? 'color-white' : 'color-black'"
+        #menu>
+        <span class="font-button-1 me-2 menu text-uppercase">{{
+          "common.menu" | translate
+        }}</span>
+        <i class="fa-light fa-bars icon-hide-menu" style="margin-top: 2px"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!--        // ---------------------------------------->
+  <!--        // Offcanvas -->
+  <!--        // ---------------------------------------->
+
+  <div
+    aria-labelledby="offcanvasRightLabel"
+    class="offcanvas offcanvas-end"
+    id="offcanvasRight"
+    tabindex="-1">
+    <div class="offcanvas-header">
+      <i
+        class="fa-light fa-bars icon-hide-menu me-2"
+        style="margin-top: 2px"></i>
+      <span class="font-button-1 menu text-uppercase">{{
+        "common.menu" | translate
+      }}</span>
+
+      <button
+        aria-label="Close"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        type="button"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <hr />
+
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ '/properties' | localize }}">
+          <span class="hide-menu">Property List</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ '/how-to-use' | localize }}">
+          <span class="hide-menu">How To Use</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ '/about-us' | localize }}">
+          <span class="hide-menu">About Us</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ '/faqs' | localize }}">
+          <span class="hide-menu">FAQs</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ '/contact-us' | localize }}">
+          <span class="hide-menu">Contact Us</span>
+        </a>
+      </li>
+
+      <div *ngIf="user" class="login-section">
+        <hr />
+
+        <p
+          class="font-subtitle-2 color-gray"
+          style="margin-bottom: 10px; margin-left: -10px">
+          {{ user.firstname }} {{ user.lastname }}
+        </p>
+        <li class="sidebar-item" *ngIf="user.isKyc">
+          <a
+            class="sidebar-link sidebar-dropdown"
+            data-bs-toggle="collapse"
+            href="#dropdown-portfolio"
+            role="button"
+            aria-expanded="true"
+            aria-controls="dropdown-portfolio">
+            <div class="right">
+              <i class="fa-light fa-wallet icon-hide-menu"></i>
+              <span class="hide-menu">Portfolio</span>
+            </div>
+            <div class="left">
+              <i class="fa-light fa-angle-down"></i>
+            </div>
+          </a>
+        </li>
+
+        <ul class="collapse sidebar-collapse" id="dropdown-portfolio">
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ '/my-portfolio' | localize }}">
+              <span class="hide-menu">My Investment</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ '/deposit' | localize }}">
+              <span class="hide-menu">Deposit</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ '/withdraw' | localize }}">
+              <span class="hide-menu">Withdraw</span>
+            </a>
+          </li>
+        </ul>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ '/profile' | localize }}">
+            <i class="fa-light fa-user icon-hide-menu"></i>
+            <span class="hide-menu">Profile</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link"
+            href="{{ '/identity-verification' | localize }}">
+            <i class="fa-thin fa-address-card icon-hide-menu"></i>
+            <span class="hide-menu">Identity Verification</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item" *ngIf="user.isKyc">
+          <a
+            class="sidebar-link sidebar-dropdown"
+            data-bs-toggle="collapse"
+            href="#dropdown-history"
+            role="button"
+            aria-expanded="true"
+            aria-controls="dropdown-history">
+            <div class="right">
+              <i class="fa-light fa-clock-rotate-left icon-hide-menu"></i>
+              <span class="hide-menu">History</span>
+            </div>
+            <div class="left">
+              <i class="fa-light fa-angle-down"></i>
+            </div>
+          </a>
+        </li>
+
+        <ul
+          class="collapse sidebar-collapse"
+          id="dropdown-history"
+          *ngIf="user.isKyc">
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ '/history/order' | localize }}">
+              <span class="hide-menu">Order History</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ '/history/deposit' | localize }}">
+              <span class="hide-menu">Deposit History</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ '/history/withdraw' | localize }}">
+              <span class="hide-menu">Withdraw History</span>
+            </a>
+          </li>
+
+          <!--          <li class="sidebar-item">-->
+          <!--            <a class="sidebar-link" href="{{ '/history/payment' | localize }}">-->
+          <!--              <span class="hide-menu">Payment History</span>-->
+          <!--            </a>-->
+          <!--          </li>-->
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ '/history/profit' | localize }}">
+              <span class="hide-menu">Profit History</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lang-section">
+        <hr />
+
+        <!-- @for (locale of locales; track locale) {
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ locale | localize }}">
+              <img
+                class="me-2"
+                ngSrc="assets/img/icon/{{ locale }}.png"
+                width="24"
+                height="24"
+                alt="{{ locale }}" />
+              <span class="hide-menu text-uppercase">{{ locale }}</span>
+            </a>
+          </li>
+        } -->
+      </div>
+
+      <div class="logout-section mt-3">
+        <li class="sidebar-item">
+          @if (user) {
+            <a class="sidebar-link" href="{{ '/logout' | localize }}">
+              <i
+                class="fa-light fa-arrow-right-from-bracket icon-hide-menu me-2"></i>
+              <span class="hide-menu">Logout</span>
+            </a>
+          } @else {
+            <a class="sidebar-link" href="{{ '/sign-in' | localize }}">
+              <i
+                class="fa-light fa-arrow-right-from-bracket icon-hide-menu me-2"></i>
+              <span class="hide-menu">Login</span>
+            </a>
+          }
+        </li>
+      </div>
+    </div>
+  </div>
+</div>

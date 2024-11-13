@@ -1,0 +1,75 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+
+  .center-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 50px;
+    margin: 163px auto;
+    background-color: $white-color;
+
+    img {
+      width: 75px;
+      height: 79px;
+    }
+
+    h1 {
+      @include font-subtitle-3;
+
+      line-height: 24px;
+      color: $dark-gray-color;
+    }
+
+    p {
+      @include font-body-1;
+
+      font-weight: 400;
+      text-align: center;
+    }
+
+    a {
+      width: 355px;
+      height: 42px;
+      margin-top: 20px;
+    }
+  }
+}
+
+@media screen and (width <= 1000px) {
+  .card-content {
+    .center-div {
+      margin: 130px;
+    }
+  }
+}
+
+@media screen and (width <= 750px) {
+  .card-content {
+    .center-div {
+      padding: 32px;
+      margin: 130px;
+    }
+  }
+}
+
+@media screen and (width <= 600px) {
+  .card-content {
+    .center-div {
+      padding: 32px;
+      margin: 60px 30px;
+
+      a {
+        width: 266px;
+      }
+    }
+  }
+}

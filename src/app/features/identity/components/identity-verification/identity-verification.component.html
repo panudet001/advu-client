@@ -1,0 +1,111 @@
+<div class="app-identity-verification">
+  <p class="title">Personal Information</p>
+  <p class="font-body-5 ml-24">
+    Please provide the following information as shown on your password or ID
+    card
+  </p>
+
+  <form class="form-container w-100" [formGroup]="identityInForm">
+    <div class="form-group">
+      <p class="label-title text-uppercase mb-2">
+        NATIONALITY <span class="label-required">*</span>
+      </p>
+
+      <mat-select
+        class="select-transaction w-100"
+        id="nationality"
+        [ngClass]="{
+          'is-invalid':
+            fNationality?.invalid &&
+            (fNationality?.dirty || fNationality?.touched),
+        }"
+        [formControlName]="'nationality'">
+        <mat-select-trigger>
+          <!--          <img src="{{ imageNationality }}" alt="" class="icon-nat" />-->
+          {{ nameNationality }}
+        </mat-select-trigger>
+        <mat-option
+          *ngFor="let item of nationalities"
+          [value]="item"
+          (click)="selectNationality(item)">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div class="form-group">
+      <p class="label-title text-uppercase mb-2">
+        SELECT ID TYPE <span class="label-required">*</span>
+      </p>
+
+      <div class="type-group">
+        <label
+          class="d-flex w-100 align-items-center gap-1 box-type"
+          for="passport"
+          [ngClass]="{ 'box-active': fType?.value === '0' }">
+          <div class="item">
+            <input
+              type="radio"
+              id="passport"
+              name="type"
+              value="0"
+              [formControlName]="'type'" />
+            <label for="passport" class="font-body-5">Passport</label>
+          </div>
+          <i class="fa-sharp fa-thin fa-passport icon-color"></i>
+        </label>
+
+        <label
+          class="d-flex w-100 align-items-center gap-1 box-type"
+          for="card"
+          [ngClass]="{ 'box-active': fType?.value === '1' }">
+          <div class="item">
+            <input
+              type="radio"
+              id="card"
+              name="type"
+              value="1"
+              [formControlName]="'type'" />
+            <label for="card" class="font-body-5">ID Card</label>
+          </div>
+          <i class="fa-sharp fa-light fa-id-card icon-color"></i>
+        </label>
+
+        <label
+          class="d-flex w-100 align-items-center gap-1 box-type"
+          for="driver"
+          [ngClass]="{ 'box-active': fType?.value === '2' }">
+          <div class="item">
+            <input
+              type="radio"
+              id="driver"
+              name="type"
+              value="2"
+              [formControlName]="'type'" />
+            <label for="driver" class="font-body-5">Driver's License</label>
+          </div>
+          <i class="fa-sharp fa-thin fa-credit-card icon-color"></i>
+        </label>
+      </div>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          fNationality?.invalid &&
+          (fNationality?.dirty || fNationality?.touched)
+        ">
+        <div *ngIf="fType?.errors?.['required']">First name is required.</div>
+      </div>
+    </div>
+  </form>
+
+  <div class="d-flex w-100 gap-2 min-btn">
+    <button class="btn btn-outline-primary w-100" (click)="handleBack()">
+      Previous
+    </button>
+    <button
+      class="btn btn-primary w-100"
+      [disabled]="isInvalidFrom"
+      (click)="handleNext()">
+      Continue
+    </button>
+  </div>
+</div>

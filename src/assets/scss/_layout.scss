@@ -1,0 +1,101 @@
+@import "assets/scss/color";
+
+// -----------------------------------------------------------------------------------------------------
+// Layout Main
+// -----------------------------------------------------------------------------------------------------
+
+.content-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (width <= 1240px) {
+    padding: 30px;
+  }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// Auth Layout Main
+// -----------------------------------------------------------------------------------------------------
+
+.auth-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background-color: $bright-green-color;
+
+  .auth-container {
+    width: 1140px;
+    padding: 40px 56px;
+    background-color: $white-color;
+
+    @media only screen and (width <= 1140px) {
+      padding: 30px;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// Layout Sidebar (Dashboard)
+// -----------------------------------------------------------------------------------------------------
+
+.sidebar-wrapper {
+  padding: 20px 20px 24px;
+  background: $bright-green-color;
+
+  .sidebar-layout {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .main {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      max-width: 1440px;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+
+        @media only screen and (width <= 1440px) {
+          width: calc(100% - 284px);
+        }
+
+        @media only screen and (width <= 780px) {
+          width: 100%;
+        }
+      }
+
+      @media (width <= 780px) {
+        gap: 0;
+
+        app-sidebar {
+          display: none;
+        }
+
+        .content {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.app-table-responsive {
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 8px;
+  overflow-x: auto;
+
+  td,
+  mat-cell {
+    white-space: nowrap;
+    padding: 16px;
+  }
+}

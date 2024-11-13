@@ -1,0 +1,108 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+a {
+  word-break: break-word;
+}
+
+.box-detail {
+  padding: 24px;
+
+  .close {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+    .close-btn {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  .title {
+    text-align: center;
+
+    @include h7;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .text-name {
+        @include font-body-1;
+
+        color: $dark-gray-color;
+      }
+
+      .text-value {
+        @include font-body-1;
+      }
+
+      .amount {
+        display: flex;
+        align-items: center;
+
+        .img-crypto {
+          margin-right: 8px;
+          border-radius: 50%;
+        }
+      }
+
+      button {
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .image {
+      img {
+        width: 161px;
+        height: 80px;
+      }
+    }
+
+    .asset {
+      display: flex;
+      width: 100%;
+
+      .estes {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+
+        @media only screen and (width <= 660px) {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      .text-status {
+        display: flex;
+        align-items: center;
+
+        @media only screen and (width <= 660px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .h-mobile {
+    display: none !important;
+
+    @media only screen and (width <= 660px) {
+      display: flex !important;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="my-wallet">
+  <div class="wallet-group">
+    <p class="total color-dark-green">Total Balance</p>
+    <div class="balance">
+      {{ wallet.balance | addComma: 2 }} {{ wallet.cryptoSymbol }}
+      <img
+        class="img"
+        src="{{ fileService.getImageV2(wallet.cryptoImagePath) }}"
+        width="30"
+        height="30"
+        alt="coin" />
+    </div>
+    <div class="wallet-address">
+      <p class="total color-dark-green">Wallet Address</p>
+      <div class="d-flex align-items-center">
+        <p class="font-body-3 address">{{ walletAddress?.walletAddress }}</p>
+        <button
+          class="button"
+          ngxClipboard
+          [cbContent]="walletAddress?.walletAddress"
+          (cbOnSuccess)="handleCopy($event)">
+          <i class="fa-sharp fa-thin fa-copy"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="button-group-wallet">
+    <a href="/deposit" class="btn btn-primary w-100">Deposit</a>
+    <a href="/withdraw" class="btn btn-outline-primary w-100">Withdraw</a>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar-layout">
+    <div class="main">
+      <app-sidebar [isKyc]="user?.isKyc"></app-sidebar>
+      <div class="content">
+        <app-profile *ngIf="user" [user]="user"></app-profile>
+        <div class="mobile-container">
+          <div class="mobile-box">
+            <i class="fa-sharp fa-light fa-arrows-rotate-reverse"></i>
+            Deposit History
+          </div>
+        </div>
+        <div class="deposit color-dark-green">
+          <h5>Deposit History</h5>
+          <app-search-transaction
+            [transactionForm]="transactionForm"
+            [allStatus]="['Pending', 'Success', 'Cancel', 'Refund']">
+          </app-search-transaction>
+
+          @if (dataSource.deposits.length > 0) {
+            <div class="app-table-responsive">
+              <table mat-table [dataSource]="dataSource.deposits">
+                <ng-container matColumnDef="createdAt">
+                  <th mat-header-cell *matHeaderCellDef>Time</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    (click)="handleDetail(element)">
+                    {{ element.createdAt | date: "dd-MM-YYYY HH:mm" }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                  <th mat-header-cell *matHeaderCellDef>Amount</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    (click)="handleDetail(element)">
+                    <div class="amount">
+                      {{ element.amount | addComma: 2 }}
+                    </div>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="network">
+                  <th mat-header-cell *matHeaderCellDef>Network</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    (click)="handleDetail(element)">
+                    {{ element.chainName }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="txnHash">
+                  <th mat-header-cell *matHeaderCellDef>Txn Hash</th>
+                  <td mat-cell *matCellDef="let element">
+                    <a
+                      href="{{ element.link + '/tx/' + element.txnHash }}"
+                      target="_blank"
+                      class="btn-link-primary m-2">
+                      {{ element.txnHash | splitText }}
+                    </a>
+                    <button
+                      ngxClipboard
+                      [cbContent]="element.txnHash"
+                      class="button-tx"
+                      (cbOnSuccess)="handleCopy($event)">
+                      <i class="fa-sharp fa-thin fa-copy"></i>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="from">
+                  <th mat-header-cell *matHeaderCellDef>From</th>
+                  <td mat-cell *matCellDef="let element">
+                    <a
+                      href="{{ element.link + '/address/' + element.from }}"
+                      target="_blank"
+                      class="btn-link-primary m-2">
+                      {{ element.from | splitText }}
+                    </a>
+
+                    <button
+                      ngxClipboard
+                      [cbContent]="element.from"
+                      class="button-tx"
+                      (cbOnSuccess)="handleCopy($event)">
+                      <i class="fa-sharp fa-thin fa-copy"></i>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef>Status</th>
+                  <td mat-cell *matCellDef="let element">
+                    <span [innerHTML]="statusName(element.status)"></span>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+            </div>
+            <div class="container-pagination">
+              <div class="show-items">
+                <p class="font-body-3 no-warp">Show items</p>
+                <select
+                  class="form-select form-select-sm w-100"
+                  [formControl]="selectPage">
+                  <option value="10">10</option>
+                  <option value="30">30</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                <p class="font-body-3 no-mobile">Items</p>
+              </div>
+              <app-pagination
+                (pageChange)="onPageChange($event)"
+                [currentPage]="dataSource.pagination.page + 1"
+                [pageSize]="dataSource.pagination.size"
+                [totalItems]="dataSource.pagination.length"></app-pagination>
+            </div>
+          } @else {
+            <app-data-not-found
+              [isShowText]="true"
+              [description]="dataNotFound"></app-data-not-found>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

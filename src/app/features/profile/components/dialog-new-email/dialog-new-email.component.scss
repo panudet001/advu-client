@@ -1,0 +1,104 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: 788px;
+  padding: 24px;
+
+  .close-icon {
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: $secondary-en-font;
+    color: $dark-gray-color;
+
+    @include h7;
+  }
+
+  .sub-title-1 {
+    display: flex;
+    justify-content: center;
+
+    p {
+      margin-top: 20px;
+      color: $dark-gray-color;
+      text-align: center;
+
+      @include font-body-1;
+    }
+
+    .email-text {
+      margin-left: 5px;
+      color: $black-color !important;
+
+      @include font-body-1;
+    }
+  }
+
+  .sub-title-2 {
+    width: 100%;
+    color: $dark-gray-color;
+    text-align: center;
+
+    @include font-body-1;
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .section {
+      display: flex;
+      height: 75px;
+    }
+  }
+
+  .button-section {
+    margin-top: 20px;
+
+    button {
+      width: 100%;
+      height: 42px;
+    }
+  }
+}
+
+@media screen and (width <= 980px) {
+  .dialog {
+    width: 500px;
+  }
+}
+
+@media screen and (width <= 680px) {
+  .dialog {
+    width: 350px;
+
+    .sub-title-1 {
+      flex-direction: column;
+
+      .email-text {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (width <= 440px) {
+  .dialog {
+    width: 300px;
+  }
+}

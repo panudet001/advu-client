@@ -1,0 +1,39 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.title {
+  @include h4;
+
+  margin: 0;
+  color: $dark-green-color;
+}
+
+.no-data {
+  margin: 30px auto;
+  text-align: center;
+
+  img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 24px;
+  }
+
+  .no-data-title {
+    @include h8;
+
+    color: $dark-gray-color;
+  }
+
+  .no-data-description {
+    @include font-body-1;
+
+    font-weight: 400;
+    color: $gray-color;
+  }
+
+  .sub {
+    @include font-body-3;
+
+    color: $gray-color;
+  }
+}

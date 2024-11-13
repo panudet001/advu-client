@@ -1,0 +1,59 @@
+<div class="identity-file">
+  <p class="title">{{ title }}</p>
+  <div class="crop re">
+    <p><i class="fa-solid fa-cloud-arrow-up icon mb-3"></i></p>
+    <p class="font-body-5 mb-2">
+      Drag & drop or
+      <span class="color-dark-green">Choose file </span> to upload
+    </p>
+    <p class="font-body-7">JPG, PNG formats, up to 2 MB</p>
+    <img
+      class="preview-image"
+      *ngIf="fileUrl && uploadFile"
+      src="{{ fileUrl }}"
+      alt="preview-image" />
+
+    <input
+      style="width: 100%; height: 100%"
+      #fileInput
+      type="file"
+      (change)="handleChange($event)"
+      [accept]="allowedFileTypes"
+      class="absolute opacity-0" />
+
+    <button
+      *ngIf="fileUrl && uploadFile"
+      class="btn btn-link"
+      (click)="handleRemovesFile()">
+      <i class="fa-light fa-circle-minus remove"></i>
+    </button>
+  </div>
+
+  <div class="mobile-file">
+    <button class="btn-outline-primary item-file">Choose files</button>
+    <input
+      #fileInput
+      type="file"
+      (change)="handleChange($event)"
+      [accept]="allowedFileTypes"
+      style="width: 100%; height: 100%"
+      class="file-mobile input-file opacity-0" />
+    <p class="text">JPG, PNG formats, up to 2MB</p>
+    <div class="mobile-preview" *ngIf="fileUrl && uploadFile">
+      <div class="item">
+        <img
+          src="{{ fileUrl }}"
+          alt=""
+          width="60"
+          height="40"
+          class="item-img" />
+        <p class="font-body-7 dot">{{ uploadFile.name }}</p>
+        <p class="font-body-7 dot">{{ formatBytes(uploadFile.size) }}</p>
+      </div>
+      <button class="button-close" (click)="handleRemovesFile()">
+        <i class="fa-light fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+  <hr class="hr" />
+</div>

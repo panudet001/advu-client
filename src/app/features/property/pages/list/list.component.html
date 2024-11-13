@@ -1,0 +1,72 @@
+<div class="app-list">
+  <div class="herder-container">
+    <div class="herder-left">
+      <p class="title text-uppercase">
+        BASED ON MOST RECENT PROPERTY REVALUATIONS
+      </p>
+      <p class="subtitle text-uppercase">PROPERTIES LIST</p>
+    </div>
+    <div class="herder-right">
+      <button
+        (click)="onTypeChange(InvestmentTypes.live)"
+        [ngClass]="{
+          'btn-primary': investmentType === InvestmentTypes.live,
+          'btn-outline-primary': investmentType === InvestmentTypes.funded,
+        }"
+        class="btn btn-tab">
+        In Operation
+      </button>
+      <button
+        (click)="onTypeChange(InvestmentTypes.funded)"
+        [ngClass]="{
+          'btn-primary': investmentType === InvestmentTypes.funded,
+          'btn-outline-primary': investmentType === InvestmentTypes.live,
+        }"
+        class="btn btn-tab">
+        Funded
+      </button>
+    </div>
+  </div>
+
+  <div class="filter-container mt-4">
+    <div class="left">
+      <h3 class="font-subtitle-1 m-0">
+        {{
+          investmentType === InvestmentTypes.live
+            ? "Live opportunities"
+            : "Funded Property"
+        }}
+        <span class="font-subtitle-1 ms-2 color-dark-green">
+          {{ this.investments.length }}
+        </span>
+      </h3>
+    </div>
+    <div class="right">
+      <select class="form-select">
+        <option>Newest</option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngIf="isShowLoading" class="spinner-container">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">{{ "loading" | translate }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="!isShowLoading" class="investment-container">
+    <ng-container *ngFor="let investment of this.investments; let i = index">
+      <app-card-investment
+        [isShowBtnCancel]="false"
+        [isShowBtnInvest]="false"
+        [investmentType]="investmentType"
+        [investment]="investment">
+      </app-card-investment>
+    </ng-container>
+    @if (investments.length === 0) {
+      <app-data-not-found
+        [isShowText]="true"
+        class="data-not-found"></app-data-not-found>
+    }
+  </div>
+</div>

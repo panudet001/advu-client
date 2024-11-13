@@ -1,0 +1,28 @@
+<div class="no-data">
+  <img src="assets/img/icon/no_data.png" alt="no-data" />
+  @if (!isShowText && !isSearch) {
+    <p class="no-data-title">Didn't you find what you were looking for?</p>
+    <p class="sub">- Please check the spelling and try again.</p>
+    <p class="sub">Or find from the section below</p>
+    <div class="menu-cate">
+      @for (item of categoryMenu; track item; let i = $index) {
+        <button
+          (click)="selectItem(i)"
+          class="btn btn-tab-cate font-body-1"
+          [ngClass]="{ active: selectedItem === i }">
+          {{ item }}
+        </button>
+      }
+    </div>
+  }
+  <div class="go-contact" *ngIf="isSearch">
+    <p class="no-data-title-2">No question found.</p>
+    <p class="no-data-description">
+      There is no FAQ available. If you have any questions,<br />
+      please visit the link below.
+    </p>
+    <a href="contact-us">
+      <button class="btn btn-primary btn-contact">Go to contact us</button>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="box-detail">
+  <div class="close">
+    <button class="close-btn" (click)="handleClose()">
+      <i class="fa-light fa-xmark"></i>
+    </button>
+  </div>
+  <div class="title">Withdraw Detail</div>
+  <div class="detail">
+    <div class="item">
+      <p class="text-name">Status</p>
+      <p
+        class="text-value"
+        [innerHTML]="statusName(withdrawHistories.status)"></p>
+    </div>
+    <div class="item">
+      <p class="text-name">Time</p>
+      <p class="text-value">
+        {{ withdrawHistories.createdAt | date: "dd-MM-YYYY HH:mm" }}
+      </p>
+    </div>
+    <div class="item">
+      <p class="text-name">Deposit Amount</p>
+      <div class="amount">
+        <img
+          src="{{ withdrawHistories.cryptoImagePath }}"
+          width="16px"
+          height="16px"
+          class="img-crypto"
+          alt="" />
+        {{ withdrawHistories.amount | addComma: 2 }}
+      </div>
+    </div>
+    <div class="item">
+      <p class="text-name">Network</p>
+      <p class="text-value color-dark-green">
+        {{ withdrawHistories.chainName }}
+      </p>
+    </div>
+    <div class="item">
+      <p class="text-name">From</p>
+      <div>
+        <a
+          href="{{
+            withdrawHistories.link + '/address/' + withdrawHistories.txnHash
+          }}"
+          target="_blank"
+          class="btn-link-primary m-2 warp">
+          {{ withdrawHistories.txnHash }}
+        </a>
+        <button
+          ngxClipboard
+          [cbContent]="withdrawHistories.txnHash"
+          class="text-dark"
+          (cbOnSuccess)="handleCopy($event)">
+          <i class="fa-sharp fa-thin fa-copy"></i>
+        </button>
+      </div>
+    </div>
+    <div class="item">
+      <p class="text-name">Txn Hash</p>
+      <div>
+        <a
+          href="{{
+            withdrawHistories.link + '/address/' + withdrawHistories.to
+          }}"
+          target="_blank"
+          class="btn-link-primary m-2">
+          {{ withdrawHistories.to }}
+        </a>
+        <button
+          ngxClipboard
+          [cbContent]="withdrawHistories.to"
+          class="text-dark"
+          (cbOnSuccess)="handleCopy($event)">
+          <i class="fa-sharp fa-thin fa-copy"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button
+    class="btn btn-primary font-body-2 w-100 mt-3"
+    (click)="handleClose()">
+    CLOSE
+  </button>
+</div>

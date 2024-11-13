@@ -1,0 +1,42 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-tab-management {
+  .management-container {
+    display: flex;
+
+    .image {
+      flex: 1;
+      padding: 24px;
+      margin-right: 29px;
+      text-align: center;
+    }
+
+    .description {
+      flex: 1.5;
+      padding: 24px;
+    }
+
+    @media only screen and (width <= 1024px) {
+      flex-direction: column;
+
+      .image {
+        flex: 1;
+      }
+
+      .description {
+        flex: 1;
+      }
+    }
+  }
+
+  .tab-title {
+    @include h7;
+
+    color: $black-color;
+
+    @media only screen and (width <= 660px) {
+      @include h8;
+    }
+  }
+}

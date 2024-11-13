@@ -1,0 +1,26 @@
+<div class="container-countdown">
+  <div class="item">
+    <p class="title font-button-1 color-dark-gray">Countdown</p>
+    <p class="value font-body-1 color-gray">
+      UTC <span><i class="fa-light fa-clock ms-1"></i></span>
+    </p>
+  </div>
+
+  <div class="time-container" [ngClass]="countdownColor">
+    <div class="time-box">
+      <p class="value h6">{{ days }}</p>
+      <p class="name font-body-7">Days</p>
+    </div>
+    <p class="dot h6">:</p>
+    <div class="time-box">
+      <p class="value h6">{{ hours }}</p>
+      <p class="name font-body-7">Hours</p>
+    </div>
+
+    <p class="dot h6">:</p>
+    <div class="time-box">
+      <p class="value h6">{{ minutes }}</p>
+      <p class="name font-body-7">Minutes</p>
+    </div>
+  </div>
+</div>

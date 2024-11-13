@@ -1,0 +1,119 @@
+// -----------------------------------------------------------------------------------------------------
+// Style Guide Colors
+// -----------------------------------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------------------------------
+// Primary Colors
+// -----------------------------------------------------------------------------------------------------
+
+$dark-green-color: #2a878b;
+$black-color: #000000;
+$white-color: #ffffff;
+
+// -----------------------------------------------------------------------------------------------------
+// Secondary Colors
+// -----------------------------------------------------------------------------------------------------
+
+// ----------------------------------------------
+// Green
+// ----------------------------------------------
+
+$green-color: #48989c;
+$bright-green-color: #e1eeee;
+
+// ----------------------------------------------
+// Gray
+// ----------------------------------------------
+
+$dark-gray-color: #484848;
+$gray-color: #6a6a6a;
+$bright-gray-color: #cdcdcd;
+
+// ----------------------------------------------
+// Silver
+// ----------------------------------------------
+
+$silver-color: #ebebeb;
+
+// ----------------------------------------------
+// Error
+// ----------------------------------------------
+
+$dark-red-color: #ef3340;
+$red-color: #ff6b61;
+$bright-red-color: #fce8db;
+
+// ----------------------------------------------
+// Warning
+// ----------------------------------------------
+
+$dark-yellow-color: #df931a;
+$yellow-color: #ffe033;
+$bright-yellow-color: #fff4d6;
+
+// ----------------------------------------------
+// Success
+// ----------------------------------------------
+
+$fresh-green-color: #43bc34;
+$vista-blue-color: #7be2aa;
+$green-check-color: #03c75c;
+$bright-fresh-green-color: #d9f2d9;
+
+// ----------------------------------------------
+// Information
+// ----------------------------------------------
+
+$dark-blue-color: #0c2a75;
+$bright-blue-color: #d7f1fd;
+
+// -----------------------------------------------------------------------------------------------------
+
+$bright-green: #a5c5c5;
+$gray-dark-color: #2c2929;
+$gray-bright-color: #cdcdcd;
+$chardonnay-color: #f5d254;
+$green-light: #29878b;
+$green-light2: #4fbfa8;
+$green-light3: #04aa6d;
+$green-light4: #23adad;
+$green-countdown: #b4d5d6;
+$red-light: #ffb9b9;
+$yellow-light: #fbedc2;
+$green-option-1: #04585b;
+$green-option-2: #48989c;
+$green-option-3: #76bdc0;
+$blue-link: #509af8;
+$cultured-color: #f7f8f9;
+$backdrop-color: #0c0801b2;
+
+$colors: (
+  "dark-green": $dark-green-color,
+  "dark-yellow": $dark-yellow-color,
+  "bright-yellow": $bright-yellow-color,
+  "bright-fresh-green": $bright-fresh-green-color,
+  "bright-red": $bright-red-color,
+  "dark-blue": $dark-blue-color,
+  "bright-blue": $bright-blue-color,
+  "black": $black-color,
+  "white": $white-color,
+  "gray": $gray-color,
+  "bright-gray": $bright-gray-color,
+  "red": $red-color,
+  "dark-red": $dark-red-color,
+  "cultured": $cultured-color,
+  "fresh-green": $fresh-green-color,
+  "yellow": $dark-yellow-color,
+);
+
+@each $color, $value in $colors {
+  .bg-#{$color} {
+    background-color: $value;
+  }
+}
+
+@each $color, $value in $colors {
+  .color-#{$color} {
+    color: $value;
+  }
+}

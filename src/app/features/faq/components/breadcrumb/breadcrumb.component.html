@@ -1,0 +1,15 @@
+<span
+  *ngFor="let item of breadCrumb; let column_index = index; let last = last">
+  <a [href]="item.url">
+    <i *ngIf="column_index === 0" class="fa-light fa-house-chimney"></i>
+    <span *ngIf="!last" class="no-active font-body-4 color-gray"
+      >{{ item["title"]! | translate }} &nbsp;&nbsp;<i
+        class="fa-solid fa-chevron-right color-gray"></i
+      >&nbsp;&nbsp;
+    </span>
+  </a>
+
+  <span *ngIf="last" class="active font-body-4">{{
+    item["title"]! | translate
+  }}</span>
+</span>

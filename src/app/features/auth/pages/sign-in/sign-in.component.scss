@@ -1,0 +1,118 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-sign-in {
+  .header-group {
+    margin-bottom: 20px;
+  }
+
+  .sign-in-container {
+    display: flex;
+
+    .section-left {
+      width: 50%;
+      padding: 0 30px;
+
+      @media only screen and (width <= 1140px) {
+        padding: 10px;
+      }
+
+      .form-group {
+        width: 100%;
+
+        .input-password-group {
+          position: relative;
+          display: flex;
+
+          .btn-visibility {
+            position: absolute;
+            top: 24%;
+            right: 5%;
+            color: $gray-color;
+            cursor: pointer;
+            background-color: transparent;
+            border: unset;
+
+            @include font-body-5;
+          }
+        }
+      }
+
+      .input-remember-group {
+        justify-content: flex-start;
+
+        .label-remember {
+          @include font-body-5;
+        }
+      }
+
+      .bottom-card {
+        @include font-body-1;
+
+        font-weight: 400;
+        text-align: center;
+
+        a {
+          @include font-body-1;
+
+          color: $green-color;
+        }
+      }
+    }
+
+    hr {
+      display: none;
+
+      @media only screen and (width <= 520px) {
+        margin: 50px 10px !important;
+      }
+    }
+
+    .section-right {
+      width: 50%;
+      padding: 0 30px;
+      border-left: 1px solid $silver-color;
+
+      @media only screen and (width <= 1140px) {
+        padding: 0 10px !important;
+      }
+
+      ul,
+      li {
+        list-style-type: inherit;
+      }
+
+      li {
+        margin-bottom: 8px;
+        margin-left: 16px;
+
+        @include font-body-3;
+      }
+    }
+
+    @media only screen and (width <= 720px) {
+      flex-direction: column;
+
+      .section-left {
+        width: 100%;
+      }
+
+      hr {
+        display: block;
+        margin: 50px 30px;
+      }
+
+      .section-right {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 30px;
+        border-left: 0;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

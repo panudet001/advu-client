@@ -1,0 +1,35 @@
+<mat-dialog-content class="modal-section">
+  <div class="title">CANCEL CONFIRMATION</div>
+  <p class="group font-body-1">
+    <span> The system will cancel the investment order of </span>
+    <span>{{ data["investmentId"] ? data["investmentId"] : "-" }}</span>
+    <span> after you check confirm</span>
+  </p>
+  <form [formGroup]="cancelForm">
+    <div class="form-check form-checkbox">
+      <input
+        [formControlName]="'checkbox'"
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="checkbox" />
+      <label class="form-check-label font-body-2" for="checkbox">
+        "Yes, I confirm to cancel this investment order."
+      </label>
+    </div>
+  </form>
+  <div class="button-row">
+    <div class="form-group">
+      <button (click)="close()" class="btn btn-outline-primary">Close</button>
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        (click)="submit()"
+        class="btn btn-primary"
+        [attr.disabled]="!checkbox?.value ? cancelForm.disabled : null">
+        Confirm
+      </button>
+    </div>
+  </div>
+</mat-dialog-content>

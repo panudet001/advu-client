@@ -1,0 +1,48 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar-layout">
+    <div class="main">
+      <app-sidebar [isKyc]="user.isKyc"></app-sidebar>
+      <div class="content">
+        <app-profile *ngIf="user" [user]="user"></app-profile>
+        <div class="overview">
+          <div class="mobile-container">
+            <div class="mobile-box">
+              <i class="fa-sharp fa-regular fa-wallet"></i>
+              Portfolio
+            </div>
+          </div>
+          <app-my-wallet
+            *ngIf="myWallet"
+            [wallet]="myWallet"
+            [walletAddress]="walletAddress"
+            (emitCopy)="handleCopy($event)"></app-my-wallet>
+
+          <div class="overall-container">
+            <app-overall
+              [title]="'Total Income'"
+              [total]="user.totalInCome"></app-overall>
+            <app-overall
+              [title]="'Funded Investment'"
+              [total]="balanceTotal"></app-overall>
+            <app-overall
+              [title]="'Last Month Revenue'"
+              [total]="user.lastMonthInCome"></app-overall>
+          </div>
+
+          <app-my-properties
+            [investmentOrdersByLive]="investmentOrder"
+            (cancelInvestment)="cancelInvestment($event)">
+          </app-my-properties>
+
+          <app-chat-property
+            *ngIf="wallet"
+            [series]="series"
+            [labels]="labels"
+            [walletResponses]="wallet"
+            (pageEmit)="pageEmit($event)">
+          </app-chat-property>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

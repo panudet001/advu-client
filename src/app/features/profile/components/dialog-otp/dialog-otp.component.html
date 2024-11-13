@@ -1,0 +1,70 @@
+<div class="dialog">
+  <div class="close-icon">
+    <img
+      src="assets/img/icon/close.svg"
+      alt="close-edit-profile"
+      mat-dialog-close />
+  </div>
+  <div class="app-form-otp">
+    <form class="otp-container" [formGroup]="otpForm">
+      <h2 class="h5 mt-4">Email Verification</h2>
+
+      <p class="font-body-3 lh-lg">We have sent an email to {{ email }}</p>
+
+      <p class="font-body-3 lh-lg mb-5">
+        Please check your email and enter the 6-digit verification code :
+        {{ otpRef }} to confirm
+      </p>
+
+      <ng-otp-input
+        class="form-input mt-5"
+        inputmode="number"
+        (onInputChange)="onOtpChange($event)"
+        [config]="{ length: 6, allowNumbersOnly: true }">
+      </ng-otp-input>
+
+      @if (isInvalid) {
+        <div class="custom-invalid">
+          <div>Please enter the 6-digit.</div>
+        </div>
+      }
+
+      <p class="code-expires mt-1">
+        Code expires in :
+        <span class="font-body-5 color-red">
+          {{ timeRemaining$ | async | date: "mm:ss" }}
+        </span>
+      </p>
+    </form>
+
+    <div *ngIf="isShowAlertError" class="alert alert-danger mt-4" role="alert">
+      <div class="alert-heading">
+        <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+        <p class="heading">Fail</p>
+      </div>
+      <div class="alert-content" style="text-align: start">
+        {{ this.alertError | translate }}
+      </div>
+    </div>
+
+    <p class="group-text mt-4 mb-3">
+      Didn’t receive the OTP ?
+      <button class="resend-otp btn-link-primary" (click)="resendOtp()">
+        Resend OTP
+      </button>
+    </p>
+
+    <button
+      type="submit"
+      (click)="verifyOtp()"
+      [disabled]="isLoading"
+      class="btn btn-primary btn-submit w-100 mb-3 text-uppercase">
+      <span
+        *ngIf="isLoading"
+        class="spinner-border spinner-border-sm mb-0 mx-2">
+      </span>
+      <span *ngIf="!isLoading"> Verify </span>
+      <span *ngIf="isLoading"> Loading... </span>
+    </button>
+  </div>
+</div>

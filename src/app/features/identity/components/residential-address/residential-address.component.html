@@ -1,0 +1,117 @@
+<div
+  class="residential-address"
+  *ngIf="residentialStep === ResidentialInformationEnums.address">
+  <p class="title">Residential Address</p>
+  <p class="font-body-5 ml-24">Fill in your current residential address</p>
+
+  <form class="form-container w-100" [formGroup]="residentialInForm">
+    <div class="form-group">
+      <label class="label-title text-uppercase mb-2" for="address"
+        >ADDRESS<span class="label-required">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        name="address"
+        placeholder="Enter Address"
+        [ngClass]="{
+          'is-invalid':
+            fAddress?.invalid && (fAddress?.dirty || fAddress?.touched),
+        }"
+        [formControlName]="'address'"
+        required />
+      <div
+        class="invalid-feedback"
+        *ngIf="fAddress?.invalid && (fAddress?.dirty || fAddress?.touched)">
+        <div *ngIf="fAddress?.errors?.['required']">Address is required.</div>
+        <div *ngIf="fAddress?.errors?.['minlength']">
+          Address must be at least 5 characters long.
+        </div>
+        <div *ngIf="fAddress?.errors?.['maxlength']">
+          Address max length 20 characters.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label-title text-uppercase mb-2" for="city"
+        >CITY<span class="label-required">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="city"
+        name="city"
+        placeholder="Enter City"
+        [ngClass]="{
+          'is-invalid': fCity?.invalid && (fCity?.dirty || fCity?.touched),
+        }"
+        [formControlName]="'city'"
+        required />
+      <div
+        class="invalid-feedback"
+        *ngIf="fCity?.invalid && (fCity?.dirty || fCity?.touched)">
+        <div *ngIf="fCity?.errors?.['required']">City is required.</div>
+        <div *ngIf="fCity?.errors?.['minlength']">
+          City must be at least 5 characters long.
+        </div>
+        <div *ngIf="fCity?.errors?.['maxlength']">
+          City max length 20 characters.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label-title text-uppercase mb-2" for="zip"
+        >ZIP/ POSTAL CODE<span class="label-required">*</span></label
+      >
+      <input
+        type="number"
+        class="form-control"
+        id="zip"
+        name="zip"
+        placeholder="Enter City"
+        [ngClass]="{
+          'is-invalid': fZip?.invalid && (fZip?.dirty || fZip?.touched),
+        }"
+        [formControlName]="'zip'"
+        required />
+      <div
+        class="invalid-feedback"
+        *ngIf="fZip?.invalid && (fZip?.dirty || fZip?.touched)">
+        <div *ngIf="fZip?.errors?.['required']">Zip code is required.</div>
+        <div *ngIf="fZip?.errors?.['minlength']">
+          Zip code must be at least 5 characters long.
+        </div>
+        <div *ngIf="fZip?.errors?.['maxlength']">
+          Zip code max length 20 characters.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label-title text-uppercase mb-2" for="country"
+        >COUNTRY/REGION</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="country"
+        name="country"
+        placeholder="Thailand"
+        [formControlName]="'country'" />
+    </div>
+  </form>
+  <div class="d-flex w-100 gap-2 min-btn">
+    <button class="btn btn-outline-primary w-100" (click)="handleBack()">
+      Previous
+    </button>
+    <button
+      class="btn btn-primary w-100"
+      [disabled]="isInvalidForm"
+      (click)="handleNext()">
+      Continue
+    </button>
+  </div>
+</div>

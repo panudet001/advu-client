@@ -1,0 +1,82 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.container-countdown {
+  .item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .title {
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+
+  .value {
+    flex-grow: 1;
+    text-align: right;
+    word-break: break-word;
+  }
+
+  .time-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .time-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin: 8px;
+
+      .name {
+        color: $gray-color;
+      }
+    }
+  }
+
+  .time-box-green {
+    .time-box {
+      background: linear-gradient(
+        180deg,
+        $bright-green-color 0%,
+        rgb(225 238 238 / 0%) 100%
+      );
+
+      .value {
+        color: $dark-green-color;
+      }
+    }
+  }
+
+  .time-box-red {
+    .time-box {
+      background: linear-gradient(
+        180deg,
+        $bright-red-color 0%,
+        rgb(255 185 185 / 0%) 100%
+      );
+
+      .value {
+        color: $dark-red-color;
+      }
+    }
+  }
+
+  .time-box-yellow {
+    .time-box {
+      background: linear-gradient(
+        180deg,
+        $bright-yellow-color 0%,
+        rgb(225 238 238 / 0%) 100%
+      );
+
+      .value {
+        color: $dark-yellow-color;
+      }
+    }
+  }
+}

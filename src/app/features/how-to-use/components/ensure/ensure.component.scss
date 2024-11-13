@@ -1,0 +1,95 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  .bg-ensure {
+    .bg-glass {
+      .title-ensure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        h2 {
+          @include h5;
+
+          margin-bottom: 0;
+          line-height: 36px;
+          color: $black-color;
+          text-align: center;
+        }
+
+        .description {
+          max-width: 700px;
+          color: $dark-gray-color;
+          text-align: center;
+
+          @include font-body-1;
+        }
+      }
+
+      .group {
+        display: flex;
+        gap: 32px;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 24px;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          max-width: 320px;
+          padding: 0 12px 20px;
+          box-shadow: 0 0 12px 0 rgb(0 0 0 / 25%);
+
+          .icon {
+            width: 150px;
+            height: 150px;
+            padding: 24px;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          span {
+            @include h5;
+
+            color: $green-color;
+          }
+
+          p {
+            @include font-body-1;
+
+            color: $green-color;
+            text-align: center;
+            letter-spacing: 0.08px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (width <= 940px) {
+  .main {
+    .group {
+      flex-direction: column;
+      align-items: center;
+
+      .item {
+        max-width: 400px !important;
+      }
+    }
+  }
+}

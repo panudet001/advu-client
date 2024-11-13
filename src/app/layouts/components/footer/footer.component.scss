@@ -1,0 +1,151 @@
+@import "assets/scss/font";
+@import "assets/scss/color";
+
+a {
+  color: $dark-green-color;
+}
+
+.app-footer {
+  width: 100%;
+  padding: 50px 20px;
+  color: $dark-green-color;
+
+  @media only screen and (width <= 920px) {
+    padding: 40px 16px;
+  }
+
+  .footer-container {
+    max-width: 1040px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .menu-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    @media (width <= 782px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .menu-logo-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      justify-content: space-between;
+
+      .img-logo {
+        width: 100%;
+        max-width: 363px;
+        height: 81px;
+        margin-bottom: 68px;
+
+        @media (width <= 900px) {
+          width: 270px !important;
+          height: 60px !important;
+          margin-bottom: 16px;
+        }
+      }
+
+      .menu-address {
+        width: 100%;
+        max-width: 364px;
+      }
+    }
+
+    .menu-topic-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-between;
+
+      .text-header {
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 24px;
+        text-align: left;
+        letter-spacing: 0.05em;
+      }
+
+      .sub-menu {
+        display: flex;
+        gap: 70px;
+
+        @media (width <= 900px) {
+          gap: 30px;
+          justify-content: space-between;
+        }
+
+        .link-group {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      .social {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .icon-social {
+          display: flex;
+          gap: 20px;
+        }
+      }
+    }
+  }
+
+  .copyright-section {
+    width: 100%;
+    margin-top: 50px;
+
+    .copyright-container {
+      display: flex;
+      justify-content: space-between;
+
+      .copyright {
+        display: flex;
+        column-gap: 60px;
+
+        span {
+          a {
+            margin-bottom: 3px;
+            color: $dark-green-color;
+            cursor: pointer;
+          }
+        }
+
+        .contact {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 60px;
+
+          @media only screen and (width <= 461px) {
+            gap: 0;
+            justify-content: space-between;
+          }
+        }
+      }
+
+      @media only screen and (width <= 820px) {
+        flex-direction: column-reverse;
+
+        .copyright {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      @media only screen and (width <= 920px) {
+        .copyright {
+          display: flex;
+          column-gap: 30px;
+        }
+      }
+    }
+  }
+}

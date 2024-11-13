@@ -1,0 +1,34 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.mobile-container {
+  display: none;
+  margin-bottom: 20px;
+
+  .mobile-box {
+    width: 100%;
+    padding: 10px;
+    color: $dark-green-color;
+    background-color: $white-color;
+  }
+
+  @media only screen and (width < 780px) {
+    display: block;
+  }
+}
+
+.overall-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+
+  @media screen and (width <= 950px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.section-total {
+  margin-top: 20px;
+}

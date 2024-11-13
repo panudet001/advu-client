@@ -1,0 +1,19 @@
+services:
+  client:
+    build:
+      context: ./
+      dockerfile: ./docker/local/Dockerfile
+    container_name: adavu-client
+    ports:
+      - "0.0.0.0:4270:4270"
+    volumes:
+      - ./:/srv/app
+      - client_node_modules:/srv/app/node_modules
+    networks:
+      - adavu-networks
+
+volumes:
+  client_node_modules:
+
+networks:
+  adavu-networks:

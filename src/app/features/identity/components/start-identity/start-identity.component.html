@@ -1,0 +1,94 @@
+<div class="preview-identity">
+  <div class="start-identity-box">
+    <div class="container">
+      @if (isKyc) {
+        <p class="font-body-4 ltp-2 color-fresh-green">
+          <i class="fa-light fa-shield-check siz-20"></i> Verified identity on
+          {{ kyc?.updatedAt! | date: "dd-MM-YYYY : HH:mm" }}
+        </p>
+        <p class="title mso-0">
+          You are now at the top tier for transaction limits and have complete
+          access to all ADAVU features.
+        </p>
+        <p class="font-body-5 ml-24">
+          Now on ADAVU you can invest in real estate and make transactions.
+        </p>
+        <a class="btn btn-primary w-140" href="{{ 'properties' | localize }}"
+          >INVEST NOW</a
+        >
+      } @else {
+        @switch (kyc?.status) {
+          @case (UserStatusEnums.Request) {
+            <p class="font-body-4 ltp-2 color-yellow">
+              <i class="fa-solid fa-hourglass-start siz-20"></i> Verified
+              Submitted on
+              {{ kyc?.updatedAt! | date: "dd-MM-YYYY : HH:mm" }}
+            </p>
+            <p class="title mso-0">
+              We’re currently checking the identification documents you
+              provided.
+            </p>
+            <p class="font-body-5">
+              The evaluation process is usually done within 3-5 minutes.
+            </p>
+          }
+          @case (UserStatusEnums.Reject) {
+            <p class="font-body-4 ltp-2 color-dark-red">
+              <i class="fa-light fa-shield-xmark siz-20"></i>
+              {{ kyc?.description }}
+            </p>
+            <p class="title mso-0">Verification Unsuccessful</p>
+            <p class="font-body-5 ml-24">
+              Please confirm your identity once more to proceed with
+              transactions involving ADAVU
+            </p>
+            <button class="btn btn-primary" (click)="handleNextStep()">
+              TRY AGAIN
+            </button>
+          }
+          @default {
+            <p class="title">Get your identity verified to invest on Adavu</p>
+            <p class="font-body-5 ml-24">
+              It only takes 3-5 minutes to verify your account. Complete to
+              unlock the the right to transact on ADAVU.
+            </p>
+            <button class="btn btn-primary" (click)="handleNextStep()">
+              START VERIFY
+            </button>
+          }
+        }
+      }
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="container">
+      <div class="title">
+        <p class="font-subtitle-1">FAQ</p>
+        <a
+          target="_blank"
+          href="{{ 'faqs' | localize }}"
+          class="btn-link-primary"
+          >View more</a
+        >
+      </div>
+      @for (item of faqs; track item) {
+        <ul>
+          <li class="item-li">
+            <i class="fa-solid fa-circle size-16"></i>
+            <a
+              href="/faqs/question/{{ item.slug }}"
+              class="text-dot font-body-1">
+              {{ item.question }}
+            </a>
+          </li>
+        </ul>
+      } @empty {
+        <div class="item-no-data">
+          <i class="fa-light fa-circle-question size-60"></i>
+          <p class="font-subtitle-2 f">No data !</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>

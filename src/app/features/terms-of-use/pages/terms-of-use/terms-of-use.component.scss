@@ -1,0 +1,28 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-terms-service {
+  .app-container {
+    .banner-container {
+      width: 100%;
+      margin-top: 40px;
+      text-align: center;
+
+      h1 {
+        @include h4;
+      }
+    }
+
+    .terms-service-container {
+      width: 100%;
+      max-width: 1116px;
+      height: 100%;
+      padding: 18px 24px;
+      margin: auto;
+
+      p {
+        @include font-body-1;
+      }
+    }
+  }
+}

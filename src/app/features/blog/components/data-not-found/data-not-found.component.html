@@ -1,0 +1,14 @@
+<div class="no-data">
+  <img src="assets/img/icon/file-search.png" alt="no-data" />
+  <p class="no-data-title" *ngIf="!isShowText">No Blog content found.</p>
+  <p class="sub" *ngIf="!isShowText">
+    It looks like not have content on this category.
+  </p>
+  <div *ngIf="isShowText">
+    <p class="no-data-title">No blog content found.</p>
+    <p class="no-data-description">
+      It looks like your searching word not found Please change wording and
+      search again.
+    </p>
+  </div>
+</div>

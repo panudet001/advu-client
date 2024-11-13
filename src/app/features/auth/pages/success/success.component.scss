@@ -1,0 +1,21 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-success {
+  .success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .title {
+      @media only screen and (width <= 540px) {
+        @include h7;
+      }
+    }
+
+    .btn-done {
+      width: 150px;
+    }
+  }
+}

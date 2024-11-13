@@ -1,0 +1,189 @@
+<div class="app-sign-in">
+  <div class="auth-wrapper">
+    <div *ngIf="!isOpenOtpForm" class="auth-container">
+      <div class="header-group">
+        <h2 class="h5">Log In</h2>
+      </div>
+
+      <div class="sign-in-container">
+        <div class="section-left">
+          <form class="form-container w-100" [formGroup]="signInForm">
+            <!--        // ---------------------------------------->
+            <!--        // Username & Email Input -->
+            <!--        // ---------------------------------------->
+
+            <div class="form-group">
+              <label class="label-title text-uppercase mb-2" for="username"
+                >USERNAME / EMAIL <span class="label-required">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Enter Username / Email"
+                [ngClass]="{
+                  'is-invalid':
+                    fUsername?.invalid &&
+                    (fUsername?.dirty || fUsername?.touched) &&
+                    isFirstSubmit,
+                }"
+                [formControlName]="'username'"
+                required />
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  fUsername?.invalid &&
+                  (fUsername?.dirty || fUsername?.touched) &&
+                  isFirstSubmit
+                ">
+                <div *ngIf="fUsername?.errors?.['required']">
+                  Username is required.
+                </div>
+                <div *ngIf="fUsername?.errors?.['minlength']">
+                  Username must be at least 6 characters long.
+                </div>
+              </div>
+            </div>
+
+            <!--        // ---------------------------------------->
+            <!--        // Password -->
+            <!--        // ---------------------------------------->
+
+            <div class="form-group">
+              <label class="label-title text-uppercase mb-2" for="password"
+                >Password <span class="label-required">*</span></label
+              >
+              <div
+                class="input-password-group"
+                [ngClass]="{
+                  'is-invalid':
+                    fPassword?.invalid &&
+                    (fPassword?.dirty || fPassword?.touched) &&
+                    isFirstSubmit,
+                }">
+                <input
+                  [type]="isShowPassword ? 'text' : 'password'"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      fPassword?.invalid &&
+                      (fPassword?.dirty || fPassword?.touched) &&
+                      isFirstSubmit,
+                  }"
+                  id="password"
+                  name="password"
+                  placeholder="Enter Password"
+                  [formControlName]="'password'"
+                  required />
+                <button class="btn-visibility" (click)="togglePassword()">
+                  {{ isShowPassword ? "Hide" : "Show" }}
+                </button>
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  fPassword?.invalid &&
+                  (fPassword?.dirty || fPassword?.touched || isFirstSubmit)
+                ">
+                <div *ngIf="fPassword?.errors?.['required']">
+                  Password is required.
+                </div>
+                <div *ngIf="fPassword?.errors?.['minlength']">
+                  Password must be at least 8 characters long.
+                </div>
+              </div>
+            </div>
+
+            <!--        // ---------------------------------------->
+            <!--        // Remember -->
+            <!--        // ---------------------------------------->
+
+            <div class="input-remember-group form-check">
+              <input
+                class="input-remember form-check-input"
+                type="checkbox"
+                [formControlName]="'isRemember'"
+                id="flexCheckDefault" />
+              <label class="label-remember ms-2" for="flexCheckDefault">
+                Remember this account
+              </label>
+            </div>
+
+            <!--        // ---------------------------------------->
+            <!--        // Alert Error -->
+            <!--        // ---------------------------------------->
+
+            <div
+              *ngIf="isShowAlertError"
+              class="alert alert-danger mt-4"
+              role="alert">
+              <div class="alert-heading">
+                <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+                <p class="heading">Fail</p>
+              </div>
+              <div class="alert-content">
+                {{ this.alertError | translate }}
+              </div>
+            </div>
+
+            <button
+              class="btn btn-primary w-100 mt-3 text-uppercase mb-2"
+              type="submit"
+              (click)="sendOtp()"
+              [disabled]="signInForm.disabled">
+              <span
+                *ngIf="signInForm.disabled"
+                class="spinner-border spinner-border-sm mb-0 mx-2">
+              </span>
+              <span *ngIf="!signInForm.disabled" class="text-uppercase">
+                Log in
+              </span>
+              <span *ngIf="signInForm.disabled"> Loading... </span>
+            </button>
+            <a
+              class="font-body-5 color-dark-green"
+              href="{{ 'forgot-password' | localize }}">
+              Forgot Password
+            </a>
+          </form>
+        </div>
+
+        <hr />
+
+        <div class="section-right">
+          <img
+            ngSrc="assets/img/home-login.png"
+            alt="bg-home"
+            height="264"
+            width="441" />
+          <ul class="mt-3">
+            <li>Diversification and Accessibility</li>
+            <li>Liquidity and Flexibility</li>
+            <li>Transparency and Security</li>
+          </ul>
+
+          <a
+            class="btn btn-outline-primary w-100 text-uppercase"
+            href="{{ 'sign-up' | localize }}">
+            Sign up
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isOpenOtpForm" class="auth-container">
+      <app-form-otp-verify
+        [otpRef]="otpKey"
+        [email]="email"
+        [codeRefWithTime]="refWithTime"
+        [isShowAlertError]="isShowAlertErrorOTP"
+        [alertError]="alertErrorOTP"
+        [isLoading]="isLoadingOTP"
+        (submitOTP)="verifyOtp($event)"
+        (resendOTP)="resendOtp()"
+        (btnBack)="goBack()">
+      </app-form-otp-verify>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.step-form-box {
+  display: flex;
+  justify-content: center;
+
+  .step-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 790px;
+
+    .step-1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      color: $dark-green-color;
+      border: 1px solid $dark-green-color;
+      border-radius: 50px;
+    }
+
+    .step-active {
+      color: $white-color;
+      background: $dark-green-color;
+    }
+
+    hr.dot {
+      width: 100%;
+      max-width: 244px;
+      border-top: 2px dashed $dark-green-color;
+      opacity: 1;
+    }
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 148px;
+    }
+  }
+}

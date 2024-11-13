@@ -1,0 +1,116 @@
+@if (blogDetail === null) {
+  <app-error></app-error>
+} @else {
+  <div class="app-blog-detail">
+    <div class="breadcrumb-blog">
+      <div class="contents">
+        <app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+      </div>
+    </div>
+    <p class="title-blog-detail">{{ blogDetail?.blog?.title }}</p>
+    <p class="sub-title-detail">
+      {{ blogDetail?.blog?.subTitle }}
+    </p>
+    <p class="detail-date">
+      @switch (blogDetail?.blog?.type) {
+        @case ("News") {
+          <button
+            class="title-news"
+            (click)="onClickNavigate(blogDetail!.blog.type)">
+            News
+          </button>
+        }
+        @case ("Events") {
+          <button
+            class="title-events"
+            (click)="onClickNavigate(blogDetail!.blog.type)">
+            Events
+          </button>
+        }
+        @case ("Articles") {
+          <button
+            class="title-articles"
+            (click)="onClickNavigate(blogDetail!.blog.type)">
+            Articles
+          </button>
+        }
+      }
+      <span class="date"> | {{ blogDetail?.blog?.createdAt | date }}</span>
+    </p>
+    <div class="blog-detail-content">
+      <div [innerHTML]="blogDetail?.blog?.description"></div>
+      <!--    <div class="section-share">-->
+      <!--      <div class="share-social">-->
+      <!--        <span class="title-share">Share : </span>-->
+      <!--        <img-->
+      <!--          class="social-icon"-->
+      <!--          src="assets/img/icon/social/instagram-outline.png"-->
+      <!--          alt="instagram-icon" />-->
+      <!--        <img-->
+      <!--          class="social-icon"-->
+      <!--          src="assets/img/icon/social/facebook-outline.png"-->
+      <!--          alt="facebook-icon" />-->
+      <!--        <img-->
+      <!--          class="social-icon"-->
+      <!--          src="assets/img/icon/social/twitter-outline.png"-->
+      <!--          alt="twitter-icon" />-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <hr />
+      <div class="section-recommended">
+        <h3>Recommended Posts</h3>
+        <div class="recommended-row">
+          @for (item of blogDetail?.recommend; track item) {
+            <div class="recommended-item">
+              <a href="{{ 'blog/blog-detail/' | localize }}{{ item.slug }}">
+                <img
+                  src="{{ getImageBlog(item.imagePreview) }}"
+                  alt="img-new"
+                  class="recommended-cover" />
+              </a>
+              <p class="recommended-date">
+                @switch (item?.type) {
+                  @case ("News") {
+                    <span class="title-recommended-news">{{ item?.type }}</span>
+                  }
+                  @case ("Events") {
+                    <span class="title-recommended-events">{{
+                      item?.type
+                    }}</span>
+                  }
+                  @case ("Articles") {
+                    <span class="title-recommended-articles">{{
+                      item?.type
+                    }}</span>
+                  }
+                }
+                <span class="title-recommended-date"
+                  >&nbsp;|&nbsp;{{ item?.createdAt | date }}</span
+                >
+              </p>
+              <a href="{{ 'blog/blog-detail/' | localize }}{{ item.slug }}">
+                <h5 class="recommended-title">
+                  {{ item?.title }}
+                </h5>
+                <div class="recommended-description">
+                  {{ item?.highlights }}
+                </div>
+              </a>
+            </div>
+          } @empty {
+            <div class="app-not-found">
+              <app-data-not-found [isShowText]="false"></app-data-not-found>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="view-all">
+        <button
+          class="btn btn-view-all"
+          (click)="onClickNavigate(blogDetail!.blog.type)">
+          VIEW ALL
+        </button>
+      </div>
+    </div>
+  </div>
+}

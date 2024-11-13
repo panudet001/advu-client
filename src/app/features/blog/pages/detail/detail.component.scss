@@ -1,0 +1,255 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.breadcrumb-blog {
+  display: flex;
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 24px;
+
+  @media (width <= 1070px) {
+    margin-top: 0;
+  }
+
+  .contents {
+    width: 100%;
+    max-width: 1240px;
+    margin: auto;
+    text-align: left;
+  }
+}
+
+.app-blog-detail {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  padding: 0 100px 70px;
+  margin: auto;
+  text-align: center;
+
+  @media (width <= 1090px) {
+    padding: 50px 20px;
+
+    .blog-detail-content {
+      .section-one {
+        margin-bottom: 30px !important;
+      }
+
+      .section-two {
+        flex-direction: column;
+
+        .content-left {
+          width: 100% !important;
+        }
+
+        .content-right {
+          width: 100% !important;
+        }
+      }
+
+      .section-four {
+        flex-direction: column;
+
+        .description-left {
+          width: 100% !important;
+        }
+
+        .description-right {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+
+  @media (width <= 990px) {
+    .section-recommended {
+      .recommended-row {
+        grid-template-columns: 49% auto !important;
+      }
+    }
+  }
+
+  @media (width <= 768px) {
+    .section-recommended {
+      .recommended-row {
+        grid-template-columns: auto !important;
+      }
+    }
+  }
+
+  .title-blog-detail {
+    @include h3;
+
+    @media (width <= 768px) {
+      @include h5;
+    }
+  }
+
+  .sub-title-detail {
+    margin: 8px auto;
+    color: $gray-color;
+
+    @include font-body-1;
+
+    @media (width <= 768px) {
+      margin: 8px auto;
+      color: $gray-color;
+
+      @include font-body-4;
+    }
+  }
+
+  .detail-date {
+    margin-bottom: 40px;
+
+    .title-news {
+      color: $green-color;
+      cursor: pointer;
+      background: none;
+      border: unset;
+      border: none;
+      outline: inherit;
+
+      @include font-body-1;
+    }
+
+    .title-events {
+      color: $dark-yellow-color;
+      cursor: pointer;
+      background: none;
+      border: unset;
+      border: none;
+      outline: inherit;
+
+      @include font-body-1;
+    }
+
+    .title-articles {
+      color: $blue-link;
+      cursor: pointer;
+      background: none;
+      border: unset;
+      border: none;
+      outline: inherit;
+
+      @include font-body-1;
+    }
+
+    .date {
+      @include font-body-1;
+
+      color: $black-color;
+    }
+  }
+
+  .blog-detail-content {
+    text-align: start;
+
+    .section-share {
+      margin: 30px 0 40px;
+
+      .share-social {
+        display: flex;
+        align-items: center;
+
+        .title-share {
+          @include font-body-1;
+
+          margin-right: 15px;
+        }
+
+        .social-icon {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .section-recommended {
+      h3 {
+        @include h5;
+
+        margin-bottom: 12px;
+      }
+
+      .recommended-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        a {
+          color: inherit;
+        }
+
+        .recommended-item {
+          .recommended-cover {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+          }
+
+          .recommended-date {
+            margin-top: 24px;
+
+            .title-recommended-news {
+              @include font-body-1;
+
+              color: $green-color;
+            }
+
+            .title-recommended-events {
+              @include font-body-1;
+
+              color: $dark-yellow-color;
+            }
+
+            .title-recommended-articles {
+              @include font-body-1;
+
+              color: $blue-link;
+            }
+
+            .title-recommended-date {
+              @include font-body-1;
+
+              color: $black-color;
+            }
+          }
+
+          .recommended-title {
+            @include h5;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .recommended-description {
+            @include font-body-2;
+
+            display: -webkit-box;
+            overflow: hidden;
+            color: $dark-gray-color;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+    }
+
+    .view-all {
+      display: flex;
+      justify-content: center;
+      margin: 24px auto 58px;
+
+      .btn-view-all {
+        color: $dark-green-color;
+        border: 2px solid $dark-green-color !important;
+      }
+    }
+  }
+}

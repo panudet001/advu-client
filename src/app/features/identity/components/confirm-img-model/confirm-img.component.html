@@ -1,0 +1,19 @@
+<div class="confirm-img">
+  <div class="title-container">
+    <button class="button-close" (click)="handleContinue()">
+      <i class="fa-light fa-xmark"></i>
+    </button>
+  </div>
+  <p class="title">{{ title }}</p>
+
+  <div class="container">
+    <img class="preview-image" src="{{ imgPath }}" alt="preview-image" />
+  </div>
+  <p class="h7">Ensure that your details are clear and unobstructed.</p>
+  <div class="btn-group">
+    <button class="btn btn-outline-primary" (click)="handleDelete()">
+      Delete
+    </button>
+    <button class="btn btn-primary" (click)="handleContinue()">Continue</button>
+  </div>
+</div>

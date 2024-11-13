@@ -1,0 +1,39 @@
+<div class="step-form-box">
+  <div class="step-container">
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            stepSelect === StepperInvestmentEnums.confirm ||
+            stepSelect > StepperInvestmentEnums.confirm,
+        }">
+        <span *ngIf="stepSelect === StepperInvestmentEnums.confirm">1</span>
+        <i
+          *ngIf="stepSelect > StepperInvestmentEnums.confirm"
+          class="fa-solid fa-check"></i>
+      </div>
+      <p class="value font-body-2">Confirmation</p>
+    </div>
+    <hr class="dot" />
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            stepSelect === StepperInvestmentEnums.verify ||
+            stepSelect > StepperInvestmentEnums.verify,
+        }">
+        @if (stepSelect === StepperInvestmentEnums.verify) {
+          <span>2</span>
+        } @else if (stepSelect < StepperInvestmentEnums.verify) {
+          <span>2</span>
+        }
+        <i
+          *ngIf="stepSelect > StepperInvestmentEnums.verify"
+          class="fa-solid fa-check"></i>
+      </div>
+      <p class="value font-body-2">Email Verify</p>
+    </div>
+  </div>
+</div>

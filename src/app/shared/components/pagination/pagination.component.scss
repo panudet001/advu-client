@@ -1,0 +1,98 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.pagination-content {
+  width: 100%;
+
+  @media screen and (width <= 340px) {
+    max-width: 250px;
+    overflow: auto;
+  }
+
+  ::ng-deep.ngb-pagination > ul {
+    column-gap: 8px;
+
+    .page-item {
+      mat-icon {
+        color: $black-color !important;
+      }
+    }
+
+    .page-item.disabled {
+      mat-icon {
+        color: $silver-color !important;
+      }
+    }
+
+    .page-item:first-child {
+      mat-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 32px;
+        padding-left: 6px;
+        font-family: "Material Icons", sans-serif; /* Added generic font family */
+
+        @include font-subtitle-1;
+      }
+    }
+
+    .page-item > .page-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 32px;
+      font-size: 13px !important;
+      font-weight: 400;
+      color: $black-color;
+      border-color: $white-color;
+      border-radius: 5px;
+
+      &:hover {
+        color: $gray-color !important;
+        background-color: $silver-color;
+        border-color: $silver-color;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      > img {
+        width: 100%;
+      }
+    }
+
+    .page-item.active > .page-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 32px;
+      color: $dark-green-color;
+      background-color: $bright-green-color;
+      border-color: $bright-green-color;
+
+      @include font-body-4;
+
+      &:hover {
+        color: $dark-green-color !important;
+        background-color: $bright-green-color;
+        border-color: $bright-green-color;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%) !important;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .cl {
+    font-size: 16px;
+    color: gray;
+  }
+}

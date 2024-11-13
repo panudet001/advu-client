@@ -1,0 +1,20 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.over-all {
+  width: 100%;
+  padding: 20px;
+  background: $white-color;
+
+  .total {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .total-number {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 27px;
+  }
+}

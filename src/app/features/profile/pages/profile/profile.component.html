@@ -1,0 +1,65 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar-layout">
+    <div class="main">
+      <app-sidebar [isKyc]="user.isKyc"></app-sidebar>
+      <div class="content">
+        <!--        <app-profile *ngIf="user" [user]="user"></app-profile>-->
+        <div class="menu">
+          <div class="btn-with-underline">
+            <button
+              class="btn-link-primary"
+              [ngClass]="selectMenu === 1 ? 'p-green' : 'p-black'"
+              (click)="changeTab(1)">
+              Personal Information
+            </button>
+            <hr [ngClass]="selectMenu === 1 ? 'hr-green' : 'hr-black'" />
+          </div>
+          <div class="btn-with-underline">
+            <button
+              class="btn-link-primary"
+              [ngClass]="selectMenu === 2 ? 'p-green' : 'p-black'"
+              (click)="changeTab(2)">
+              Account Information
+            </button>
+            <hr [ngClass]="selectMenu === 2 ? 'hr-green' : 'hr-black'" />
+          </div>
+          <!--          <div class="btn-with-underline">-->
+          <!--            <button-->
+          <!--              class="btn-link-primary"-->
+          <!--              [ngClass]="selectMenu === 3 ? 'p-green' : 'p-black'"-->
+          <!--              (click)="changeTab(3)">-->
+          <!--              Account Deletion-->
+          <!--            </button>-->
+          <!--            <hr [ngClass]="selectMenu === 3 ? 'hr-green' : 'hr-black'" />-->
+          <!--          </div>-->
+          <div class="btn-with-underline-full">
+            <div></div>
+            <hr />
+          </div>
+        </div>
+
+        @if (selectMenu === menuName.personalInfo) {
+          <app-personal-info
+            [user]="user"
+            (openDialog)="
+              openDialog(dialogTypeName.personalInfo)
+            "></app-personal-info>
+        } @else if (selectMenu === menuName.accountInfo) {
+          <app-account-info
+            [user]="user"
+            (sendOtpChangePassword)="
+              selectTypeAndSendOtp(otpTypeName.verifyChangePassword)
+            "
+            (sendOtpOldEmail)="
+              selectTypeAndSendOtp(otpTypeName.verifyChangeEmail)
+            "></app-account-info>
+        } @else if (selectMenu === menuName.accountDeletion) {
+          <app-account-deletion
+            (openDialog)="
+              openDialog(dialogTypeName.deleteAccount)
+            "></app-account-deletion>
+        }
+      </div>
+    </div>
+  </div>
+</div>

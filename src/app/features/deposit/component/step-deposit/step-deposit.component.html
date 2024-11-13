@@ -1,0 +1,61 @@
+<div class="step-form-box">
+  <div class="step-container">
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            depositStep === DepositStepEnums.coin ||
+            depositStep > DepositStepEnums.coin,
+        }">
+        <span *ngIf="depositStep === DepositStepEnums.coin">1</span>
+        <i
+          *ngIf="depositStep > DepositStepEnums.coin"
+          class="fa-solid fa-check"></i>
+      </div>
+    </div>
+    <div class="line">
+      <div class="dot"></div>
+    </div>
+
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            depositStep === DepositStepEnums.chain ||
+            depositStep > DepositStepEnums.chain,
+        }">
+        @if (depositStep === DepositStepEnums.chain) {
+          <span>2</span>
+        } @else if (depositStep < DepositStepEnums.chain) {
+          <span>2</span>
+        }
+        <i
+          *ngIf="depositStep > DepositStepEnums.chain"
+          class="fa-solid fa-check"></i>
+      </div>
+    </div>
+    <div class="line">
+      <div class="dot"></div>
+    </div>
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            depositStep === DepositStepEnums.detail ||
+            depositStep > DepositStepEnums.detail,
+        }">
+        @if (depositStep === DepositStepEnums.detail) {
+          <span>3</span>
+        } @else if (depositStep < DepositStepEnums.detail) {
+          <span>3</span>
+        }
+        <i
+          *ngIf="depositStep > DepositStepEnums.detail"
+          class="fa-solid fa-check"></i>
+      </div>
+    </div>
+  </div>
+</div>

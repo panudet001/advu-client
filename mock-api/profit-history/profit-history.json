@@ -1,0 +1,166 @@
+{
+  "pagination": {
+    "length": 5,
+    "size": 6,
+    "page": 0,
+    "lastPage": 1,
+    "startIndex": 0,
+    "endIndex": 4
+  },
+  "profitHistories": [
+    {
+      "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+      "amount": 400.0,
+      "fromAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "toAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "txnHash": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "chain": {
+        "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+        "name": "BSCProfit",
+        "networkId": 7,
+        "link": "https://binance.llamarpc.com"
+      },
+      "status": "Success",
+      "crypto": {
+        "id": "c3afadba-8a5c-4fc1-8d45-acb70e9d31c1",
+        "name": "Crypto",
+        "symbol": null,
+        "image": "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+      },
+      "createdAt": "2024-06-19T10:30:30",
+      "updatedAt": "2024-09-06T10:30:00"
+    },
+    {
+      "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+      "amount": 400.0,
+      "fromAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "toAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "txnHash": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "chain": {
+        "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+        "name": "BSC",
+        "networkId": 7,
+        "link": "https://binance.llamarpc.com"
+      },
+      "status": "Pending",
+      "crypto": {
+        "id": "c3afadba-8a5c-4fc1-8d45-acb70e9d31c1",
+        "name": "Crypto",
+        "symbol": null,
+        "image": "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+      },
+      "createdAt": "2024-06-19T10:30:30",
+      "updatedAt": "2024-09-06T10:30:00"
+    },
+    {
+      "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+      "amount": 400.0,
+      "fromAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "toAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "txnHash": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "chain": {
+        "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+        "name": "BSC",
+        "networkId": 7,
+        "link": "https://binance.llamarpc.com"
+      },
+      "status": "Cancel",
+      "crypto": {
+        "id": "c3afadba-8a5c-4fc1-8d45-acb70e9d31c1",
+        "name": "Crypto",
+        "symbol": null,
+        "image": "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+      },
+      "createdAt": "2024-06-19T10:30:30",
+      "updatedAt": "2024-09-06T10:30:00"
+    },
+    {
+      "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+      "amount": 400.0,
+      "fromAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "toAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "txnHash": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "chain": {
+        "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+        "name": "BSC",
+        "networkId": 7,
+        "link": "https://binance.llamarpc.com"
+      },
+      "status": "Refund",
+      "crypto": {
+        "id": "c3afadba-8a5c-4fc1-8d45-acb70e9d31c1",
+        "name": "Crypto",
+        "symbol": null,
+        "image": "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+      },
+      "createdAt": "2024-06-19T10:30:30",
+      "updatedAt": "2024-09-06T10:30:00"
+    },
+    {
+      "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+      "amount": 400.0,
+      "fromAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "toAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "txnHash": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "chain": {
+        "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+        "name": "BSC",
+        "networkId": 7,
+        "link": "https://binance.llamarpc.com"
+      },
+      "status": "Success",
+      "crypto": {
+        "id": "c3afadba-8a5c-4fc1-8d45-acb70e9d31c1",
+        "name": "Crypto",
+        "symbol": null,
+        "image": "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+      },
+      "createdAt": "2024-06-19T10:30:30",
+      "updatedAt": "2024-09-06T10:30:00"
+    },
+    {
+      "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+      "amount": 400.0,
+      "fromAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "toAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "txnHash": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "chain": {
+        "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+        "name": "BSC",
+        "networkId": 7,
+        "link": "https://binance.llamarpc.com"
+      },
+      "status": "Success",
+      "crypto": {
+        "id": "c3afadba-8a5c-4fc1-8d45-acb70e9d31c1",
+        "name": "Crypto",
+        "symbol": null,
+        "image": "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+      },
+      "createdAt": "2024-06-19T10:30:30",
+      "updatedAt": "2024-09-06T10:30:00"
+    },
+    {
+      "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+      "amount": 400.0,
+      "fromAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "toAddress": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "txnHash": "0x502aECFE253E6AA0e8D2A06E12438FFeD0Fe16a0",
+      "chain": {
+        "id": "900c8410-58bf-483e-85c0-959697fc6d48",
+        "name": "BSC",
+        "networkId": 7,
+        "link": "https://binance.llamarpc.com"
+      },
+      "status": "Success",
+      "crypto": {
+        "id": "c3afadba-8a5c-4fc1-8d45-acb70e9d31c1",
+        "name": "Crypto",
+        "symbol": null,
+        "image": "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+      },
+      "createdAt": "2024-06-19T10:30:30",
+      "updatedAt": "2024-09-06T10:30:00"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.identity-file {
+  cursor: pointer;
+
+  .title {
+    @include font-body-5;
+
+    margin-bottom: 10px;
+    color: $dark-gray-color;
+  }
+
+  .crop {
+    gap: 10px;
+    width: 100%;
+    padding: 58px 20px;
+    text-align: center;
+    border: 1.5px dashed $gray-bright-color;
+    border-radius: 4px;
+
+    .icon {
+      font-size: 50.19px;
+      color: $gray-bright-color;
+      background-blend-mode: screen;
+    }
+
+    @media only screen and (width <= 600px) {
+      display: none;
+    }
+  }
+
+  .re {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
+
+  .preview-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    min-height: 13rem;
+    aspect-ratio: 888 / 192;
+    cursor: pointer;
+    object-fit: contain;
+    background: white;
+    transform: translate(-50%, -50%);
+  }
+
+  .remove {
+    position: absolute;
+    top: -17px;
+    right: -23px;
+    padding: 8px;
+    font-size: 20px;
+    color: $dark-red-color;
+    background: white;
+    border: none;
+    border-radius: 50%;
+  }
+
+  .mobile-file {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 40px;
+
+    @media only screen and (width <= 600px) {
+      display: block;
+    }
+
+    .item-file {
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .input-file {
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .text {
+      position: absolute;
+      top: 35px;
+
+      @include font-body-7;
+    }
+
+    .mobile-preview {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      height: 50px;
+      background: white;
+
+      .item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+
+        .dot {
+          width: 100%;
+          max-width: 180px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .item-img {
+          width: 60px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  .hr {
+    display: none;
+
+    @media only screen and (width <= 600px) {
+      display: block;
+    }
+  }
+
+  .button-close {
+    background: transparent;
+    border-color: transparent;
+  }
+}

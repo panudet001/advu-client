@@ -1,0 +1,47 @@
+<div class="dialog">
+  <div class="close-icon">
+    <img
+      src="assets/img/icon/close.svg"
+      alt="close-edit-profile"
+      mat-dialog-close />
+  </div>
+  <p class="title">Update your email</p>
+  <span class="sub-title-1">
+    <p class="me-2">Your current email is</p>
+    <p class="email-text">{{ data.email || "-" }}</p>
+  </span>
+  <p class="sub-title-2">
+    Are you sure you want to change your email address? If you proceed, you will
+    not be able to use the old email to register or for 30 days.
+  </p>
+  <div class="form-section"></div>
+  <div class="form-section">
+    <div class="section">
+      <div class="form-group">
+        <label for="new-email" class="label-title text-uppercase">
+          New Address
+        </label>
+        <input
+          class="form-control bg-form"
+          maxlength="100"
+          id="new-email"
+          placeholder="Enter new email"
+          [formControl]="email"
+          type="email"
+          [ngClass]="{
+            'is-invalid': email.invalid && (email.dirty || email.touched),
+          }" />
+        <div
+          class="invalid-feedback"
+          *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors">Please enter your email.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-section">
+    <button class="btn btn-primary" (click)="confirm()" [disabled]="isDisable">
+      Continue
+    </button>
+  </div>
+</div>

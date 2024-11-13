@@ -1,0 +1,72 @@
+<div class="app-tab-blockchain">
+  <p class="tab-title mb-1">Blockchain</p>
+
+  <div class="group">
+    <div class="item">
+      <span class="title font-button-1 color-dark-gray me-3">Symbol</span>
+      <img
+        src="{{ getImage(this.investmentContractAddress.cryptoImagePath) }}"
+        width="30px"
+        class="me-1"
+        alt="{{ this.investmentContractAddress.cryptoSymbol }}" />
+      <span class="value font-body-1 color-black me-5">
+        {{ this.investmentContractAddress.cryptoSymbol }}
+      </span>
+    </div>
+    <div class="item">
+      <span class="title font-button-1 color-dark-gray me-3">Total Tokens</span>
+      <span class="value font-body-1 color-dark-green">
+        {{ this.investmentContractAddress.totalSupply | addComma }}
+      </span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="item mb-3">
+    <p class="title font-button-1 color-dark-gray" style="margin-top: 2px">
+      Chain
+    </p>
+    <p class="value font-body-1 color-dark-green">
+      {{ this.investmentContractAddress.chainName }}
+    </p>
+  </div>
+  <div class="item mb-3">
+    <p class="title font-button-1 color-dark-gray" style="margin-top: 2px">
+      Contract Address
+    </p>
+    <div class="d-flex align-items-center">
+      <p
+        class="value font-body-1 color-dark-green"
+        style="word-break: break-all">
+        {{ this.investmentContractAddress.contractAddress }}
+      </p>
+      <button
+        class="button"
+        ngxClipboard
+        [cbContent]="this.investmentContractAddress.contractAddress"
+        (cbOnSuccess)="handleCopy($event)">
+        <i class="fa-sharp fa-thin fa-copy"></i>
+      </button>
+    </div>
+  </div>
+  <div class="item mb-3">
+    <p class="title font-button-1 color-dark-gray" style="margin-top: 2px">
+      Owner Wallet
+    </p>
+    <div class="d-flex align-items-center">
+      <p
+        class="value font-body-1 color-dark-green"
+        style="word-break: break-all">
+        {{ this.investmentContractAddress.ownerAddress }}
+      </p>
+      <button
+        class="button"
+        ngxClipboard
+        [cbContent]="this.investmentContractAddress.ownerAddress"
+        (cbOnSuccess)="handleCopy($event)">
+        <i class="fa-sharp fa-thin fa-copy"></i>
+      </button>
+    </div>
+  </div>
+</div>

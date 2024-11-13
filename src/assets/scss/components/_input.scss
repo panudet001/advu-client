@@ -1,0 +1,83 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+// -----------------------------------------------------------------------------------------------------
+// Form Group (Input)
+// -----------------------------------------------------------------------------------------------------
+
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+
+  .label-title {
+    @include font-subtitle-4;
+  }
+
+  .label-required {
+    @include font-subtitle-4;
+    color: $red-color;
+  }
+
+  input {
+    height: 42px;
+    padding: 12px 10px;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid $bright-gray-color;
+    border-left: 0;
+    border-radius: 0;
+    @include font-body-5;
+  }
+
+  input::placeholder {
+    color: $gray-color;
+    @include font-body-5;
+  }
+
+  input:focus {
+    border-bottom: 2px solid $green-color;
+    box-shadow: none !important;
+  }
+
+  .is-invalid {
+    border-color: $red-color !important;
+    color: $red-color !important;
+  }
+
+  .is-valid {
+    border-color: $green-color !important;
+    color: $green-color !important;
+  }
+
+  .invalid-feedback {
+    margin-top: 4px;
+    @include font-body-7;
+    color: $red-color;
+  }
+
+  .valid-feedback {
+    margin-top: 4px;
+    @include font-body-7;
+    color: $green-color;
+  }
+}
+
+//   select   //
+
+.form-select {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #cdcdcd;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.form-select:focus {
+  box-shadow: none !important;
+}
+
+//  input radio //
+
+input[type="radio"] {
+  accent-color: $green-color;
+}

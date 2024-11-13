@@ -1,0 +1,81 @@
+<div class="app-blog">
+  <app-breadcrumb [breadcrumb]="breadcrumb" class="mb-1"></app-breadcrumb>
+  <h2>ADAVU BLOGS</h2>
+  <p class="blog-title">
+    Latest news from various media platforms can be found here.
+  </p>
+  <div class="blog-container">
+    <div class="blog-filter">
+      <div class="section-left">
+        @for (item of cateBlog; track item; let i = $index) {
+          <button
+            (click)="selectItem(i)"
+            class="btn btn-tab-cate"
+            [ngClass]="{ active: selectedItem === i }">
+            {{ item }}
+          </button>
+        }
+      </div>
+      <div class="section-right">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search"
+            [(ngModel)]="searchValue"
+            value="x"
+            (keydown.enter)="onSearch(searchValue)" />
+          <button (click)="onSearch(searchValue)" class="btn-search">
+            <i class="fa-light fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="total-blog">Result for ‘{{ searchKey }}’</p>
+    <div class="blog-content">
+      <div class="blog-news">
+        <div class="blog-row">
+          @for (item of blogList?.blogs; track item) {
+            <a href="blog/blog-detail/{{ item.slug }}">
+              <div class="blog-item">
+                <img
+                  src="{{ getImageBlog(item.imagePreview) }}"
+                  alt="img-new"
+                  class="news-cover" />
+                <p class="news-date">
+                  @switch (item.type) {
+                    @case ("News") {
+                      <span class="title-news">{{ item.type }}</span>
+                    }
+                    @case ("Events") {
+                      <span class="title-events">{{ item.type }}</span>
+                    }
+                    @case ("Articles") {
+                      <span class="title-articles">{{ item.type }}</span>
+                    }
+                  }
+                  <span class="title-news-date">
+                    &nbsp;|&nbsp; {{ item.createdAt | date }}</span
+                  >
+                </p>
+                <h5 class="news-title">
+                  {{ item.title }}
+                </h5>
+                <div class="news-description">
+                  {{ item.highlights }}
+                </div>
+              </div>
+            </a>
+          } @empty {
+            <div class="app-not-found">
+              <app-data-not-found [isShowText]="true"></app-data-not-found>
+            </div>
+          }
+        </div>
+        <div *ngIf="!isEmpty" class="blog-load-more">
+          <button class="btn btn-load-more">LOADING MORE...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

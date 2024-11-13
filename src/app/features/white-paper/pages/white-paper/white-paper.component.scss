@@ -1,0 +1,145 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-white-paper {
+  margin-top: 48px;
+  text-align: center;
+
+  .title-official {
+    @include h8;
+
+    margin: 18px auto 10px;
+  }
+
+  .title-white-paper {
+    @include h2;
+
+    color: $green-color;
+  }
+
+  .card-menu {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .text-home {
+      color: #959595;
+      cursor: pointer;
+    }
+
+    .icon-size {
+      font-size: 12px;
+      color: #959595;
+    }
+  }
+
+  .description-white-paper {
+    @include font-body-2;
+
+    max-width: 900px;
+    margin: 10px auto 50px;
+  }
+
+  .white-paper-container {
+    display: flex;
+    gap: 60px;
+    margin-top: 50px;
+    text-align: start;
+
+    @media (width <= 900px) {
+      .section-left {
+        display: none;
+      }
+
+      .section-right {
+        width: 100% !important;
+      }
+    }
+
+    .section-left {
+      width: 30%;
+
+      .menu-scroll {
+        display: flex;
+        gap: 30px;
+
+        .menu-timeline {
+          position: relative;
+
+          .scroll-circle {
+            position: absolute;
+            left: -11px;
+            z-index: 1;
+            width: 24px;
+            height: 24px;
+            background-color: $white-color;
+            border: 3px solid $green-color;
+            border-radius: 100%;
+            transition: top 0.3s ease;
+          }
+
+          .scroll-line {
+            position: absolute;
+            left: 50%;
+            width: fit-content;
+            height: 100%;
+            border-left: 2px solid $silver-color;
+          }
+        }
+
+        .menu-white-paper {
+          ul {
+            @include font-subtitle-1;
+
+            margin-bottom: 12px;
+            list-style-type: inherit;
+            cursor: pointer;
+
+            li {
+              @include font-body-1;
+
+              margin: 12px 0 0 30px;
+            }
+          }
+
+          .menu-item.active {
+            color: $green-color;
+          }
+        }
+      }
+
+      .section-invest {
+        margin-top: 40px;
+
+        .img-invest {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .section-right {
+      width: 70%;
+      height: fit-content;
+
+      .last-update {
+        @include font-body-4;
+
+        margin-bottom: 24px;
+        color: $gray-color;
+      }
+
+      .title-document {
+        @include h7;
+
+        margin: 0;
+      }
+
+      .description-document {
+        @include font-body-1;
+
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@import "assets/scss/color";
+@import "assets/scss/font";
+
+.app-tab-overview {
+  .tab-title {
+    @include h7;
+
+    color: $black-color;
+
+    @media only screen and (width <= 660px) {
+      @include h8;
+    }
+  }
+
+  .subtitle {
+    @include font-subtitle-3;
+
+    @media only screen and (width <= 660px) {
+      @include font-body-4;
+    }
+  }
+
+  .icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    .icon-box {
+      display: flex;
+      flex-direction: row;
+      width: 181px;
+      padding: 10px;
+
+      .icon {
+        margin-top: 4px;
+        margin-right: 10px;
+        color: $dark-green-color;
+
+        @media only screen and (width <= 660px) {
+          margin-top: 2px;
+        }
+
+        i {
+          width: 45px;
+          height: 45px;
+          font-size: 45px;
+
+          @media only screen and (width <= 660px) {
+            width: 35px;
+            height: 35px;
+            font-size: 35px;
+          }
+        }
+      }
+
+      .value-group {
+        display: flex;
+        flex-direction: column;
+
+        .label {
+          @include font-body-1;
+
+          @media only screen and (width <= 660px) {
+            @include font-body-4;
+          }
+        }
+
+        .value {
+          @include font-body-5;
+
+          @media only screen and (width <= 660px) {
+            @include font-body-7;
+          }
+        }
+      }
+    }
+  }
+
+  .description-container {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+
+    .description {
+      flex: 2;
+    }
+
+    .map {
+      flex: 1.5;
+
+      .address {
+        @include font-body-4;
+      }
+    }
+  }
+
+  @media only screen and (width <= 1024px) {
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      gap: unset;
+      justify-content: start;
+
+      .description {
+        flex: 1;
+      }
+
+      .map {
+        flex: 1;
+      }
+    }
+  }
+}

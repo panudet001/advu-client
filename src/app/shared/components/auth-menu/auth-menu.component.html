@@ -1,0 +1,116 @@
+<div class="container-menu">
+  <div class="card-menu-action" (click)="showMenu()">
+    <div class="card-title">
+      <div class="image">
+        <img alt="overview" class="menu-icon" [src]="icon" />
+      </div>
+      <p class="font-button-2">{{ menuAction }}</p>
+    </div>
+    <mat-icon *ngIf="!isShow">keyboard_arrow_down</mat-icon>
+    <mat-icon *ngIf="isShow">keyboard_arrow_up</mat-icon>
+  </div>
+  <div class="card-menu" *ngIf="isShow">
+    <ul class="w-100">
+      <li
+        [ngClass]="
+          url === '/overview' || url === '/th/overview' ? 'active-btn' : ''
+        ">
+        <a class="btn-menu" href="{{ 'overview' | localize }}">
+          <div class="image">
+            <img
+              alt="overview"
+              class="menu-icon"
+              src="assets/img/icon/dashboard.svg" />
+          </div>
+          <span class="name">Overview</span>
+        </a>
+      </li>
+
+      <li
+        [ngClass]="
+          url === '/profile' || url === '/th/profile' ? 'active-btn' : ''
+        ">
+        <a class="btn-menu" href="{{ 'profile' | localize }}">
+          <div class="image">
+            <img
+              alt="profile"
+              class="menu-icon"
+              src="assets/img/icon/user.svg" />
+          </div>
+          <span class="name">Profile</span>
+        </a>
+      </li>
+
+      <li
+        [ngClass]="
+          url === '/identity-verification' ||
+          url === '/th/identity-verification'
+            ? 'active-btn'
+            : ''
+        ">
+        <a class="btn-menu" href="{{ 'identity-verification' | localize }}">
+          <div class="image">
+            <img
+              alt="profile"
+              class="menu-icon"
+              src="assets/img/icon/admin_panel_settings.svg" />
+          </div>
+          <span class="name">Identity Verification</span>
+        </a>
+      </li>
+
+      <li
+        [ngClass]="
+          url === '/portfolio' || url === '/th/portfolio' ? 'active-btn' : ''
+        ">
+        <a class="btn-menu" href="{{ 'portfolio' | localize }}">
+          <div class="image">
+            <img
+              alt="my investment"
+              class="menu-icon"
+              src="assets/img/icon/investment.svg" />
+          </div>
+          <span class="name">My Investments</span>
+        </a>
+      </li>
+
+      <li
+        [ngClass]="
+          url === '/transactions' || url === '/th/transactions'
+            ? 'active-btn'
+            : ''
+        ">
+        <a class="btn-menu" href="{{ 'transactions' | localize }}">
+          <div class="image">
+            <img
+              alt="transactions"
+              class="menu-icon"
+              src="assets/img/icon/transaction.svg" />
+          </div>
+          <span class="name">Transaction</span>
+        </a>
+      </li>
+
+      <li
+        [ngClass]="
+          url === '/wallet' || url === '/th/wallet' ? 'active-btn' : ''
+        ">
+        <a class="btn-menu" href="{{ 'wallet' | localize }}">
+          <div class="image">
+            <img
+              alt="wallet"
+              class="menu-icon"
+              src="assets/img/icon/wallet.svg" />
+          </div>
+          <span class="name">Wallet</span>
+        </a>
+      </li>
+    </ul>
+    <a (click)="signOut()" class="btn-menu btn-logout">
+      <div class="image">
+        <img alt="logout" class="menu-icon" src="assets/img/icon/log-out.svg" />
+      </div>
+      <span class="name">Logout</span>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="step-form-box">
+  <div class="step-container">
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            stepConfirm === StepConfirmEnums.detail ||
+            stepConfirm > StepConfirmEnums.detail,
+        }">
+        <span *ngIf="stepConfirm === StepConfirmEnums.detail">1</span>
+        <i
+          *ngIf="stepConfirm > StepConfirmEnums.detail"
+          class="fa-solid fa-check"></i>
+      </div>
+      <p class="font-body-2">Confirmation</p>
+    </div>
+
+    <hr class="dot" />
+    <div class="box">
+      <div
+        class="step-1"
+        [ngClass]="{
+          'step-active':
+            stepConfirm === StepConfirmEnums.otp ||
+            stepConfirm > StepConfirmEnums.otp,
+        }">
+        @if (stepConfirm === StepConfirmEnums.otp) {
+          <span>2</span>
+        } @else if (stepConfirm < StepConfirmEnums.otp) {
+          <span>2</span>
+        }
+        <i
+          *ngIf="stepConfirm > StepConfirmEnums.otp"
+          class="fa-solid fa-check"></i>
+      </div>
+      <p class="font-body-2">OTP Verify</p>
+    </div>
+  </div>
+</div>

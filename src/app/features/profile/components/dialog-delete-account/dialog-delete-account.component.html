@@ -1,0 +1,87 @@
+<div class="dialog">
+  <div class="close-icon">
+    <img
+      src="assets/img/icon/close.svg"
+      alt="close-edit-profile"
+      mat-dialog-close />
+  </div>
+  <p class="title">Account Deletion Request</p>
+  <p class="sub-title">
+    Do you want to delete your account, here is no going back. Please be
+    certain.
+  </p>
+  <div class="form-section"></div>
+  <div class="form-section">
+    <div class="section">
+      <div class="form-group">
+        <label for="confirm-password" class="label-title text-uppercase mb-2"
+          >Confirm Password <span class="label-required">*</span></label
+        >
+        <div
+          class="input-password-group"
+          [ngClass]="{
+            'is-invalid':
+              password.invalid && (password.dirty || password.touched),
+          }">
+          <input
+            [type]="isShowPassword ? 'text' : 'password'"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                password.invalid && (password.dirty || password.touched),
+            }"
+            id="confirm-password"
+            placeholder="Enter confirm password"
+            [formControl]="password"
+            required />
+          <button class="btn-visibility" (click)="togglePassword()">
+            {{ password ? "Hide" : "Show" }}
+          </button>
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors">Password is required.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-remember-group form-check">
+    <input
+      class="input-remember form-check-input"
+      type="checkbox"
+      [formControl]="consent"
+      id="flexCheckDefault" />
+    <label class="label-remember ms-2" for="flexCheckDefault">
+      "Yes, I confirm to delete my account."
+    </label>
+  </div>
+
+  @if (!consent.value && isSubmit) {
+    <div class="custom-invalid">
+      <div>Please accept.</div>
+    </div>
+  }
+
+  @if (err) {
+    <div class="alert alert-danger mt-4" role="alert">
+      <div class="alert-heading">
+        <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+        <p class="heading">Fail</p>
+      </div>
+      <div class="alert-content">
+        {{ err | translate }}
+      </div>
+    </div>
+  }
+
+  <div class="button-section">
+    <button class="btn-outline-primary" mat-dialog-close [disabled]="isDisable">
+      Cancel
+    </button>
+    <button class="btn btn-primary" (click)="confirm()" [disabled]="isDisable">
+      Confirm
+    </button>
+  </div>
+</div>

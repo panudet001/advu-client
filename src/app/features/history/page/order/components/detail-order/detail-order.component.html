@@ -1,0 +1,103 @@
+<div class="box-detail">
+  <div class="close">
+    <button class="close-btn" (click)="handleClose()">
+      <i class="fa-light fa-xmark"></i>
+    </button>
+  </div>
+  <div class="detail">
+    <div class="asset">
+      <div class="estes">
+        <div class="image">
+          <img
+            src="{{ getImage(orderHistories.estate.thumbnailImagePath) }}"
+            alt="{{ orderHistories.estate.name }}" />
+        </div>
+        <div class="detail-es">
+          <p class="h7 color-black">
+            {{ orderHistories.estate.name }}
+          </p>
+          <p class="font-body-2 t">
+            <i class="fa-sharp fa-thin fa-location-dot"></i>
+            {{ orderHistories.estate.address }}
+          </p>
+        </div>
+      </div>
+      <div class="text-status">
+        <p
+          class="text-value"
+          [innerHTML]="statusOrderName(orderHistories.status)"></p>
+      </div>
+    </div>
+    <hr />
+
+    <div class="item h-mobile">
+      <p class="text-name color-gray">Status</p>
+      <p
+        class="text-value"
+        [innerHTML]="statusOrderName(orderHistories.status)"></p>
+    </div>
+
+    <div class="item">
+      <p class="text-name color-gray">Time</p>
+      <p class="text-value color-dark-green">
+        {{ orderHistories.createdAt | date: "dd-MM-YYYY HH:mm (UTC)" }}
+      </p>
+    </div>
+
+    <div class="item">
+      <p class="text-name color-gray">Asset</p>
+      <p class="text-value color-black">
+        {{ orderHistories.token.name }}
+      </p>
+    </div>
+
+    <div class="item" *ngIf="orderHistories.toAddress">
+      <p class="text-name color-gray">To</p>
+      <div>
+        <a href="" target="_blank" class="btn-link-primary m-2 warp">
+          {{ orderHistories.toAddress | splitText }}
+        </a>
+        <button
+          ngxClipboard
+          [cbContent]="orderHistories.toAddress"
+          class="text-dark"
+          (cbOnSuccess)="handleCopy($event)">
+          <i class="fa-sharp fa-thin fa-copy"></i>
+        </button>
+      </div>
+    </div>
+    <div class="item" *ngIf="orderHistories.txnHash">
+      <p class="text-name color-gray">Txn Hash</p>
+      <div>
+        <a href="" target="_blank" class="btn-link-primary m-2">
+          {{ orderHistories.txnHash | splitText }}
+        </a>
+        <button
+          ngxClipboard
+          [cbContent]="orderHistories.txnHash"
+          class="text-dark"
+          (cbOnSuccess)="handleCopy($event)">
+          <i class="fa-sharp fa-thin fa-copy"></i>
+        </button>
+      </div>
+    </div>
+    <hr />
+    <div class="item">
+      <p class="text-name color-gray">Amount</p>
+      <div class="amount color-fresh-green">
+        <img
+          src="{{ getImage(orderHistories.token.cryptoImagePath) }}"
+          width="16px"
+          height="16px"
+          class="img-crypto"
+          alt="" />
+        + {{ orderHistories.amount | addComma: 2 }}
+      </div>
+    </div>
+  </div>
+  <button
+    class="btn btn-primary font-body-2 w-100 mt-3"
+    (click)="handleClose()">
+    CLOSE
+  </button>
+</div>

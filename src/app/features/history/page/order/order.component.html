@@ -1,0 +1,120 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar-layout">
+    <div class="main">
+      <app-sidebar [isKyc]="user?.isKyc"></app-sidebar>
+      <div class="content">
+        <!--        <app-profile *ngIf="user" [user]="user"></app-profile>-->
+        <div class="mobile-container">
+          <div class="mobile-box">
+            <i class="fa-sharp fa-light fa-arrows-rotate-reverse"></i>
+            Order History
+          </div>
+        </div>
+        <div class="order color-dark-green">
+          <h5 class="title">Order History</h5>
+          <app-search-transaction
+            [transactionForm]="transactionForm"
+            [allStatus]="[]">
+          </app-search-transaction>
+          @if (dataSource.orders.length > 0) {
+            <div class="item-container">
+              @for (item of dataSource.orders; track item) {
+                <button class="card-estes" (click)="handleDetail(item)">
+                  <div class="image">
+                    <img
+                      src="{{ getImage(item.estate.thumbnailImagePath) }}"
+                      alt="{{ item.estate.name }}" />
+                  </div>
+                  <div class="detail">
+                    <div class="estes">
+                      <p class="h7 color-black title-es">
+                        {{ item.estate.name }}
+                      </p>
+
+                      <p class="font-body-2 color-black">
+                        <i class="fa-sharp fa-thin fa-location-dot"></i>
+                        {{ item.estate.address }}
+                      </p>
+                    </div>
+
+                    <div class="crypto">
+                      <div class="amount">
+                        <img
+                          src="{{ getImage(item.crypto.cryptoImagePath) }}"
+                          width="16px"
+                          height="16px"
+                          class="img-crypto"
+                          alt="" />
+                        {{ item.amount | addComma: 2 }}
+                        {{ item.crypto.symbol }}
+                      </div>
+                      <p class="font-body-2 color-black">
+                        {{ item.token.name }}
+                      </p>
+                      <p class="font-body-2 color-black">
+                        {{ item.createdAt | date: "dd-MM-YYYY HH:mm (UTC)" }}
+                      </p>
+                      <p [innerHTML]="statusOrderName(item.status)"></p>
+                    </div>
+                    <div class="crypto-mobile">
+                      <div class="crypto-item-mobile">
+                        <p class="font-body-2 color-gray">status</p>
+                        <p [innerHTML]="statusOrderName(item.status)"></p>
+                      </div>
+                      <div class="crypto-item-mobile">
+                        <p class="font-body-2 color-gray">Time</p>
+                        {{ item.createdAt | date: "dd-MM-YYYY HH:mm (UTC)" }}
+                      </div>
+                      <div class="crypto-item-mobile">
+                        <p class="font-body-2 color-gray">Token</p>
+                        <p>{{ item.token.name }}</p>
+                      </div>
+                      <div class="crypto-item-mobile">
+                        <p class="font-body-2 color-gray">Amount</p>
+                        <div class="amount">
+                          <img
+                            src="{{ getImage(item.crypto.cryptoImagePath) }}"
+                            width="16px"
+                            height="16px"
+                            class="img-crypto"
+                            alt="" />
+                          {{ item.amount | addComma: 2 }}
+                          {{ item.crypto.symbol }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              } @empty {
+                <div></div>
+              }
+            </div>
+            <div class="container-pagination">
+              <div class="show-items">
+                <p class="font-body-3 no-warp">Show items</p>
+                <select
+                  class="form-select form-select-sm w-100"
+                  [formControl]="selectPage">
+                  <option value="10">10</option>
+                  <option value="30">30</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                <p class="font-body-3 no-mobile">Items</p>
+              </div>
+              <app-pagination
+                (pageChange)="onPageChange($event)"
+                [currentPage]="dataSource.pagination.page + 1"
+                [pageSize]="dataSource.pagination.size"
+                [totalItems]="dataSource.pagination.length"></app-pagination>
+            </div>
+          } @else {
+            <app-data-not-found
+              [isShowText]="true"
+              [description]="dataNotFound"></app-data-not-found>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
