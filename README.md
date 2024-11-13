@@ -27,21 +27,18 @@ _Note: If you want stop all container and service, type the command - `docker co
 
 # How to start project on localhost
 
-1. Go to root folder project run command `yarn install` or `npm install`
-2. run `yarn dev:ssr` or `npm run dev:ssr`
+1. Go to root folder project 
+2. Install the dependencies `yarn install`
+3. Start the project `yarn dev:ssr`
 
 # How to start project use api on localhost
 
-1. Go to root folder project run command npm install
-2. Run `yarn dev:ssr` or `npm run dev:ssr`
-3. Run project api https://github.com/Wisdom-Money/wisdom-asset-api with command `docker compose up -d`
-4. Stop your container adavu-backend we use just `container adavu-db`
-5. Go to root folder project `wisdom-asset-api` run command `dotnet run`
+Reference the project: https://github.com/Wisdom-Money/adavu-api
 
-# How to start project production
+# How to start project with production mode
 
-1. You can run `yarn build:prod:ssr` or `npm run build:prod:ssr`
-2. Then Run `yarn serve:ssr` or `npm run serve:ssr`
+1. Run build the project `yarn build:prod:ssr`
+2. Start the project with `yarn serve:ssr`
 
 ## Project run completed fron-end
 
@@ -61,20 +58,5 @@ runtime.js          | runtime | 12.96 kB |
 Build at: 2023-06-21T15:06:06.064Z - Hash: b309ab1f8028e945 - Time: 352ms
 
 ✔ Compiled successfully.
-
-```
-
-## Project run completed back-end
-
-```sh
-
-info: Microsoft.Hosting.Lifetime[14]
-     Now listening on: https://localhost:7100
-info: Microsoft.Hosting.Lifetime[0]
-     Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-     Hosting environment: Development
-info: Microsoft.Hosting.Lifetime[0]
-     Content root path: /Users/wd-0107/Documents/Project/wisdom-asset-api/
 
 ```
