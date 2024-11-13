@@ -35,7 +35,7 @@ _Note: If you want stop all container and service, type the command - `docker co
 1. Go to root folder project run command npm install
 2. Run `yarn dev:ssr` or `npm run dev:ssr`
 3. Run project api https://github.com/Wisdom-Money/wisdom-asset-api with command `docker compose up -d`
-4. Stop your container wda-backend we use just `container wda-db`
+4. Stop your container adavu-backend we use just `container adavu-db`
 5. Go to root folder project `wisdom-asset-api` run command `dotnet run`
 
 # How to start project production
